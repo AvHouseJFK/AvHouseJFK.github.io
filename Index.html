@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AvHouse JFK — Aviation News &amp; Info</title>
+    <style>
+      :root{
+        --bg:#0f172a;      /* page background */
+        --panel:#111827;   /* cards */
+        --ink:#e5e7eb;     /* text */
+        --muted:#9ca3af;   /* dim text */
+        --brand:#38bdf8;   /* cyan */
+        --accent:#a78bfa;  /* purple */
+        --ok:#34d399;      /* green */
+        --warn:#f59e0b;    /* amber */
+        --danger:#ef4444;  /* red */
+        --border:rgba(255,255,255,.08);
+        --radius:16px;
+        --shadow:0 10px 28px rgba(0,0,0,.35);
+        --container: min(1100px, 92vw);
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg)}
+      a{color:var(--brand); text-decoration:none}
+      a:hover{text-decoration:underline}
+
+      /* Header/Nav */
+      .header{position:sticky; top:0; z-index:40; background:rgba(15,23,42,.75); backdrop-filter: blur(8px); border-bottom:1px solid var(--border)}
+      .nav{width:var(--container); margin:0 auto; display:flex; align-items:center; gap:14px; padding:12px 0}
+      .logo{display:flex; align-items:center; gap:10px}
+      .badge{width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--accent)); box-shadow:var(--shadow); color:#0b1220; font-weight:900}
+      .title{font-weight:800; letter-spacing:.3px}
+      .spacer{flex:1}
+      .menu{display:flex; gap:16px; align-items:center}
+      .menu a{color:var(--ink); opacity:.9; font-weight:600}
+      .menu a:hover{opacity:1}
+      .menu-toggle{display:none; border:1px solid var(--border); padding:8px 10px; border-radius:10px; background:var(--panel); color:var(--ink)}
+      @media (max-width:720px){.menu{display:none}.menu-toggle{display:inline-block}}
+
+      .mobile{display:none; border-top:1px solid var(--border)}
+      .mobile a{display:block; padding:12px 16px; color:var(--ink)}
+
+      /* Hero */
+      .hero{width:var(--container); margin:20px auto 0; background:linear-gradient(180deg, rgba(56,189,248,.10), rgba(167,139,250,.09)); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+      .hero h1{margin:4px 0 6px; font-size: clamp(26px, 5vw, 44px)}
+      .hero p{margin:0; color:var(--muted)}
+      .ticker{margin-top:10px; display:flex; gap:12px; align-items:center; background:rgba(255,255,255,.06); border:1px solid var(--border); padding:10px 12px; border-radius:12px; overflow:hidden; white-space:nowrap}
+      .ticker span{display:inline-block; padding-right:24px; animation:tick 20s linear infinite}
+      @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+      /* Sections */
+      section{width:var(--container); margin:26px auto}
+      h2{font-size:clamp(22px,3.5vw,30px); margin:8px 0 14px}
+      .grid{display:grid; gap:16px}
+      .cols-3{grid-template-columns: repeat(3, minmax(0, 1fr))}
+      .cols-2{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      @media (max-width:900px){.cols-3{grid-template-columns:1fr 1fr}}
+      @media (max-width:640px){.cols-3,.cols-2{grid-template-columns:1fr}}
+
+      .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+      .card h3{margin:6px 0 8px; font-size:18px}
+      .muted{color:var(--muted)}
+      .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid var(--border); font-weight:700; font-size:12px}
+      .kpis{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px}
+      .kpi{background:rgba(255,255,255,.05); border:1px dashed var(--border); border-radius:14px; padding:14px}
+      .kpi .v{font-weight:900; font-size:26px}
+      @media (max-width:640px){.kpis{grid-template-columns: repeat(2, minmax(0,1fr))}}
+
+      .bad-ok{color:#052e26; background:linear-gradient(135deg, var(--ok), #77f1cf)}
+      .bad-warn{color:#3a2502; background:linear-gradient(135deg, var(--warn), #ffd389)}
+      .bad-danger{color:#3b0a09; background:linear-gradient(135deg, var(--danger), #ffb4af)}
+
+      /* Gallery */
+      .gallery{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px}
+      .gallery img{width:100%; height:180px; object-fit:cover; border-radius:12px; border:1px solid var(--border)}
+      @media (max-width:800px){.gallery{grid-template-columns:1fr 1fr}}
+      @media (max-width:520px){.gallery{grid-template-columns:1fr}}
+
+      /* Tracker */
+      table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
+      thead{background:rgba(255,255,255,.06)}
+      th, td{padding:12px; border-bottom:1px solid var(--border); text-align:left; font-size:14px}
+      tbody tr:hover{background:rgba(255,255,255,.03)}
+      .tag{padding:4px 8px; border-radius:999px; border:1px solid var(--border); font-size:12px}
+
+      /* Contact */
+      .form{display:grid; gap:12px}
+      .input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#0b1220; color:var(--ink)}
+      .btn{display:inline-block; background:linear-gradient(135deg, var(--brand), #7bd8ff); color:#0b1220; padding:10px 14px; border-radius:12px; font-weight:800; border:none; cursor:pointer}
+
+      footer{width:var(--container); margin:30px auto 60px; color:var(--muted); font-size:14px}
+      .anchor{scroll-margin-top:80px}
+    </style>
+  </head>
+  <body>
+    <!-- Header / Nav -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <div class="badge">✈</div>
+          <div class="title">AvHouse JFK</div>
+        </div>
+        <div class="spacer"></div>
+        <button class="menu-toggle" id="menuBtn">Menu</button>
+        <div class="menu" id="menu">
+          <a href="#weather">Weather</a>
+          <a href="#avnews">AvNews</a>
+          <a href="#airgallery">AirGallery</a>
+          <a href="#airtracker">AirTracker</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div class="mobile" id="mobileMenu">
+        <a href="#weather">Weather</a>
+        <a href="#avnews">AvNews</a>
+        <a href="#airgallery">AirGallery</a>
+        <a href="#airtracker">AirTracker</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>KJFK News - Military Arrivals & Special Events</h1>
+      <p id="dateline">New York · Updated 3:42 AM EDT, August 21, 2025</p>
+      <div class="ticker" aria-label="Breaking ticker">
+        <strong> </strong>
+        <span>Hello! Thank you for being one of the FIRST people to ever view this website publically! This website has gone through various changes, including some major, minor, and some risky ones too. This website includes a news section, an updating weather system, a community contributed gallery, an Airtracker, that is used to highlight special flights to KJFK, a contact section, and more! I hope you enjoy this website, and let me know what i can improve or change!</span>
+      </div>
+    </div>
+
+    <!-- WEATHER -->
+    <section id="weather" class="anchor">
+      <h2>Weather</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="pill" id="flowBadge">Runway Flow: <b style="margin-left:6px">Northeast (04L)</b></div>
+          <h3 style="margin-top:10px">Field Conditions</h3>
+          <div class="kpis" style="margin-top:10px">
+            <div class="kpi"><div class="lbl muted">Wind</div><div class="v" id="windVal">30°, 28.7kt</div></div>
+            <div class="kpi"><div class="lbl muted">Vis</div><div class="v">2.1 Miles</div></div>
+            <div class="kpi"><div class="lbl muted">Ceiling</div><div class="v">Over Cast</div></div>
+            <div class="kpi"><div class="lbl muted">Temp</div><div class="v">60.2°F</div></div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Additional Websites</h3>
+          <ul>
+            <li><a href="https://datis.clowd.io/KJFK">Digital Atis</a></li>
+            <li><a href="https://www.flightradar24.com/40.65,-73.80/11">Flightradar24</a></li>
+            <li><a href="https://globe.adsbexchange.com/">Globe ADSB Exchange</a></li>
+            <li><a href="https://www.jfkairport.com/flight-tracker">Official KJFK INTL Website</a></li>
+            <li><a href="https://www.liveatc.net/hlisten.php?mount=kjfk9_s&icao=kjfk">Live KJFK ATC</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <!-- AVNEWS -->
+    <section id="avnews" class="anchor">
+      <h2>AvNews</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="pill">Special Event</div>
+          <h3></h3>
+          <p class="muted">Wave of World Leaders Expected to arrive at JFK for UNGA #80</p>
+        </article>
+        <article class="card">
+          <div class="pill">DEBUT!</div>
+          <h3></h3>
+          <p class="muted">The official website for AvHouse JFK has been published!</p>
+        </article>
+      </div>
+    </section>
+
+  <!-- AIR GALLERY -->
+  <section id="airgallery" class="anchor">
+    <h2>AirGallery</h2>
+    <div class="card">
+      <p class="muted"></p>
+      <div class="gallery" id="gallery">
+        <img src="IMG_5679.jpeg" alt="Emirates A380-800 (New Livery)">
+        <img src="IMG_5687.jpeg" alt="Swiss Airlines A330-300">
+        <img src="IMG_6141.jpeg" alt="Qatar Airways 777-300ER (Paris S. Gremains Livery)">
+        <img src="IMG_6098.jpeg" alt="Challenge Air 747-400 [Banking]">
+        <img src="IMG_6207.jpeg" alt="Asiana A350-900">
+        <img src="IMG_5872.jpeg" alt="HiSky A330-200">
+        <a href="AirGallery.html"> View More </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIR TRACKER -->
+  <section id="airtracker" class="anchor">
+    <h2>AirTracker</h2>
+    <div class="card">
+      <p class="muted">This shows flights that are seen as unique / special to KJFK, including military flights, celebrities, etc. This also includes requested flights, such as a subscriber's flight. The AirTracker can only be edited by the website's creator.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Type</th>
+            <th>Reg</th>
+            <th>Airline/Unit</th>
+            <th>From → To</th>
+            <th>Runway</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="logBody">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td><span class="tag">7</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+          <tr>
+            <td>EDT</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A → JFK</td>
+            <td>N/A</td>
+            <td><span class="tag">N/A</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px; display:grid; gap:10px; grid-template-columns: repeat(7, 1fr)">
+        <input class="input" id="tTime" placeholder="Time">
+        <input class="input" id="tType" placeholder="Type">
+        <input class="input" id="tReg" placeholder="Reg">
+        <input class="input" id="tAirline" placeholder="Airline/Unit">
+        <input class="input" id="tRoute" placeholder="From → To">
+        <input class="input" id="tRunway" placeholder="Runway">
+        <input class="input" id="tNotes" placeholder="Notes / Tag">
+      </div>
+    </div>
+  </section>
+    <section id="runways" class="anchor">
+      <h2>KJFK's Runway operations and information</h2>
+      <div class="card">
+        <h1> Runway Operations</h1>
+          <h3>John F. Kennedy International Airport (KJFK)</h3> <h6>operates with four runways laid out in two crossing pairs: 4L/22R, 4R/22L, 13L/31R, and 13R/31L. The two 13/31 runways are the longer pair, with 13R/31L stretching over 14,500 feet and serving as the primary heavy departure runway, especially for transatlantic and long-haul flights. 13L/31R is slightly shorter and more commonly used for arrivals. The 4/22 pair is generally shorter and used during different wind conditions, with 4L/22R often handling arrivals and 4R/22L handling departures when in use. Runway use is coordinated by the Port Authority and the FAA, balancing efficiency with noise abatement procedures.</h6>
+
+        <h3>Special Approaches</h3>
+          <h6>KJFK has a few unique procedures, most notably the Canarsie Approach to Runway 13L and 13R. This visual approach requires aircraft to follow the Canarsie VOR (CRI) and make a late turn over Jamaica Bay, lining up with the runway at low altitude. It is a challenging arrival that requires visual conditions and is famous among aviation enthusiasts. Most other approaches to JFK are ILS-based and straightforward, with precision instrument guidance to all four main runways. Offset approaches may be used occasionally, particularly for Runway 22L, but these are less common compared to the Canarsie arrival.</h6>
+
+        <h3>Joint Runway Usage</h3>
+        <h6>Because of the airport’s layout, joint usage of runways is common. For example, during heavy traffic periods, JFK will assign 13R for departures while 13L handles arrivals, maximizing efficiency by using parallel flows. Similarly, during operations on the 22s, 22R may be used for departures while 22L takes most arrivals. Cross-runway operations (such as arrivals on 31L and departures on 4L) can also occur, though they are more complex and often avoided unless winds demand it. The key factor driving runway use is the prevailing wind direction, since JFK operates almost exclusively into the wind.</h6>
+
+        <h3>Wind Direction Considerations</h3>
+        <h6>Runway selection at JFK is highly wind-dependent. Winds from the northwest favor the 31s, southerly winds favor the 22s, easterlies put the 4s into play, and westerlies often favor the 31s. Since JFK sits near the Atlantic coast, winds can shift quickly, and ATC frequently reconfigures traffic flows throughout the day. Spotters often track METAR reports or listen to LiveATC to anticipate which runways will be in use.</h6>
+
+        <h3>Spotting Locations</h3>
+        <h6>KJFK is one of the best U.S. airports for spotting, with multiple accessible locations. The Bayswater Point State Park and Inwood Park provide excellent views of arrivals on Runway 31L. Howard Beach and Breezy Point are great for spotting the Canarsie Approach into Runway 13L/R. The Bay Runway (13R/31L) is easiest to watch from the Inwood area across Jamaica Bay or along Rockaway Boulevard. The Lefferts Boulevard area is also popular, offering views of 22L/22R ops. For closer terminal action, the JFK Airport Green Lot and AirTrain stations provide decent vantage points for taxi and runway views, though photography can be limited by fences.</h6>
+        </section>
+      
+  <!-- CONTENT -->
+  <section id="content" class="anchor">
+    <h2>My new & upcoming videos</h2>
+    <div class="card"> <img src="0821(1)-Cover.jpg" alt="Scheduled Release date- September 18, 2025." width = "300"/><h1> [UNGA80!] UN Week Planespotting at JFK - September 6-12, 2025</h1><h6>Something exciting is coming to JFK, and if you’re into aviation, or just love seeing rare, incredible moments, you’re going to want to pay attention. The 80th United Nations General Assembly is about to take over New York, and with it comes a fleet of some of the rarest, most fascinating aircraft you’ll ever see. I’m talking presidential jets, exclusive diplomatic planes, and unusual arrivals that don’t land at JFK every day.</h6>
+
+      <h6>Before this all officially goes down, I wanted to give you a sneak peek of what’s coming. This isn’t just about tracking flights, it’s about capturing moments in history as world leaders touch down, jets roar low over neighborhoods, and JFK comes alive in a way it usually isn't. Imagine being there as a rare aircraft taxis past, or seeing a plane you never thought you’d get the chance to spot—this is exactly what UNGA 80 brings.</h6>
+
+      <h6>This project is for anyone who loves planes, photography, international diplomacy, or just the thrill of witnessing something unique. I’ll be sharing everything: real-time sightings, photos of rare arrivals, insider info on the aircraft, and tips on how to catch the best moments. Even if you’ve never plane-spotted before, this will give you a front-row view of some of the most exclusive arrivals in the world, all from JFK.</h6>
+
+      <h6>Think of this as your personal backstage pass to the skies during UNGA 80. It’s coming soon, and I can’t wait to share every plane I see, every landing, and rare moment with you. Keep your eyes on this space—you won’t want to miss it.</h6>
+    </div>
+    <section id="runways" class="anchor">
+      <h2>History of KJFK</h2>
+      <div class="card">
+        <h3>1939–1948: Planning and Construction of Idlewild</h3> <h6>By the late 1930s, New York City realized that LaGuardia Airport, which had just opened in 1939, was already nearing capacity. Mayor Fiorello LaGuardia pushed for a much larger airport that could handle the rapidly growing demand for air travel. In 1942, construction began in southern Queens on land previously occupied by the Idlewild Golf Course. World War II delayed progress, but the project resumed in full force afterward. On July 1, 1948, the new facility officially opened as New York International Airport, commonly referred to as Idlewild. Its design focused on handling international traffic, and it became a symbol of postwar aviation growth.</h6>
+        <h3>1950s–1963: Terminal City and the Jet Age</h3> <h6>During the 1950s and early 1960s, Idlewild underwent massive expansion. Instead of a single central terminal, the airport pioneered the “Terminal City” concept, where individual airlines constructed their own terminals. Pan Am built the futuristic Worldport (Terminal 3) with a flying-saucer roof, while TWA opened the iconic Flight Center (Terminal 5), designed by Eero Saarinen. Other airlines like American and Eastern built their own facilities, creating a unique mix of architecture. The jet age arrived in the late 1950s with the Boeing 707, and Idlewild quickly became America’s primary international gateway. In December 1963, following the assassination of President John F. Kennedy, the airport was renamed John F. Kennedy International Airport (JFK).</h6>
+        <h3>1970s–1980s: Widebody Era and Concorde</h3> <h6>The introduction of widebody aircraft transformed JFK in the 1970s. On January 22, 1970, Pan Am launched the first-ever Boeing 747 passenger flight from JFK, marking the dawn of a new era in long-haul travel. The airport became a hub for jumbo jets, with airlines from around the globe flying 747s, DC-10s, and L-1011s. In 1977, supersonic travel arrived when British Airways and Air France began Concorde service between JFK, London, and Paris, cutting travel time to under 3.5 hours. JFK also became a major cargo hub during this time, with airlines like Flying Tigers and later FedEx establishing operations. By the 1980s, JFK was firmly established as one of the busiest international airports in the world.</h6>
+        <h3>1990s–2000s: Modernization and Security Changes</h3> <h6>By the 1990s, many of JFK’s airline-specific terminals were aging, leading to plans for consolidation and modernization. JetBlue Airways launched in 1999 and soon established its home base at Terminal 6 (later expanded into Terminal 5). The terrorist attacks of September 11, 2001, reshaped aviation worldwide. JFK played a central role during the airspace shutdown, hosting numerous diverted international flights. Tragically, just two months later, American Airlines Flight 587, bound for Santo Domingo, crashed shortly after takeoff, becoming one of the deadliest U.S. aviation accidents. Security tightened significantly, and JFK saw upgrades in screening and passenger facilities. Delta and other carriers began expanding, while older terminals were gradually demolished.</h6>
+        <h3>2010s: Redevelopment and New Identity</h3> <h6>Throughout the 2010s, JFK undertook a large-scale redevelopment program. Delta expanded Terminal 4 into a global hub, consolidating its New York operations. JetBlue invested heavily in Terminal 5, and the historic TWA Flight Center was preserved and transformed into the TWA Hotel, opening in 2019 as both a tribute to aviation history and a modern traveler’s landmark. Cargo operations continued to grow, and new airlines like Emirates, Etihad, and Singapore Airlines brought ultra-long-haul services, cementing JFK’s position as a premier international gateway. The introduction of the AirTrain in 2003 also improved access, linking the airport with both the subway and Long Island Rail Road.</h6>
+        <h3>2020s–Present: Transformation into a Mega-Hub</h3> <h6>The COVID-19 pandemic in 2020 sharply reduced JFK’s passenger traffic, but by 2023–2025 the airport had rebounded, again serving over 60 million passengers annually. Major redevelopment projects are reshaping the airport for the future: the $9.5 billion New Terminal One will replace the outdated Terminals 1 and 2, while a new Terminal 6 is under construction as JetBlue’s hub, connected to Terminal 5. Delta has consolidated its operations at Terminal 4, and the airport continues to prepare for next-generation aircraft, including A350s, 777Xs, and special diplomatic arrivals. Today, JFK remains the busiest international gateway in the United States and a symbol of New York’s role as a global crossroads.</h6>
+      </div>
+    </section>
+      </form>
+      <!-- CONTACT -->
+      <section id="contact" class="anchor">
+      <p class="muted" style="margin-top:8px"> Email me at <a href="mailto:brookvilleparkplanespotters@gmail.com">brookvilleparkplanespotters@gmail.com</a> · Youtube: <a href="https://www.youtube.com/@AvHouse_JFK">@avhouse_jfk</a> · Tiktok: <a href="https://www.tiktok.com/@avhouse_jfk">@avhouse_jfk</a> </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>© <span id="year"></span> Avhouse JFK · Version 1.0 · Test Version 3.0<a href="#"> Back to top</a></div>
+  </footer>
+  </body>
+</html>
