@@ -144,6 +144,25 @@
             <div class="kpi"><div class="lbl muted">Vis</div><div class="v">9.9 miles</div></div>
             <div class="kpi"><div class="lbl muted">Ceiling</div><div class="v">40,026</div></div>
             <div class="kpi"><div class="lbl muted">Temp</div><div class="v">62.6°F</div></div>
+  <pre id="metar">Loading...</pre>
+
+  <script>
+    async function fetchMetar() {
+      try {
+        // Use AllOrigins proxy to avoid CORS errors
+        const url = "https://api.allorigins.win/raw?url=https://tgftp.nws.noaa.gov/data/observations/metar/stations/KJFK.TXT";
+        const response = await fetch(url);
+        const text = await response.text();
+        const lines = text.trim().split("\n");
+        document.getElementById("metar").innerText = lines[1]; // show raw METAR only
+      } catch (error) {
+        document.getElementById("metar").innerText = "Error loading METAR.";
+        console.error(error);
+      }
+    }
+
+    fetchMetar();
+    setInterval(fetchMetar, 300000); // refresh every 5 minutes
           </div>
         </article>
         <article class="card">
