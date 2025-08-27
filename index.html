@@ -106,7 +106,7 @@
         <div class="spacer"></div>
         <button class="menu-toggle" id="menuBtn">Menu</button>
         <div class="menu" id="menu">
-          <a href="#RunwayUse">Runways in use</a>
+          <a href="#RunwayUse">Active Runways</a>
           <a href="#avnews">AvNews</a>
           <a href="#airgallery">AirGallery</a>
           <a href="#airtracker">AirTracker</a>
@@ -114,7 +114,7 @@
         </div>
       </nav>
       <div class="mobile" id="mobileMenu">
-        <a href="#RunwayUse">Runways in use</a>
+        <a href="#RunwayUse">Active Runways</a>
         <a href="#avnews">AvNews</a>
         <a href="#airgallery">AirGallery</a>
         <a href="#airtracker">AirTracker</a>
@@ -125,19 +125,19 @@
     <!-- Hero -->
     <div class="hero">
       <h1>KJFK News - Military Arrivals & Special Events</h1>
-      <p id="dateline">New York · Updated 3:42 AM EDT, August 21, 2025</p>
+      <p id="dateline">New York · Updated 12:12 AM EDT, August 27, 2025</p>
       <div class="ticker" aria-label="Breaking ticker">
         <strong> </strong>
-        <span>Hello! Thank you for being one of the FIRST people to ever view this website publically! This website has gone through various changes, including some major, minor, and some risky ones too. This website includes a news section, an updating weather system, a community contributed gallery, an Airtracker, that is used to highlight special flights to KJFK, a contact section, and more! I hope you enjoy this website, and let me know what i can improve or change!</span>
+        <span>Hello! Thank you for being one of the FIRST people to ever view this website publically! This website has gone through various changes, including some major, minor, and some that took days of planning. This website includes a lot of things about KJFK including a section that show active runways, a flight tracker, JFK news and events, and so much more. Tis website is planning to expand rapidly, with frequent updates and activity. I hope you enjoy this website, and let me know what i can improve or change!</span>
       </div>
     </div>
 
-    <!-- WEATHER -->
+    <!-- ACTIVE RUNWAYS -->
     <section id="RunwayUse" class="anchor">
-      <h2>Runways in use</h2>
+      <h2>Active Runways</h2>
       <div class="grid cols-2">
         <article class="card">
-          <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">As of 8:47 PM EDT, August 26, 2025</b></div>
+          <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">As of 12:12 AM EDT, August 27, 2025</b></div>
           <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
             <div class="kpi"><div class="lbl muted">Arrivals (P)</div><div class="v" id="windVal">22L</div></div>
@@ -195,7 +195,7 @@
   <section id="airtracker" class="anchor">
     <h2>AirTracker</h2>
     <div class="card">
-      <p class="muted">This shows highlighted flights that are seen as unique / special to KJFK. The flight radar also shows their position and flight information.</p>
+      <p class="muted">This shows highlighted flights that are seen as unique / special to KJFK. The flight radar also shows live ADSB and flight information.</p>
       <div style="width:100%; max-width:1000px; margin: 0 auto;">
   <iframe 
     src="https://globe.adsbexchange.com/?airport=JFK" 
@@ -209,7 +209,7 @@
         <thead>
           <tr>
             <th>Time</th>
-            <th>Type</th>
+            <th>Aircraft</th>
             <th>Reg</th>
             <th>Airline/Unit</th>
             <th>From → To</th>
@@ -218,31 +218,31 @@
           </tr>
         </thead>
         <tbody id="logBody">
-          <tr>
-            <td>EDT</td>
+                    <tr>
+            <td>04:34 AM EDT</td>
+            <td>Airbus A330-203</td>
+            <td>LZ-ONE (IZ993)</td>
+            <td>GullivAir</td>
+            <td>TLV → JFK</td>
             <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A → JFK</td>
-            <td>N/A</td>
-        <td><span class="tag">N/A</span></td>
-          <tr>
-            <td>EDT</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A → JFK</td>
-            <td>N/A</td>
-            <td><span class="tag">N/A</span></td>
+            <td><span class="tag"></span>Charter</td>
           </tr>
           <tr>
-            <td>EDT</td>
+            <td>05:38 AM EDT</td>
+            <td>Airbus A330-343(P2F)</td>
+            <td>9H-VDC (8S1623)</td>
+            <td>Galistar Infinite Aviation</td>
+            <td>ZAZ → JFK</td>
             <td>N/A</td>
+        <td><span class="tag">Charter</span></td>
+          <tr>
+            <td>5:57 AM EDT</td>
+            <td>Airbus A300F4-622R</td>
+            <td>N/A (5X1126)</td>
+            <td>United Parcel Service</td>
+            <td>RFD → JFK</td>
             <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A → JFK</td>
-            <td>N/A</td>
-            <td><span class="tag">N/A</span></td>
+            <td><span class="tag">A300</span></td>
           </tr>
         </tbody>
       </table>
