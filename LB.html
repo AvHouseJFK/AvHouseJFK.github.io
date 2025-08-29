@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AvHouse JFK - Weekly Trivia Leaderboard</title>
+<style>
+  :root {
+    --bg:#0f172a;      /* page background */
+    --panel:#111827;   /* cards */
+    --ink:#e5e7eb;     /* text */
+    --muted:#9ca3af;   /* dim text */
+    --brand:#38bdf8;   /* cyan */
+    --accent:#a78bfa;  /* purple */
+    --ok:#34d399;      /* green */
+    --warn:#f59e0b;    /* amber */
+    --danger:#ef4444;  /* red */
+    --border:rgba(255,255,255,.08);
+    --radius:16px;
+    --shadow:0 10px 28px rgba(0,0,0,.35);
+    --container:min(1100px, 92vw);
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+  }
+
+  table {
+    width: 400px;
+    border-collapse: collapse;
+    background-color: var(--panel);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--panel);
+    color: var(--brand);
+    font-size: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:nth-child(even) {
+    background-color: #1b202f;
+  }
+
+  /* Top 3 ladder styles */
+  .top1 {
+    background: linear-gradient(to right, var(--brand), var(--accent));
+    font-weight: bold;
+    color: var(--bg);
+  }
+
+  .top2 {
+    background: linear-gradient(to right, var(--muted), var(--accent));
+    font-weight: bold;
+    color: var(--bg);
+  }
+
+  .top3 {
+    background: linear-gradient(to right, var(--warn), var(--accent));
+    font-weight: bold;
+    color: var(--bg);
+  }
+
+  td span {
+    font-weight: bold;
+    float: right;
+  }
+
+</style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="top1">
+      <td>1</td>
+      <td>1</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr class="top2">
+      <td>2</td>
+      <td>2</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr class="top3">
+      <td>3</td>
+      <td>3</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>4</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>5</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>6</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>7</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>8</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>9</td>
+      <td><span>0</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>10</td>
+      <td><span>0</span></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
