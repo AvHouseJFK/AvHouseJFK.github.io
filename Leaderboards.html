@@ -6,151 +6,158 @@
   <link rel="icon" href="0813%20(2)-Cover.jpg" type="image/jpeg">
 <title>AvHouse JFK - Weekly Trivia Leaderboard</title>
 <style>
-  :root {
-    --bg:#0f172a;      /* page background */
-    --panel:#111827;   /* cards */
-    --ink:#e5e7eb;     /* text */
-    --muted:#9ca3af;   /* dim text */
-    --brand:#38bdf8;   /* cyan */
-    --accent:#a78bfa;  /* purple */
-    --ok:#34d399;      /* green */
-    --warn:#f59e0b;    /* amber */
-    --danger:#ef4444;  /* red */
-    --border:rgba(255,255,255,.08);
-    --radius:16px;
-    --shadow:0 10px 28px rgba(0,0,0,.35);
-    --container:min(1100px, 92vw);
-  }
+    :root{
+      --bg:#0f172a;      /* page background */
+      --panel:#111827;   /* cards */
+      --ink:#e5e7eb;     /* text */
+      --muted:#9ca3af;   /* dim text */
+      --brand:#38bdf8;   /* cyan */
+      --accent:#a78bfa;  /* purple */
+      --ok:#34d399;      /* green */
+      --warn:#f59e0b;    /* amber */
+      --danger:#ef4444;  /* red */
+      --border:rgba(255,255,255,.08);
+      --radius:16px;
+      --shadow:0 10px 28px rgba(0,0,0,.35);
+      --container: min(1100px, 92vw);
+    }
 
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg);
-    color: var(--ink);
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-  }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
 
-  table {
-    width: 400px;
-    border-collapse: collapse;
-    background-color: var(--panel);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
+    .container {
+      width: var(--container);
+    }
 
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-  }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--brand);
+    }
 
-  th {
-    background-color: var(--panel);
-    color: var(--brand);
-    font-size: 18px;
-    border-bottom: 1px solid var(--border);
-  }
+    /* Podium */
+    .podium {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
 
-  tr {
-    border-bottom: 1px solid var(--border);
-  }
+    .place {
+      flex: 1;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--ink);
+    }
 
-  tr:nth-child(even) {
-    background-color: #1b202f;
-  }
+    .place h2 {
+      margin: 0.5rem 0;
+    }
 
-  /* Top 3 ladder styles */
-  .top1 {
-    background: linear-gradient(to right, var(--brand), var(--accent));
-    font-weight: bold;
-    color: var(--bg);
-  }
+    /* Fading backgrounds */
+    .first {
+      height: 200px;
+      background: linear-gradient(to top, transparent, var(--accent));
+    }
+    .second {
+      height: 160px;
+      background: linear-gradient(to top, transparent, var(--brand));
+    }
+    .third {
+      height: 130px;
+      background: linear-gradient(to top, transparent, var(--warn));
+    }
 
-  .top2 {
-    background: linear-gradient(to right, var(--muted), var(--accent));
-    font-weight: bold;
-    color: var(--bg);
-  }
+    /* Leaderboard Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
 
-  .top3 {
-    background: linear-gradient(to right, var(--warn), var(--accent));
-    font-weight: bold;
-    color: var(--bg);
-  }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
 
-  td span {
-    font-weight: bold;
-    float: right;
-  }
+    th {
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+    }
 
-</style>
+    tr:not(:last-child) {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rank {
+      font-weight: bold;
+      color: var(--brand);
+    }
+
+    .points {
+      text-align: right;
+      color: var(--ok);
+    }
+  </style>
 </head>
 <body>
-  <!-- LEADERBOARD -->
-<section id="Leaderboard1" class="anchor">
-    <h2>Weekly trivia leaderboard</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Name</th>
-      <th>Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="top1">
-      <td>1</td>
-      <td>1</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr class="top2">
-      <td>2</td>
-      <td>2</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr class="top3">
-      <td>3</td>
-      <td>3</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>4</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>5</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>6</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>7</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>8</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>9</td>
-      <td><span>0</span></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>10</td>
-      <td><span>0</span></td>
-    </tr>
-    <a href = "index.html"> Back to homepage </a>
-  </tbody>
-</table>
+  <div class="container">
+    <h1>Leaderboard</h1>
+
+    <!-- Podium -->
+    <div class="podium">
+      <div class="place second">
+        <h2>2nd</h2>
+        <p>Player B</p>
+        <p>0 pts</p>
+      </div>
+      <div class="place first">
+        <h2>1st</h2>
+        <p>Player A</p>
+        <p>0 pts</p>
+      </div>
+      <div class="place third">
+        <h2>3rd</h2>
+        <p>Player C</p>
+        <p>0 pts</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th class="points">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>Player A</td><td class="points">0</td></tr>
+        <tr><td class="rank">2</td><td>Player B</td><td class="points">0</td></tr>
+        <tr><td class="rank">3</td><td>Player C</td><td class="points">0</td></tr>
+        <tr><td class="rank">4</td><td>Player D</td><td class="points">0</td></tr>
+        <tr><td class="rank">5</td><td>Player E</td><td class="points">0</td></tr>
+        <tr><td class="rank">6</td><td>Player F</td><td class="points">0</td></tr>
+        <tr><td class="rank">7</td><td>Player G</td><td class="points">0</td></tr>
+      <a href = "index.html"> Back to homepage </a>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
