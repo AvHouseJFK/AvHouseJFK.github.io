@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="0813%20(2)-Cover.jpg" type="image/jpeg" />
+    <title>AvHouse JFK - Deep Dive: RPA4379 Emergency Landing, JFK 22L</title>
+    <style>
+      :root{
+        --bg:#0f172a;
+        --panel:#111827;
+        --ink:#e5e7eb;
+        --muted:#9ca3af;
+        --brand:#38bdf8;
+        --accent:#a78bfa;
+        --ok:#34d399;
+        --warn:#f59e0b;
+        --danger:#ef4444;
+        --border:rgba(255,255,255,.08);
+        --radius:16px;
+        --shadow:0 10px 28px rgba(0,0,0,.35);
+        --container: min(1100px, 92vw);
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        color:var(--ink);
+        background: radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg);
+        line-height:1.6;
+        padding:28px;
+      }
+      a{color:var(--brand); text-decoration:none}
+      a:hover{text-decoration:underline}
+
+      .container{max-width:var(--container); margin:0 auto}
+      header{margin-bottom:20px}
+      .site-id{display:flex; align-items:center; gap:12px}
+      .badge{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--accent));color:#071123;font-weight:900;box-shadow:var(--shadow)}
+      h1{font-size:clamp(24px,4.5vw,40px);margin:12px 0;color:var(--brand)}
+      h2{font-size:clamp(20px,3.2vw,28px);margin-top:28px;margin-bottom:10px}
+      h3{font-size:18px;margin-top:18px;margin-bottom:8px;color:var(--accent)}
+      .byline{color:var(--muted);margin-bottom:14px}
+
+      .card{
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        padding:20px;
+        box-shadow:var(--shadow);
+        margin-bottom:20px;
+      }
+
+      .alert{
+        display:inline-block;
+        background:var(--danger);
+        color:#fff;
+        padding:8px 12px;
+        border-radius:12px;
+        font-weight:800;
+        margin-bottom:12px;
+      }
+
+      ul{margin:8px 0 16px 20px}
+      table{width:100%; border-collapse:collapse; margin-top:12px}
+      th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
+      .muted{color:var(--muted)}
+      .highlight{color:var(--accent); font-weight:800}
+      .small{font-size:13px;color:var(--muted)}
+      img{max-width:100%;border-radius:12px;margin:14px 0;display:block}
+      blockquote{border-left:4px solid var(--accent);padding-left:14px;color:var(--muted);font-style:italic;margin:14px 0}
+      footer{margin-top:34px;color:var(--muted);font-size:14px;text-align:center}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="site-id">
+          <div class="badge">AV</div>
+          <div>
+            <div style="font-weight:900;font-size:16px">AvHouse JFK</div>
+            <div class="small">JFK Aviation and News</div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <article class="card">
+          <div class="alert">Breaking - Emergency Landing</div>
+          <h1>RPA4379 Emergency Return and Overweight Landing at JFK - Full Report</h1>
+          <div class="byline">Published September 2, 2025 - Updated live as information becomes available</div>
+
+          <p class="small">This article compiles field notes, eyewitness reports, and operational context about flight RPA4379 which diverted to John F. Kennedy International Airport and performed an overweight landing on runway 22L. Core facts reported by spotters and ground observers include that runway 22L was closed after the event, engine number 2 was placed under inspection, the landing was overweight, and multiple emergency vehicles were active on scene. Elements described as probable or preliminary are labeled accordingly.</p>
+
+          <h2>Executive summary</h2>
+          <p>Shortly after departure from LaGuardia, Republic Airways flight RPA4379 operating for American Eagle declared an emergency and diverted to JFK. The aircraft executed an overweight landing on runway 22L. Emergency response teams were on scene immediately. Engine number 2 is under inspection and runway 22L was taken out of service to permit runway inspection and aircraft examination. No injuries have been reported in initial updates. Airline operations and airport traffic were impacted while the runway was closed and the aircraft was inspected.</p>
+
+          <h2>What we know now - verified and eyewitness items</h2>
+          <ul>
+            <li><strong>Flight</strong>: RPA4379, Republic Airways for American Eagle - diversion from LaGuardia to JFK reported by spotters.</li>
+            <li><strong>Runway</strong>: Landing occurred on runway 22L at JFK. 22L was closed post landing for inspection and cleanup.</li>
+            <li><strong>Landing status</strong>: The landing was performed overweight. Crew elected to return without fuel dump due to urgency reported in communications.</li>
+            <li><strong>Engine</strong>: Engine number 2 was reported for post landing inspection. Ground maintenance initiated initial checks on scene.</li>
+            <li><strong>Emergency services</strong>: Multiple ARFF units and FDNY apparatus were observed tracking the aircraft through rollout. No foam discharge was reported in initial observations.</li>
+            <li><strong>Passengers</strong>: All passengers were reported safe in early field notes. Disembarkation proceeded onto buses once ground clearance was confirmed.</li>
+          </ul>
+
+          <h2>Detailed minute by minute timeline - preliminary</h2>
+          <p>Times are approximate and based on local observations and spotter reports. Use as an operational reconstruction subject to refinement by official sources.</p>
+          <table>
+            <thead>
+              <tr><th>Approx time EDT</th><th>Event</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Just after scheduled departure</td><td>Aircraft departs LGA on planned route to BNA. Climb towards assigned altitude.</td></tr>
+              <tr><td>Shortly after climb</td><td>Crew reports an anomaly related to engine number 2. Controllers provide vectors while crew evaluates the situation.</td></tr>
+              <tr><td>Decision point</td><td>Crew declares an emergency to return to the New York area and elects diversion to JFK for runway length and emergency support.</td></tr>
+              <tr><td>Approach phase</td><td>Aircraft sequenced for approach to runway 22L at JFK. Emergency services alerted and staged along runway complex.</td></tr>
+              <tr><td>Touchdown</td><td>Aircraft performs an overweight landing on runway 22L. Emergency vehicles follow rollout.</td></tr>
+              <tr><td>Post landing</td><td>Runway 22L taken out of service while brakes, tires, and the runway surface are inspected. Engine inspections commence on the aircraft.</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Operational impact - airport flow and passenger handling</h2>
+          <p>Runway 22L is one of JFK's primary arrival runways. A closure for inspection reduces available runway capacity and forces controllers to redistribute traffic across remaining runways. This redistribution typically increases spacing between arrivals and can create a cascading effect of arrival and departure delays, especially during evening bank periods.</p>
+
+          <p>For passengers of RPA4379 the immediate priorities for the airline were safety verification, disembarkation logistics, and passenger care. Airline staff coordinated buses, rebooking, and onward travel options. For flights scheduled to use 22L the airline coordination teams and the airport operations center issued reassignments and delay alerts.</p>
+
+          <h2>Emergency response - who did what</h2>
+          <p>Port Authority ARFF, FDNY aircraft rescue and firefighting units, and airport operations teams were involved in the response. Standard ARFF procedure for suspected engine issues or overweight landings involves staging multiple fire trucks and rescue vehicles at discrete points along the runway to provide immediate suppression and rescue if a fire or structural failure occurs.</p>
+
+          <p>Responders performed visual checks for hot brakes, smoke, leak indications, and foreign object debris on the pavement. Cooling cycles on brakes were monitored. Because no active fire or smoke was reported by observers, a full foam application was not used. Medical teams were ready but were not required to treat passengers at scene in initial reports.</p>
+
+          <h2>Technical notes - engine number 2 and what inspection entails</h2>
+          <p>Engine number 2 refers to the outboard or right-side engine on many twin engine types. Post landing inspection of an engine typically follows a standard sequence: visual external inspection for obvious damage, borescope inspection of internal components if warranted, checks of accessory gearboxes and mounts, and vibration data downloads where available.</p>
+
+          <p>Because the landing was overweight, ground crews will pay particular attention to landing gear and brake systems as well as engine mounts and pylons. Overweight landings increase the load on landing gear struts and brake packs and can cause heat or mechanical stress that requires removal and bench testing of suspect components.</p>
+
+          <h2>Physics and risks of overweight landings - a plain language explainer</h2>
+          <p>An aircraft's maximum landing weight is the threshold above which the aircraft structure and systems are not guaranteed to behave as certified. If an aircraft lands above that weight the energy to dissipate during touchdown and rollout is higher. That energy is absorbed by the landing gear, tires, and brakes, and if not managed properly it can lead to brake overheating, tire failure, or longer stopping distances.</p>
+
+          <p>Pilots weigh options in real time. If the suspected problem threatens immediate safety - for example an engine vibration that could lead to failure - the crew may choose to land overweight rather than wait to burn or jettison fuel. That choice prioritizes immediate control and safety while accepting the need for post landing inspections and repairs.</p>
+
+          <h2>Air traffic control coordination - priority handling</h2>
+          <p>When a crew declares an emergency controllers grant priority handling and clear the aircraft for the most suitable approach. In this case the selection of JFK was likely driven by runway length, rescue and firefighting resources, and the ability to move the aircraft to secure ramps if maintenance action is required.</p>
+
+          <p>Controllers also coordinate to open gaps in traffic, reroute other aircraft, and notify airport operations. Coordination with ramp control and the airline operations center is immediate so that recovery actions and passenger care can be mobilized.</p>
+
+          <h2>Aircraft type, operator notes, and service context</h2>
+          <p>Observers identified the flight designator as RPA4379, which correlates to operations by Republic Airways for American Eagle on certain regional routes. Field reports identified the airframe as a regional jet type, loaded for a short to medium haul leg from LaGuardia to Nashville prior to diversion. Operator specific maintenance procedures now control the investigation timeline.</p>
+
+          <h2>Passenger experience - what passengers reported</h2>
+          <p>Passengers who spoke to spotters and to our field contributors described calm and professional crew communication. Cabin announcements explained there was a technical issue and asked passengers to remain seated and follow crew instructions. After landing passengers reported a firm touchdown and visible fire and rescue assets positioned near the runway. Disembarkation proceeded under direction of airline staff and airport personnel once the aircraft was cleared.</p>
+
+          <blockquote>Reported by a passenger on scene: "Crew were calm. They told us everything was being handled. We sat on the taxiway briefly while they did checks. No one was hurt." </blockquote>
+
+          <h2>Maintenance and investigative steps - what comes next</h2>
+          <p>Initial on scene inspection by line maintenance is followed by a staged investigation if faults are found. Steps include removal of inspection panels, borescope of suspect engine areas, vibration analysis via recorded data, and possibly an engine teardown if internal damage is suspected. The operator will document the event in its maintenance log and file required reports with the FAA and the relevant safety authority.</p>
+
+          <p>If components are suspect, the aircraft may be grounded while parts are replaced or an engine is removed for shop inspection. The airline's operations control center will plan for replacement equipment or alternate routing for the affected passengers.</p>
+
+          <h2>Runway 22L inspection and reopening protocol</h2>
+          <p>Runway closure allows airport teams to inspect the pavement for scoring, rubber deposition, or damage caused by heavy gear loads. Inspections include visual checks, friction testing where necessary, and a Foreign Object Debris sweep. If brake material or tire fragments are present, runways may require cleaning before reopening.</p>
+
+          <p>Once inspections confirm pavement integrity and no hazards remain, tower and airport operations coordinate a phased reopening. Reopening can be staged - for example reopening for departures only or for certain aircraft types first - depending on operational assessments.</p>
+
+          <h2>Comparisons to prior overweight landings - context and outcomes</h2>
+          <p>Overweight landings have occurred at airports worldwide. Outcomes vary by the magnitude of overweight, runway length, and response. Many overweight landings end with no injuries and only maintenance action. In other cases heavier damage has required component replacement or long groundings. The best outcome uses robust emergency response and conservative maintenance checks to verify continued airworthiness.</p>
+
+          <h2>Regulatory reporting and what is required</h2>
+          <p>Operators must file mandatory reports for events that involve an emergency declaration or exceedance of certified weight limits. The FAA or the national safety regulator will require an initial notification and, depending on findings, a more formal incident report. Investigations focus on root cause, crew actions, aircraft systems, and any procedural or maintenance factors.</p>
+
+          <h2>Airline customer care and longer term passenger reconciliation</h2>
+          <p>Airlines typically provide immediate assistance on site including rebooking, meal vouchers, hotel accommodations for extended delays or overnight groundings, and refunds when needed. For this event the airline's ground teams coordinated buses for disembarkation and initiated re-accommodation plans. Passengers are advised to contact the carrier directly for formal rebooking and special assistance.</p>
+
+          <h2>Media and public information - how updates will be released</h2>
+          <p>The airline and JFK airport operations will release official statements once inspections yield definitive information. Early statements typically confirm the diversion, provide a short factual account, and say that a preliminary inspection is underway. Final technical conclusions take time and are released after engineering work is completed.</p>
+
+          <h2>Operational lessons and takeaways</h2>
+          <ul>
+            <li>Rapid declaration and clear crew communication are vital to a controlled outcome.</li>
+            <li>JFK's emergency readiness and multi agency coordination mitigated risk and enabled a structured response.</li>
+            <li>Overweight landings are managed events; they require follow up maintenance but are safe when procedures are followed.</li>
+            <li>Passenger care and clear information flow reduce secondary stressors associated with a diversion.</li>
+          </ul>
+
+          <h2>More details will be released once official details are released, such as:</h2>
+          <ul>
+            <li>Specific maintenance findings on engine number 2</li>
+            <li>Whether runway 22L damage or contamination required extended closure</li>
+            <li>Official statements from the airline, Port Authority, and FAA</li>
+          </ul>
+
+          <h2>Closing summary</h2>
+          <p>Today's emergency return and overweight landing by RPA4379 at JFK was handled with a textbook emergency response. The prioritized safety decision making by the flight crew, the immediate positioning of ARFF and rescue units, and methodical inspection procedures combined to produce a safe outcome with no reported injuries. The event will now transition from immediate response to technical investigation and follow up maintenance. Airport operations will return to normal once runway inspections and aircraft checks are complete and official clearances are issued.</p>
+
+          <p class="small">If you have photos, ATC audio, or eyewitness information to share please upload to our tips channel or contact AvHouse JFK. We will update this write up as official information becomes available.</p>
+        </article>
+      </main>
+
+      <footer>
+        &copy; 2025 AvHouse JFK. All rights reserved.
+      </footer>
+    </div>
+  </body>
+</html>
 
