@@ -7,92 +7,90 @@
     <title>AvHouse JFK - UN Week (UNGA80)</title>
         <style>
       :root{
-        --bg:#0f172a;      /* page background */
-        --panel:#111827;   /* cards */
-        --ink:#e5e7eb;     /* text */
-        --muted:#9ca3af;   /* dim text */
-        --brand:#38bdf8;   /* cyan */
-        --accent:#a78bfa;  /* purple */
-        --ok:#34d399;      /* green */
-        --warn:#f59e0b;    /* amber */
-        --danger:#ef4444;  /* red */
+        --bg:#0f172a;
+        --panel:#111827;
+        --ink:#e5e7eb;
+        --muted:#9ca3af;
+        --brand:#38bdf8;
+        --accent:#a78bfa;
+        --ok:#34d399;
+        --warn:#f59e0b;
+        --danger:#ef4444;
         --border:rgba(255,255,255,.08);
         --radius:16px;
         --shadow:0 10px 28px rgba(0,0,0,.35);
-        --container: min(1100px, 92vw);
       }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg)}
-      a{color:var(--brand); text-decoration:none}
-      a:hover{text-decoration:underline}
 
-      /* Header/Nav */
-      .header{position:sticky; top:0; z-index:40; background:rgba(15,23,42,.75); backdrop-filter: blur(8px); border-bottom:1px solid var(--border)}
-      .nav{width:var(--container); margin:0 auto; display:flex; align-items:center; gap:14px; padding:12px 0}
-      .logo{display:flex; align-items:center; gap:10px}
-      .badge{width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--accent)); box-shadow:var(--shadow); color:#0b1220; font-weight:900}
-      .title{font-weight:800; letter-spacing:.3px}
-      .spacer{flex:1}
-      .menu{display:flex; gap:16px; align-items:center}
-      .menu a{color:var(--ink); opacity:.9; font-weight:600}
-      .menu a:hover{opacity:1}
-      .menu-toggle{display:none; border:1px solid var(--border); padding:8px 10px; border-radius:10px; background:var(--panel); color:var(--ink)}
-      @media (max-width:720px){.menu{display:none}.menu-toggle{display:inline-block}}
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height:1.6;
+        padding: 20px;
+      }
 
-      .mobile{display:none; border-top:1px solid var(--border)}
-      .mobile a{display:block; padding:12px 16px; color:var(--ink)}
+      h1, h2, h3{
+        color: var(--brand);
+      }
 
-      /* Hero */
-      .hero{width:var(--container); margin:20px auto 0; background:linear-gradient(180deg, rgba(56,189,248,.10), rgba(167,139,250,.09)); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
-      .hero h1{margin:4px 0 6px; font-size: clamp(26px, 5vw, 44px)}
-      .hero p{margin:0; color:var(--muted)}
-      .ticker{margin-top:10px; display:flex; gap:12px; align-items:center; background:rgba(255,255,255,.06); border:1px solid var(--border); padding:10px 12px; border-radius:12px; overflow:hidden; white-space:nowrap}
-      .ticker span{display:inline-block; padding-right:24px; animation:tick 20s linear infinite}
-      @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+      h1{
+        font-size: clamp(28px, 5vw, 44px);
+        margin-bottom: 16px;
+      }
 
-      /* Sections */
-      section{width:var(--container); margin:26px auto}
-      h2{font-size:clamp(22px,3.5vw,30px); margin:8px 0 14px}
-      .grid{display:grid; gap:16px}
-      .cols-3{grid-template-columns: repeat(3, minmax(0, 1fr))}
-      .cols-2{grid-template-columns: repeat(2, minmax(0, 1fr))}
-      @media (max-width:900px){.cols-3{grid-template-columns:1fr 1fr}}
-      @media (max-width:640px){.cols-3,.cols-2{grid-template-columns:1fr}}
+      h2{
+        font-size: clamp(22px, 4vw, 32px);
+        margin-top:24px;
+        margin-bottom:12px;
+      }
 
-      .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
-      .card h3{margin:6px 0 8px; font-size:18px}
-      .muted{color:var(--muted)}
-      .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid var(--border); font-weight:700; font-size:12px}
-      .kpis{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px}
-      .kpi{background:rgba(255,255,255,.05); border:1px dashed var(--border); border-radius:14px; padding:14px}
-      .kpi .v{font-weight:900; font-size:26px}
-      @media (max-width:640px){.kpis{grid-template-columns: repeat(2, minmax(0,1fr))}}
+      p{
+        margin-bottom: 16px;
+      }
 
-      .bad-ok{color:#052e26; background:linear-gradient(135deg, var(--ok), #77f1cf)}
-      .bad-warn{color:#3a2502; background:linear-gradient(135deg, var(--warn), #ffd389)}
-      .bad-danger{color:#3b0a09; background:linear-gradient(135deg, var(--danger), #ffb4af)}
+      .article{
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        max-width: 900px;
+        margin: 0 auto;
+      }
 
-      /* Gallery */
-      .gallery{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px}
-      .gallery img{width:100%; height:180px; object-fit:cover; border-radius:12px; border:1px solid var(--border)}
-      @media (max-width:800px){.gallery{grid-template-columns:1fr 1fr}}
-      @media (max-width:520px){.gallery{grid-template-columns:1fr}}
+      .muted{
+        color: var(--muted);
+        font-size: 14px;
+      }
 
-      /* Tracker */
-      table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
-      thead{background:rgba(255,255,255,.06)}
-      th, td{padding:12px; border-bottom:1px solid var(--border); text-align:left; font-size:14px}
-      tbody tr:hover{background:rgba(255,255,255,.03)}
-      .tag{padding:4px 8px; border-radius:999px; border:1px solid var(--border); font-size:12px}
+      .highlight{
+        color: var(--accent);
+        font-weight: 700;
+      }
 
-      /* Contact */
-      .form{display:grid; gap:12px}
-      .input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#0b1220; color:var(--ink)}
-      .btn{display:inline-block; background:linear-gradient(135deg, var(--brand), #7bd8ff); color:#0b1220; padding:10px 14px; border-radius:12px; font-weight:800; border:none; cursor:pointer}
+      a{
+        color: var(--brand);
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
 
-      footer{width:var(--container); margin:30px auto 60px; color:var(--muted); font-size:14px}
-      .anchor{scroll-margin-top:80px}
+      img{
+        max-width: 100%;
+        border-radius: var(--radius);
+        margin: 16px 0;
+        display: block;
+      }
+
+      blockquote{
+        border-left: 4px solid var(--accent);
+        padding-left: 16px;
+        color: var(--muted);
+        font-style: italic;
+        margin: 16px 0;
+      }
     </style>
   </head>
   <body>
