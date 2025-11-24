@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Screenshot (2347).png" type="png">
+    <title>AvHouse JFK - JFK Aviation &amp; News</title>
+<style>
+
+/* -----------------------
+   THEME SYSTEM
+------------------------*/
+:root{
+  --bg:#0f172a;
+  --panel:#111827;
+  --ink:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#38bdf8;
+  --accent:#a78bfa;
+  --ok:#34d399;
+  --warn:#f59e0b;
+  --danger:#ef4444;
+  --border:rgba(255,255,255,.08);
+  --radius:16px;
+  --shadow:0 10px 28px rgba(0,0,0,.35);
+  --container: min(1100px, 92vw);
+  --speed: .25s;
+}
+
+body {
+  transition: background var(--speed), color var(--speed), backdrop-filter var(--speed);
+  background: radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg);
+}
+
+/* -----------------------
+   LIGHT MODE
+------------------------*/
+body.light {
+  --bg:#f5f7fa;
+  --panel:#ffffffcc;
+  --ink:#111;
+  --muted:#444;
+  --border:rgba(0,0,0,.15);
+  background:#f0f3f9 !important;
+}
+
+/* -----------------------
+   AV MODE
+------------------------*/
+body.avmode {
+  background: url("avback.jpeg"), var(--bg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+/* -----------------------
+   LIQUID GLASS
+------------------------*/
+body.liquid .header,
+body.liquid .hero,
+body.liquid .card {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  backdrop-filter: blur(18px) saturate(200%) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45) !important;
+}
+
+/* -----------------------
+   Theme switcher UI
+------------------------*/
+.themeSwitcher {
+  display: flex;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.themeSwitcher button {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  color: var(--ink);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.themeSwitcher button:hover {
+  opacity: .8;
+  transform: scale(1.03);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink);}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header/Nav */
+.header{position:sticky; top:0; z-index:40; background:rgba(15,23,42,.75); backdrop-filter: blur(8px); border-bottom:1px solid var(--border)}
+.nav{width:var(--container); margin:0 auto; display:flex; align-items:center; gap:14px; padding:12px 0}
+.logo{display:flex; align-items:center; gap:10px}
+.badge{width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--accent)); box-shadow:var(--shadow); color:#0b1220; font-weight:900}
+.title{font-weight:800; letter-spacing:.3px}
+.spacer{flex:1}
+.menu{display:flex; gap:16px; align-items:center}
+.menu a{color:var(--ink); opacity:.9; font-weight:600}
+.menu a:hover{opacity:1}
+.menu-toggle{display:none; border:1px solid var(--border); padding:8px 10px; border-radius:10px; background:var(--panel); color:var(--ink)}
+@media (max-width:720px){.menu{display:none}.menu-toggle{display:inline-block}}
+
+/* Mobile menu */
+.mobile{display:none; border-top:1px solid var(--border)}
+.mobile a{display:block; padding:12px 16px; color:var(--ink)}
+
+/* Hero */
+.hero{width:var(--container); margin:20px auto 0; background:linear-gradient(180deg, rgba(56,189,248,.10), rgba(167,139,250,.09)); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+.hero h1{margin:4px 0 6px; font-size: clamp(26px, 5vw, 44px)}
+.hero p{margin:0; color:var(--muted)}
+.ticker{margin-top:10px; display:flex; gap:12px; align-items:center; background:rgba(255,255,255,.06); border:1px solid var(--border); padding:10px 12px; border-radius:12px; overflow:hidden; white-space:nowrap}
+.ticker span{display:inline-block; padding-right:24px; animation:tick 20s linear infinite}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Sections */
+section{width:var(--container); margin:26px auto}
+h2{font-size:clamp(22px,3.5vw,30px); margin:8px 0 14px}
+.grid{display:grid; gap:16px}
+.cols-3{grid-template-columns: repeat(3, minmax(0, 1fr))}
+.cols-2{grid-template-columns: repeat(2, minmax(0, 1fr))}
+@media (max-width:900px){.cols-3{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cols-3,.cols-2{grid-template-columns:1fr}}
+
+.card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+.card h3{margin:6px 0 8px; font-size:18px}
+.muted{color:var(--muted)}
+.pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid var(--border); font-weight:700; font-size:12px}
+.kpis{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px}
+.kpi{background:rgba(255,255,255,.05); border:1px dashed var(--border); border-radius:14px; padding:14px}
+.kpi .v{font-weight:900; font-size:26px}
+@media (max-width:640px){.kpis{grid-template-columns: repeat(2, minmax(0,1fr))}}
+
+.bad-ok{color:#052e26; background:linear-gradient(135deg, var(--ok), #77f1cf)}
+.bad-warn{color:#3a2502; background:linear-gradient(135deg, var(--warn), #ffd389)}
+.bad-danger{color:#3b0a09; background:linear-gradient(135deg, var(--danger), #ffb4af)}
+
+.gallery{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px}
+.gallery img{width:100%; height:180px; object-fit:cover; border-radius:12px; border:1px solid var(--border)}
+@media (max-width:800px){.gallery{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gallery{grid-template-columns:1fr}}
+
+table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
+thead{background:rgba(255,255,255,.06)}
+th, td{padding:12px; border-bottom:1px solid var(--border); text-align:left; font-size:14px}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+.tag{padding:4px 8px; border-radius:999px; border:1px solid var(--border); font-size:12px}
+
+.form{display:grid; gap:12px}
+.input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#0b1220; color:var(--ink)}
+.btn{display:inline-block; background:linear-gradient(135deg, var(--brand), #7bd8ff); color:#0b1220; padding:10px 14px; border-radius:12px; font-weight:800; border:none; cursor:pointer}
+
+footer{width:var(--container); margin:30px auto 60px; color:var(--muted); font-size:14px}
+.anchor{scroll-margin-top:80px}
+
+</style>
+
+  </head>
+  <body>
+    <!-- Header / Nav -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <div class="badge">AV</div>
+          <div class="title">AvHouse JFK</div>
+        </div>
+        <div class="spacer"></div>
+<div class="themeSwitcher">
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('avmode')">AV</button>
+  <button onclick="toggleLiquid()">Glass</button>
+</div>
+        </div>
+      </div>
+    </header>
+    <!-- Hero -->
+    <div class="hero">
+      <h1>AvHouse JFK - Announcements</h1>
+      <p id="dateline">AvHouse JFK · Updated 10:00 PM EDT, November 23, 2025</p>
+      <div class="ticker" aria-label="Breaking ticker">
+        <strong></strong><span>I am excited to announce that I will be working on a NEW UI for the AvHouse JFK website, and as of November 23, I am thinking of ideas on how to improve and update this website. If you have suggestions, please let me know at <a href="https://mail.google.com/mail/u/1/#search/avhousejfk%40gmail.com?compose=new">avhousejfk@gmail.com</a>!</span>
+      </div>
+    </div>
+
+    <!-- ACTIVE RUNWAYS -->
+    <section id="RunwayUse" class="anchor">
+      <h2>Active Runways</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">Updated 7:00 PM EST, November 14, 2025</b></div>
+          <h3 style="margin-top:10px"></h3>
+          <div class="kpis" style="margin-top:10px">
+            <div class="kpi"><div class="lbl muted">Arrivals (Primary)</div><div class="v" id="windVal">31R</div></div>
+            <div class="kpi"><div class="lbl muted">Arrivals (Secondary)</div><div class="v">31L</div></div>
+            <div class="kpi"><div class="lbl muted">Departures (Primary)</div><div class="v">31L</div></div>
+            <div class="kpi"><div class="lbl muted">Departures (Secondary)</div><div class="v">31R</div></div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Additional Websites</h3>
+          <ul>
+            <li><a href="https://datis.clowd.io/KJFK">Digital Atis</a></li>
+            <li><a href="https://www.flightradar24.com/40.65,-73.80/11">Flightradar24</a></li>
+            <li><a href="https://globe.adsbexchange.com/">Globe ADSB Exchange</a></li>
+            <li><a href="https://www.jfkairport.com/flight-tracker">Official KJFK INTL Website</a></li>
+            <li><a href="https://www.liveatc.net/hlisten.php?mount=kjfk9_s&icao=kjfk">Live KJFK ATC</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <!-- AVNEWS -->
+    <section id="avnews" class="anchor">
+      <h2>AvNews</h2>
+        <article class="card">
+             <a href= "https://www.youtube.com/watch?v=L_cjLf8l6jo"><img src = "1028-Cover.jpg" alt = "2nd IL76 at JFK in 2025!" width = "300"></a>
+          <p class="muted">Tuesday, October 28, 2025</p>
+        </article>
+        <article class="card">
+          <a href = "NewsArchive.html">
+       <img src = "Screenshot (2347).png" alt = "News Archive" width = "300"></a>
+            <h3>The JFK AvNews archive</h3>
+          <p class="muted">Edited Tuesday, October 28, 2025</p>
+          </a>
+        </article>
+      </div>
+    </section>
+
+  <!-- AIR GALLERY -->
+  <section id="airgallery" class="anchor">
+    <h2>AirGallery - Community Contributed Photos</h2>
+    <div class="card">
+      <p class="muted"></p>
+      <div class="gallery" id="gallery">
+       <img src="IMG_0016.jpeg" alt="LongIslandSpotter's FIRST CC photo!" width = "1000"/>
+        <img src="IMG_0319.jpeg" alt="LongIslandSpotter" width = "1000"/>
+        <img src="IMG_0283.jpeg" alt="LongIslandSpotter" width = "1000"/>
+        <img src="IMG_0298.jpeg" alt="LongIslandSpotter" width = "1000"/>
+        <img src="image4.jpeg" alt="Aviation98real" width = "1000"/>
+        <img src="image0.jpeg" alt="Aviation98's FIRST CC photo!" width = "1000"/>
+        <img src="image3.jpeg" alt="Aviation98real" width = "1000"/>
+                <img src="image6.jpeg" alt="Aviation98real" width = "1000"/>
+<img src="Screenshot (2517).png" alt="AvHouse JFK" width = "1000"/>
+       <h6>Added by <a href = "https://www.tiktok.com/@longislandspotter">LongIslandSpotter</a>, <a href = "https://www.youtube.com/@Aviation98real">Aviation98real</a>, and  <a href = "https://www.tiktok.com/@avhouse_jfk">AvHouse JFK</a>.</h6>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIR TRACKER -->
+  <section id="airtracker" class="anchor">
+    <h2>AirTracker - Flight tracker</h2>
+    <div class="card">
+      <p class="muted">Enjoy the flight radar! Flight logs show special arrivals and departures at JFK.</p>
+      <div style="width:100%; max-width:1000px; margin: 0 auto;">
+  <iframe 
+    src="https://globe.adsbexchange.com/?airport=JFK" 
+    width="100%" 
+    height="600" 
+    style="border:none;" 
+    allowfullscreen>
+  </iframe>
+</div>
+    <a href = "LogArchives.html"><h2> View Flight Logs</h2> </a> 
+    </div>
+  </section>
+    <!-- AOTD -->
+    <section id="aircraftOfTheWeek">
+                <h1> AIRCRAFT OF THE WEEK </h1>
+            <div class>
+        <article class="card">
+        <div id="aircraftContent">
+          <img src = "Screenshot (2631).png" alt = "BBJ1" width = 500>
+          <h2 id="aircraftName">Ilyushin IL-76</h2>
+          <p id="aircraftDesc">The Ilyushin Il-76 is a Soviet-designed, four-engine heavy military transport aircraft, known for its robust design and ability to operate from rough airstrips. It is used for carrying troops, equipment, and cargo and has seen both military and civilian service for decades. Key features include its high-wing design, a rear loading ramp, and robust landing gear that can be adjusted for different surfaces.</p>
+          <ul id="aircraftSpecs">
+            <li>Model: Ilyushin IL-76TD-90VD</li>
+            <li>Used by: Silk Way Azerbaijan Cargo</li>
+            <li>Acquired: May 2007</li>
+            <li>Recent Arrival: AZQ3004 [BGO-JFK / 4K-AZ100]</li>
+            <h6>Updated 11:00 AM EDT</h6>
+          </ul>
+        </div>
+        </article>
+            </div>
+    </section>
+          
+     <!-- CONTENT -->
+  <section id="content" class="anchor">
+    <h2>My New & upcoming videos</h2>
+    <div class="card">   <iframe 
+    src="https://www.youtube.com/embed/L_cjLf8l6jo" 
+    width="100%" 
+    height="600" 
+    style="border:none;" 
+    allowfullscreen>
+  </iframe>
+    <h3>[Super Rare] Silk Way Ilyushin IL-76TD-90VD makes a rare visit to JFK - October 28 & 29, 2025</h3> 
+      <h6>Published November 4, 2025</h6>
+  </section>
+<!-- CONTENT -->
+  <section id="content" class="anchor">
+    <h2>Spot of the Year</h2>
+    <div class="card">   <iframe           
+    src="https://www.youtube.com/embed/MXpqzwVi8F4" 
+    width="100%" 
+    height="600" 
+    style="border:none;" 
+    allowfullscreen>
+  </iframe>
+      <h3>ULTRA RARE: Silkway Airlines Ilyushin IL-76TD-90VD [20 YEARS LIVERY] Landing at JFK!</h3>
+     <p>On July 25, 2025, I witnessed a truly rare arrival at JFK Airport. A Silk Way Airlines Ilyushin Il-76TD-90VD, equipped with those powerful PS-90A-76 turbofan engines, made a historic landing on Runway 22L. As an aviation enthusiast, this feels like a once-in-a-lifetime catch!
+
+     </p><p>The jet came all the way from Ankara, Turkey, stopping in Shannon for fuel before touching down in New York. I must say, this may be the first time an IL-76TD-90VD from Silk Way Airlines has been publicly filmed landing here. It was amazing to see this massive cargo plane, with its distinctive glass nose and that unforgettable sound from the engines.  Definitely a moment I won't forget!
+     </p>
+<p>There are only a handful of these aircraft left flying around the world, and almost none have been spotted in New York. This really is one of the rarest cargo jet sightings in JFK history. I can't help but wonder what it was carrying. Oversized machinery, humanitarian supplies, or maybe something secretive? The mystery adds to the excitement!
+</p>
+<p>Aircraft: Ilyushin Il-76TD-90VD</p>
+<p>Airline: Silk Way Airlines (AZQ8001)</p>
+<p>Route: SNN-JFK</p> 
+<p>Runway: 22L</p>  
+<p>Filmed from: Brookville Park - 40.65954157376174, -73.7454327616343</p>
+  </section>
+    <!-- RUNWAYS -->
+    <section id="runways" class="anchor">
+      <h2>KJFK's Runway operations and information</h2>
+      <div class="card">
+        <h1> Runway Operations</h1>
+          <h6> John F. Kennedy International Airport operates with four runways laid out in two crossing pairs: 4L/22R, 4R/22L, 13L/31R, and 13R/31L. The two 13/31 runways are the longer pair, with 13R/31L stretching over 14,500 feet and serving as the primary heavy departure runway, especially for transatlantic and long-haul flights. 13L/31R is slightly shorter and more commonly used for arrivals. The 4/22 pair is generally shorter and used during different wind conditions, with 4R/22L often handling arrivals and 4L/22R handling departures when in use. Runway use is coordinated by the Port Authority and the FAA, balancing efficiency with noise abatement procedures.</h6>
+
+        <h3>Special Approaches</h3>
+          <h6>KJFK has a few unique procedures, most notably the Canarsie Approach to Runway 13L and rarely 13R. This visual approach requires aircraft to follow the Canarsie VOR (CRI) and make a late turn over Jamaica Bay, lining up with the runway at low altitude. It is a challenging arrival that requires visual conditions and is famous among aviation enthusiasts. Most other approaches to JFK are ILS-based and straightforward, with precision instrument guidance to all four main runways. Offset approaches may be used occasionally, particularly for Runway 22L, but these are less common compared to the Canarsie arrival.</h6>
+
+        <h3>Joint Runway Usage</h3>
+        <h6>Because of the airport’s layout, joint usage of runways is common. For example, during heavy traffic periods, JFK will assign 13R for departures while 13L handles arrivals, maximizing efficiency by using parallel flows. Similarly, during operations on the 22s, 22R may be used for departures while 22L takes most arrivals. Cross-runway operations (such as arrivals on 31L and departures on 4L) can also occur, though they are more complex and often avoided unless winds demand it. The key factor driving runway use is the prevailing wind direction, since JFK operates almost exclusively into the wind.</h6>
+
+        <h3>Wind Direction Considerations</h3>
+        <h6>Runway selection at JFK is highly wind-dependent. Winds from the northwest favor the 31s, southerly winds favor the 22s, easterlies put the 4s into play, and westerlies often favor the 31s. Since JFK sits near the Atlantic coast, winds can shift quickly, and ATC frequently reconfigures traffic flows throughout the day. Spotters often track METAR reports or listen to LiveATC to anticipate which runways will be in use.</h6>
+    </section>
+    <!-- HISTORY -->
+    <section id="history" class="anchor">
+      <h2>History of KJFK</h2>
+      <div class="card">
+        <h3>1939–1948: Planning and Construction of Idlewild</h3> <h6>By the late 1930s, New York City realized that LaGuardia Airport, which had just opened in 1939, was already nearing capacity. Mayor Fiorello LaGuardia pushed for a much larger airport that could handle the rapidly growing demand for air travel. In 1942, construction began in southern Queens on land previously occupied by the Idlewild Golf Course. World War II delayed progress, but the project resumed in full force afterward. On July 1, 1948, the new facility officially opened as New York International Airport, commonly referred to as Idlewild. Its design focused on handling international traffic, and it became a symbol of postwar aviation growth.</h6>
+        <h3>1950s–1963: Terminal City and the Jet Age</h3> <h6>During the 1950s and early 1960s, Idlewild underwent massive expansion. Instead of a single central terminal, the airport pioneered the “Terminal City” concept, where individual airlines constructed their own terminals. Pan Am built the futuristic Worldport (Terminal 3) with a flying-saucer roof, while TWA opened the iconic Flight Center (Terminal 5), designed by Eero Saarinen. Other airlines like American and Eastern built their own facilities, creating a unique mix of architecture. The jet age arrived in the late 1950s with the Boeing 707, and Idlewild quickly became America’s primary international gateway. In December 1963, following the assassination of President John F. Kennedy, the airport was renamed John F. Kennedy International Airport (JFK).</h6>
+        <h3>1970s–1980s: Widebody Era and Concorde</h3> <h6>The introduction of widebody aircraft transformed JFK in the 1970s. On January 22, 1970, Pan Am launched the first-ever Boeing 747 passenger flight from JFK, marking the dawn of a new era in long-haul travel. The airport became a hub for jumbo jets, with airlines from around the globe flying 747s, DC-10s, and L-1011s. In 1977, supersonic travel arrived when British Airways and Air France began Concorde service between JFK, London, and Paris, cutting travel time to under 3.5 hours. JFK also became a major cargo hub during this time, with airlines like Flying Tigers and later FedEx establishing operations. By the 1980s, JFK was firmly established as one of the busiest international airports in the world.</h6>
+        <h3>1990s–2000s: Modernization and Security Changes</h3> <h6>By the 1990s, many of JFK’s airline-specific terminals were aging, leading to plans for consolidation and modernization. JetBlue Airways launched in 1999 and soon established its home base at Terminal 6 (later expanded into Terminal 5). The terrorist attacks of September 11, 2001, reshaped aviation worldwide. JFK played a central role during the airspace shutdown, hosting numerous diverted international flights. Tragically, just two months later, American Airlines Flight 587, bound for Santo Domingo, crashed shortly after takeoff, becoming one of the deadliest U.S. aviation accidents. Security tightened significantly, and JFK saw upgrades in screening and passenger facilities. Delta and other carriers began expanding, while older terminals were gradually demolished.</h6>
+        <h3>2010s: Redevelopment and New Identity</h3> <h6>Throughout the 2010s, JFK undertook a large-scale redevelopment program. Delta expanded Terminal 4 into a global hub, consolidating its New York operations. JetBlue invested heavily in Terminal 5, and the historic TWA Flight Center was preserved and transformed into the TWA Hotel, opening in 2019 as both a tribute to aviation history and a modern traveler’s landmark. Cargo operations continued to grow, and new airlines like Emirates, Etihad, and Singapore Airlines brought ultra-long-haul services, cementing JFK’s position as a premier international gateway. The introduction of the AirTrain in 2003 also improved access, linking the airport with both the subway and Long Island Rail Road.</h6>
+        <h3>2020s–Present: Transformation into a Mega-Hub</h3> <h6>The COVID-19 pandemic in 2020 sharply reduced JFK’s passenger traffic, but by 2023–2025 the airport had rebounded, again serving over 60 million passengers annually. Major redevelopment projects are reshaping the airport for the future: the $9.5 billion New Terminal One will replace the outdated Terminals 1 and 2, while a new Terminal 6 is under construction as JetBlue’s hub, connected to Terminal 5. Delta has consolidated its operations at Terminal 4, and the airport continues to prepare for next-generation aircraft, including A350s, 777Xs, and special diplomatic arrivals. Today, JFK remains the busiest international gateway in the United States and a symbol of New York’s role as a global crossroads.</h6>
+      </div>
+    </section>
+      </form>
+      <!-- CONTACT -->
+      <section id="contact" class="anchor">
+      <p class="muted" style="margin-top:8px"> Email me at <a href="https://mail.google.com/mail/u/1/#search/avhousejfk%40gmail.com?compose=new">avhousejfk@gmail.com</a> · Youtube: <a href="https://www.youtube.com/@AvHouse_JFK">@avhouse_jfk</a> · Tiktok: <a href="https://www.tiktok.com/@avhouse_jfk">@avhouse_jfk</a> </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>©<span id="year"></span> Avhouse JFK - Updated November 14, 2025 -<a href="#"> Back to top</a></div>
+  </footer>
+<script>
+function setTheme(mode){
+  document.body.classList.remove("dark","light","avmode");
+  document.body.classList.add(mode);
+  localStorage.setItem("theme",mode);
+}
+
+function toggleLiquid(){
+  document.body.classList.toggle("liquid");
+  localStorage.setItem("liquid",
+    document.body.classList.contains("liquid") ? "1":"0"
+  );
+}
+
+window.onload = () => {
+  const theme = localStorage.getItem("theme");
+  const glass = localStorage.getItem("liquid");
+
+  if(theme) document.body.classList.add(theme);
+  if(glass === "1") document.body.classList.add("liquid");
+};
+</script>
+
+  </body>
+</html>
