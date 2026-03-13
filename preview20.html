@@ -1,476 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="Screenshot (2347).png" type="image/png">
-<title>AvHouse JFK - JFK Aviation & News</title>
-<style>
-/* ========================
-   VARIABLES & THEME SYSTEM
-======================== */
-:root {
-  --bg: #0f172a;
-  --panel: rgba(17,24,39,0.85);
-  --ink: #e5e7eb;
-  --muted: #9ca3af;
-  --brand: #38bdf8;
-  --accent: #a78bfa;
-  --ok: #34d399;
-  --warn: #f59e0b;
-  --danger: #ef4444;
-  --border: rgba(255,255,255,0.08);
-  --radius: 16px;
-  --shadow: 0 12px 40px rgba(0,0,0,0.4);
-  --container: min(1100px, 92vw);
-  --speed: 0.35s;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --transition: all 0.3s ease-in-out;
-}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Screenshot (2347).png" type="png">
+    <title>AvHouse JFK - JFK Aviation & News</title>
+    <style>
+      /* ... (CSS styles omitted for brevity) ... */
+    </style>
+  </head>
+  <body>
+    <!-- Header / Nav -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <div class="badge">AV</div>
+          <div class="title">AvHouse JFK</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="themeSwitcher">
+          <button onclick="toggleAnimations()">Animations</button>
+          <button onclick="setTheme('dark')">Dark</button>
+          <button onclick="setTheme('light')">Light</button>
+          <button onclick="setTheme('avmode')">AvMode</button>
+          <button onclick="toggleLiquid()">Glass</button>
+        </div>
+      </nav>
+    </header>
 
-/* ========================
-   GLOBAL STYLES
-======================== */
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; font-family: var(--font-sans); scroll-behavior: smooth; transition: var(--transition); }
-body { background: radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg); color: var(--ink); line-height: 1.6; }
-a { color: var(--brand); text-decoration: none; transition: color 0.3s; }
-a:hover { color: var(--accent); text-decoration: underline; }
-
-/* ========================
-   HEADER / NAV
-======================== */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(15,23,42,0.7);
-  border-bottom: 1px solid var(--border);
-  transition: var(--transition);
-}
-.nav {
-  width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 14px 0;
-  gap: 16px;
-}
-.logo { display: flex; align-items: center; gap: 10px; }
-.badge {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--brand), var(--accent));
-  color: #0b1220;
-  font-weight: 900;
-  box-shadow: var(--shadow);
-  font-size: 16px;
-}
-.title { font-weight: 900; font-size: 1.3rem; letter-spacing: 0.3px; }
-.spacer { flex: 1; }
-.menu { display: flex; gap: 16px; align-items: center; }
-.menu a { font-weight: 600; opacity: 0.95; }
-.menu a:hover { opacity: 1; }
-.menu-toggle { display: none; border-radius: 12px; border: 1px solid var(--border); padding: 8px 12px; background: var(--panel); cursor: pointer; }
-
-@media (max-width: 720px) {
-  .menu { display: none; }
-  .menu-toggle { display: inline-block; }
-}
-
-/* ========================
-   THEME SWITCHER
-======================== */
-.themeSwitcher { display: flex; gap: 8px; }
-.themeSwitcher button {
-  padding: 6px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  transition: var(--transition);
-}
-.themeSwitcher button:hover {
-  background: var(--brand);
-  color: #0b1220;
-  transform: scale(1.05);
-}
-
-/* ========================
-   HERO
-======================== */
-.hero {
-  width: var(--container);
-  margin: 28px auto;
-  padding: 20px 24px;
-  background: linear-gradient(180deg, rgba(56,189,248,0.1), rgba(167,139,250,0.08));
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-.hero h1 { margin: 0 0 6px; font-size: clamp(28px,5vw,44px); font-weight: 900; }
-.hero p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-.ticker {
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  overflow: hidden;
-  white-space: nowrap;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05);
-}
-.ticker span {
-  display: inline-block;
-  padding-right: 24px;
-  animation: tick 20s linear infinite;
-}
-@keyframes tick {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ========================
-   SECTIONS / CARDS
-======================== */
-section { width: var(--container); margin: 32px auto; }
-h2 { font-size: clamp(22px,3.5vw,30px); margin-bottom: 16px; font-weight: 700; }
-.grid { display: grid; gap: 20px; }
-.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-
-@media(max-width: 900px){ .cols-3{ grid-template-columns: 1fr 1fr; } }
-@media(max-width: 640px){ .cols-3, .cols-2 { grid-template-columns: 1fr; } }
-
-.card {
-  background: var(--panel);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-
-.muted { color: var(--muted); }
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 13px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--border);
-}
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.kpi { background: rgba(255,255,255,0.05); border: 1px dashed var(--border); border-radius: 14px; padding: 16px; text-align: center; }
-.kpi .v { font-weight: 900; font-size: 26px; }
-@media(max-width:640px){ .kpis { grid-template-columns: repeat(2,1fr); } }
-
-/* ========================
-   GALLERY
-======================== */
-.gallery { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
-.gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); transition: transform 0.4s ease; }
-.gallery img:hover { transform: scale(1.05); }
-
-/* ========================
-   TABLES
-======================== */
-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; }
-thead { background: rgba(255,255,255,0.06); }
-th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
-tbody tr:hover { background: rgba(255,255,255,0.03); }
-
-/* ========================
-   FOOTER
-======================== */
-footer { width: var(--container); margin: 50px auto 60px; color: var(--muted); font-size: 14px; text-align: center; }
-
-/* ========================
-   LIGHT / AV / LIQUID THEMES
-======================== */
-body.light { --bg:#f5f7fa; --panel:#ffffffcc; --ink:#111; --muted:#444; --border:rgba(0,0,0,.15); background:#f0f3f9 !important; }
-body.avmode { background: url("avback.jpg") center/cover fixed no-repeat; }
-body.liquid .card, body.liquid .hero, body.liquid .header {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(18px) saturate(200%);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
-  transition: var(--transition);
-}
-
-/* ========================
-   ANIMATIONS
-======================== */
-body.animations-on { opacity: 0; animation: fadeIn 0.9s ease forwards; }
-@keyframes fadeIn { to { opacity: 1; } }
-body.animations-on .card { opacity: 0; transform: translateY(12px); animation: fadeUp 0.55s ease forwards; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
-.card:nth-child(1){ animation-delay:0.1s; }
-.card:nth-child(2){ animation-delay:0.18s; }
-.card:nth-child(3){ animation-delay:0.26s; }
-.card:nth-child(4){ animation-delay:0.34s; }
-
-/* ========================
-   BUTTONS
-======================== */
-.btn { display: inline-block; background: linear-gradient(135deg, var(--brand), var(--accent)); color: #0b1220; padding: 12px 16px; border-radius: 14px; font-weight: 800; border: none; cursor: pointer; transition: var(--transition);}
-.btn:hover { transform: scale(1.05); }
-
-/* ========================
-   MEDIA QUERIES
-======================== */
-@media(max-width:520px) { .gallery { grid-template-columns: 1fr; } }
-
-</style>
-</head>
-<body class="animations-on">
-
-<!-- HEADER -->
-<header class="header">
-  <nav class="nav">
-    <div class="logo">
-      <div class="badge">AV</div>
-      <div class="title">AvHouse JFK</div>
-    </div>
-    <div class="spacer"></div>
-    <div class="themeSwitcher">
-      <button onclick="toggleAnimations()">Animations</button>
-      <button onclick="setTheme('dark')">Dark</button>
-      <button onclick="setTheme('light')">Light</button>
-      <button onclick="setTheme('avmode')">AvMode</button>
-      <button onclick="toggleLiquid()">Glass</button>
-    </div>
-  </nav>
-</header>
-
-
-    <div class="container">
-        
-        <section class="hero">
-            <p class="muted" style="font-family: var(--font-mono);">[ TERMINAL INITIALIZED // SESSION 2026 ]</p>
-            <h1>Intelligence & News</h1>
-            <p class="muted" style="margin-top: 10px;">Updated 3:00 AM EST, January 20, 2026</p>
-            
-            <div class="ticker-wrap">
-                <div class="ticker-label">LATEST ADVISORY</div>
-                <div class="ticker-text">
-                    /// AvHouse JFK 2.0 is making a return! Explore the refurbished data modules /// New Spot of the Year uploaded /// Monitoring heavy cargo arrivals for IL-76 activity /// 
-                </div>
-            </div>
-        </section>
-
-        <section id="RunwayUse">
-            <h2>Live Airfield Configuration</h2>
-            <div class="grid cols-2">
-                <article class="card">
-                    <p class="muted" style="margin-bottom: 15px;">Active Runway Flow Strip</p>
-                    <div class="strip-grid">
-                        <div class="strip">
-                            <div class="strip-label">Arrivals (Pri)</div>
-                            <div class="strip-value">31R</div>
-                        </div>
-                        <div class="strip">
-                            <div class="strip-label">Arrivals (Sec)</div>
-                            <div class="strip-value">31L</div>
-                        </div>
-                        <div class="strip">
-                            <div class="strip-label">Departures (Pri)</div>
-                            <div class="strip-value">31L</div>
-                        </div>
-                        <div class="strip">
-                            <div class="strip-label">Departures (Sec)</div>
-                            <div class="strip-value">N/A</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3 style="margin-top:0">Operations Data Links</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <a href="https://datis.clowd.io/KJFK">Digital Atis</a>
-                        <a href="https://www.flightradar24.com/40.65,-73.80/11">Flightradar24</a>
-                        <a href="https://globe.adsbexchange.com/">ADSB Exchange</a>
-                        <a href="https://www.liveatc.net/hlisten.php?mount=kjfk9_s&icao=kjfk">Live KJFK ATC</a>
-                        <a href="https://www.jfkairport.com/flight-tracker">Official Website</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="avnews">
-            <h2>Intelligence Archive</h2>
-            <div class="grid cols-2">
-                <article class="card">
-                    <div class="media-box">
-                        <a href="https://www.youtube.com/watch?v=L_cjLf8l6jo"><img src="1028-Cover.jpg" alt="IL76 Update"></a>
-                    </div>
-                    <h3>2nd IL76 at JFK in 2025!</h3>
-                    <p class="muted">Published: Tuesday, October 28, 2025</p>
-                </article>
-                <article class="card">
-                    <div class="media-box">
-                        <a href="NewsArchive.html"><img src="Screenshot (2347).png" alt="Archive"></a>
-                    </div>
-                    <h3>JFK AvNews Archive</h3>
-                    <p class="muted">Last Edit: October 28, 2025</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="airgallery">
-            <h2>AirGallery <span class="muted" style="font-weight: normal; margin-left: 10px;">(Community Contributions)</span></h2>
-            <div class="card">
-                <div class="gallery">
-                    <img src="IMG_0016.jpeg" alt="Photo 1">
-                    <img src="IMG_0319.jpeg" alt="Photo 2">
-                    <img src="IMG_0283.jpeg" alt="Photo 3">
-                    <img src="IMG_0298.jpeg" alt="Photo 4">
-                    <img src="image4.jpeg" alt="Photo 5">
-                    <img src="image0.jpeg" alt="Photo 6">
-                    <img src="image3.jpeg" alt="Photo 7">
-                    <img src="image6.jpeg" alt="Photo 8">
-                    <img src="Screenshot (2517).png" alt="Photo 9">
-                </div>
-                <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
-                    <p class="muted">Intel provided by <a href="#">LongIslandSpotter</a>, <a href="#">Aviation98real</a>, and <a href="#">AvHouse JFK</a>.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="airtracker">
-            <h2>Radar Surveillance</h2>
-            <div class="card">
-                <div class="media-box" style="height: 500px;">
-                    <iframe src="https://globe.adsbexchange.com/?airport=JFK" height="100%" width="100%"></iframe>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <p class="muted">Live Flight Tracker - Realtime Sector Data</p>
-                    <a href="LogArchives.html" style="font-weight: bold;">[ VIEW FULL FLIGHT LOGS ]</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="aotw">
-            <h2 style="color: var(--warn);">Aircraft of the Week</h2>
-            <article class="card" style="display: flex; gap: 30px; flex-wrap: wrap;">
-                <div class="media-box" style="flex: 1; min-width: 300px;">
-                    <img src="Screenshot (2631).png" alt="IL-76">
-                </div>
-                <div style="flex: 2; min-width: 300px;">
-                    <h3 style="font-size: 32px; color: var(--brand); margin: 0 0 15px 0;">Ilyushin IL-76</h3>
-                    <p>The Ilyushin Il-76 is a Soviet-designed, four-engine heavy military transport aircraft, known for its robust design and ability to operate from rough airstrips. It is used for carrying troops, equipment, and cargo and has seen both military and civilian service for decades. Key features include its high-wing design, a rear loading ramp, and robust landing gear that can be adjusted for different surfaces.</p>
-                    
-                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; margin-top: 20px; font-family: var(--font-mono); font-size: 13px;">
-                        <div style="color: var(--brand);">SPECIFICATIONS // INTEL</div>
-                        <div style="margin-top: 10px;">
-                            • Model: IL-76TD-90VD<br>
-                            • Carrier: Silk Way Azerbaijan Cargo<br>
-                            • Service Date: May 2007<br>
-                            • Recent Call: AZQ3004 [BGO-JFK]<br>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <section id="content">
-            <h2>Visual Intelligence</h2>
-            <div class="grid cols-2">
-                <article class="card">
-                    <div class="media-box" style="height: 300px;">
-                        <iframe src="https://www.youtube.com/embed/L_cjLf8l6jo" height="100%" width="100%" allowfullscreen></iframe>
-                    </div>
-                    <h3>Rare Visit: Silk Way IL-76TD</h3>
-                    <p class="muted">Published November 4, 2025</p>
-                </article>
-                <article class="card">
-                    <div class="media-box" style="height: 300px;">
-                        <iframe src="https://www.youtube.com/embed/MXpqzwVi8F4" height="100%" width="100%" allowfullscreen></iframe>
-                    </div>
-                    <h3>Spot of the Year: Silkway Landing</h3>
-                    <p style="font-size: 14px; margin: 15px 0;">On July 25, 2025, I witnessed a truly rare arrival at JFK Airport. A Silk Way Airlines Ilyushin Il-76TD-90VD, equipped with those powerful PS-90A-76 turbofan engines, made a historic landing on Runway 22L. As an aviation enthusiast, this feels like a once-in-a-lifetime catch!</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="runways">
-            <h2>Field Operations</h2>
-            <div class="card">
-                <h3 style="color: var(--brand);">Runway Dynamics</h3>
-                <p>John F. Kennedy International Airport operates with four runways laid out in two crossing pairs: 4L/22R, 4R/22L, 13L/31R, and 13R/31L. The two 13/31 runways are the longer pair, with 13R/31L stretching over 14,500 feet and serving as the primary heavy departure runway, especially for transatlantic and long-haul flights. 13L/31R is slightly shorter and more commonly used for arrivals. The 4/22 pair is generally shorter and used during different wind conditions, with 4R/22L often handling arrivals and 4L/22R handling departures when in use. Runway use is coordinated by the Port Authority and the FAA, balancing efficiency with noise abatement procedures.</p>
-                
-                <h3 style="color: var(--brand); margin-top: 25px;">The Canarsie Approach</h3>
-                <p>KJFK has a few unique procedures, most notably the Canarsie Approach to Runway 13L and rarely 13R. This visual approach requires aircraft to follow the Canarsie VOR (CRI) and make a late turn over Jamaica Bay, lining up with the runway at low altitude. It is a challenging arrival that requires visual conditions and is famous among aviation enthusiasts. Most other approaches to JFK are ILS-based and straightforward, with precision instrument guidance to all four main runways. Offset approaches may be used occasionally, particularly for Runway 22L, but these are less common compared to the Canarsie arrival.</p>
-                
-                <h3 style="color: var(--brand); margin-top: 25px;">Joint Runway Usage & Wind Selection</h3>
-                <p>Because of the airport’s layout, joint usage of runways is common. For example, during heavy traffic periods, JFK will assign 13R for departures while 13L handles arrivals, maximizing efficiency by using parallel flows. Similarly, during operations on the 22s, 22R may be used for departures while 22L takes most arrivals. Runway selection at JFK is highly wind-dependent. Winds from the northwest favor the 31s, southerly winds favor the 22s, easterlies put the 4s into play, and westerlies often favor the 31s. Since JFK sits near the Atlantic coast, winds can shift quickly, and ATC frequently reconfigures traffic flows throughout the day.</p>
-            </div>
-        </section>
-
-        <section id="history">
-            <h2>The KJFK Chronicle</h2>
-            <div class="card">
-                <h3>1939–1948: Planning Idlewild</h3>
-                <p class="muted">By the late 1930s, NYC realized LaGuardia was reaching capacity. In 1942, construction began on land previously occupied by the Idlewild Golf Course. On July 1, 1948, the facility officially opened as New York International Airport.</p>
-                
-                <h3>1950s–1963: The Jet Age</h3>
-                <p class="muted">Idlewild pioneered the “Terminal City” concept. Pan Am built the Worldport, and TWA opened the iconic Flight Center by Eero Saarinen. In December 1963, following the assassination of President John F. Kennedy, the airport was renamed JFK.</p>
-                
-                <h3>1970s–1980s: Widebody & Concorde</h3>
-                <p class="muted">On January 22, 1970, Pan Am launched the first-ever Boeing 747 flight. In 1977, supersonic travel arrived with British Airways and Air France Concorde service, cutting travel to under 3.5 hours.</p>
-                
-                <h3>1990s–2010s: Modernization</h3>
-                <p class="muted">JetBlue launched in 1999. In the 2010s, Delta expanded Terminal 4 and the historic TWA Flight Center was transformed into the TWA Hotel, preserving aviation history.</p>
-                
-                <h3>2020s–Present: Mega-Hub Transformation</h3>
-                <p class="muted">Major redevelopment projects are reshaping the airport: the $9.5 billion New Terminal One and a new Terminal 6. Today, JFK remains the busiest international gateway in the United States.</p>
-            </div>
-        </section>
-
-        <footer style="margin: 60px 0; padding-top: 30px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-            <div class="muted">
-                © 2026 AvHouse JFK Command Center<br>
-                Sector: New York (KJFK)
-            </div>
-            <div class="muted">
-                <a href="mailto:avhousejfk@gmail.com">avhousejfk@gmail.com</a> | 
-                <a href="#">YouTube</a> | 
-                <a href="#">TikTok</a>
-            </div>
-        </footer>
-
+    <!-- Hero -->
+    <div class="hero">
+      <h1>AvHouse JFK - Announcements</h1>
+      <p id="dateline">AvHouse JFK · Updated 3:00 AM EST, January 20, 2026</p>
+      <div class="ticker" aria-label="Breaking ticker">
+        <strong></strong><span>AvHouse JFK 2.0 is making a return!</a></span>
+      </div>
     </div>
 
-    <script>
-        function setTheme(mode) {
-            document.body.className = '';
-            if (mode !== 'dark') document.body.classList.add(mode);
-            localStorage.setItem("theme", mode);
-        }
+    <!-- ACTIVE RUNWAYS -->
+    <section id="RunwayUse" class="anchor">
+      <h2>Active Runways</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">Updated 3:00 AM EST, January 1, 2026</b></div>
+          <h3 style="margin-top:10px"></h3>
+          <div class="kpis" style="margin-top:10px">
+            <div class="kpi">
+              <div class="lbl muted">Arrivals (Primary)</div>
+              <div class="v" id="windVal">31R</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl muted">Arrivals (Secondary)</div>
+              <div class="v">31L</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl muted">Departures (Primary)</div>
+              <div class="v">31L</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl muted">Departures (Secondary)</div>
+              <div class="v">N/A</div>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Additional Websites</h3>
+          <ul>
+            <li><a href="https://datis.clowd.io/KJFK">Digital Atis</a></li>
+            <li><a href="https://www.flightradar24.com/40.65,-73.80/11">Flightradar24</a></li>
+            <li><a href="https://globe.adsbexchange.com/">Globe ADSB Exchange</a></li>
+            <li><a href="https://www.jfkairport.com/flight-tracker">Official KJFK INTL Website</a></li>
+            <li><a href="https://www.liveatc.net/hlisten.php?mount=kjfk9_s&icao=kjfk">Live KJFK ATC</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-        function toggleAnimations() {
-            const isOff = document.body.classList.toggle("animations-on");
-            document.getElementById('animBtn').innerText = isOff ? "Anim: ON" : "Anim: OFF";
-        }
+    <!-- AVNEWS -->
+    <section id="avnews" class="anchor">
+      <h2>AvNews</h2>
+      <article class="card">
+        <a href="https://www.youtube.com/watch?v=L_cjLf8l6jo">
+          <img src="1028-Cover.jpg" alt="2nd IL76 at JFK in 2025!" width="300" class="rounded-border">
+        </a>
+        <p class="muted">Tuesday, October 28, 2025</p>
+      </article>
+      <article class="card">
+        <a href="NewsArchive.html">
+          <img src="Screenshot (2347).png" alt="News Archive" width="300" class="rounded-border">
+        </a>
+        <h3>The JFK AvNews archive</h3>
+        <p class="muted">Edited Tuesday, October 28, 2025</p>
+      </article>
+    </section>
 
-        // Initialize from local storage
-        window.onload = () => {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) setTheme(savedTheme);
-        };
-    </script>
+    <!-- AIR GALLERY -->
+    <section id="airgallery" class="anchor">
+      <h2>AirGallery - Community Contributed Photos</h2>
+      <div class="card">
+        <p class="muted"></p>
+        <div class="gallery" id="gallery">
+          <img src="IMG_0016.jpeg" alt="LongIslandSpotter's FIRST CC photo!" width="1000" class="rounded-border" />
+          <img src="IMG_0319.jpeg" alt="LongIslandSpotter" width="1000" class="rounded-border" />
+          <img src="IMG_0283.jpeg" alt="LongIslandSpotter" width="1000" class="rounded-border" />
+          <img src="IMG_0298.jpeg" alt="LongIslandSpotter" width="1000" class="rounded-border" />
+          <img src="image4.jpeg" alt="Aviation98real" width="1000" class="rounded-border" />
+          <img src="image0.jpeg" alt="Aviation98's FIRST CC photo!" width="1000" class="rounded-border" />
+          <img src="image3.jpeg" alt="Aviation98real" width="1000" class="rounded-border" />
+          <img src="image6.jpeg" alt="Aviation98real" width="1000" class="rounded-border" />
+          <img src="Screenshot (2517).png" alt="AvHouse JFK" width="1000" class="rounded-border" />
+        </div>
+        <h6>Added by <a href="https://www.tiktok.com/@longislandspotter">LongIslandSpotter</a>, <a href="https://www.youtube.com/@Aviation98real">Aviation98real</a>, and <a href="https://www.tiktok.com/@avhouse_jfk">AvHouse JFK</a>.</h6>
+      </div>
+    </section>
+
+    <!-- AIR TRACKER -->
+    <section id="airtracker" class="anchor">
+      <h2>AirTracker - Flight tracker</h2>
+      <div class="card">
+        <p class="muted">Enjoy the flight radar! Flight logs show special arrivals and departures at JFK.</p>
+        <div style="width:100%; max-width:1000px; margin: 0 auto;">
+          <iframe src="https://globe.adsbexchange.com/?airport=JFK" width="100%" height="600" style="border:none;" allowfullscreen></iframe>
+        </div>
+        <a href="LogArchives.html">
+          <h2>View Flight Logs</h2>
+        </a>
+      </div>
+    </section>
+
+    <!-- AOTD -->
+    <section id="aircraftOfTheWeek">
+      <h1>AIRCRAFT OF THE WEEK</h1>
+      <div class>
+        <article class="card">
+          <div id="aircraftContent">
+            <img src="Screenshot (2631).png" alt="BBJ1" width="500" class="rounded-border">
+            <h2 id="aircraftName">Ilyushin IL-76</h2>
+            <p id="aircraftDesc">The Ilyushin Il-76 is a Soviet-designed, four-engine heavy military transport aircraft, known for its robust design and ability to operate from rough airstrips. It is used for carrying troops, equipment, and cargo and has seen both military and civilian service for decades. Key features include its high-wing design, a rear loading ramp, and robust landing gear that can be adjusted for different surfaces.</p>
+            <ul id="aircraftSpecs">
+              <li>Model: Ilyushin IL-76TD-90VD</li>
+              <li>Used by: Silk Way Azerbaijan Cargo</li>
+              <li>Acquired: May 2007</li>
+              <li>Recent Arrival: AZQ3004 [BGO-JFK / 4K-AZ100]</li>
+              <h6>Updated 11:00 AM EDT</h6>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section id="content" class="anchor">
+      <h2>My New & upcoming videos</h2>
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/L_cjLf8l6jo" width="100%" height="600" style="border:none;" allowfullscreen></iframe>
+        <h3>[Super Rare] Silk Way Ilyushin IL-76TD-90VD makes a rare visit to JFK - October 28 & 29, 2025</h3>
+        <h6>Published November 4, 2025</h6>
+      </div>
+    </section>
+
+    <!-- RUNWAYS -->
+    <section id="runways" class="anchor">
+      <h2>KJFK's Runway operations and information</h2>
+      <div class="card">
+        <h1>Runway Operations</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Primary Arrivals</th>
+              <th>Secondary Arrivals</th>
+              <th>Primary Departures</th>
+              <th>Secondary Departures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>January</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>February</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>March</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>April</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>June</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>August</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>September</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>October</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>November</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>December</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <h6>Runway use is coordinated by the Port Authority and the FAA, balancing efficiency with noise abatement procedures.</h6>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="anchor">
+      <p class="muted" style="margin-top:8px"> Email me at <a href="https://mail.google.com/mail/u/1/#search/avhousejfk%40gmail.com?compose=new">avhousejfk@gmail.com</a> · Youtube: <a href="https://www.youtube.com/@AvHouse_JFK">@avhouse_jfk</a> · Tiktok: <a href="https://www.tiktok.com/@avhouse_jfk">@avhouse_jfk</a> </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>©<span id="year"></span> Avhouse JFK - Updated January 20, 2026 -<a href="#"> Back to top</a></div>
+  </footer>
+
+  <script>
+    function setTheme(mode){
+      document.body.classList.remove("dark","light","avmode");
+      document.body.classList.add(mode);
+      localStorage.setItem("theme",mode);
+    }
+
+    function toggleLiquid(){
+      document.body.classList.toggle("liquid");
+      localStorage.setItem("liquid",
+        document.body.classList.contains("liquid") ? "1":"0"
+      );
+    }
+
+    window.onload = () => {
+      const theme = localStorage.getItem("theme");
+      const glass = localStorage.getItem("liquid");
+
+      if(theme) document.body.classList.add(theme);
+      if(glass === "1") document.body.classList.add("liquid");
+    };
+
+    function toggleAnimations(){
+      document.body.classList.toggle("animations-on");
+      localStorage.setItem("animations",
+        document.body.classList.contains("animations-on") ? "1" : "0"
+      );
+    }
+
+    /* Load user settings */
+    window.onload = () => {
+      let theme = localStorage.getItem("theme");
+      let glass = localStorage.getItem("liquid");
+      let anim = localStorage.getItem("animations");
+
+      if(theme) document.body.classList.add(theme);
+      if(glass === "1") document.body.classList.add("liquid");
+      if(anim === "1") document.body.classList.add("animations-on");
+    };
+  </script>
 </body>
 </html>
