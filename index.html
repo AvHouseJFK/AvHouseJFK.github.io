@@ -379,7 +379,7 @@ body.animations-on.liquid .header {
   </section>
 
   <footer>
-    <div>©<span id="year"></span> Avhouse JFK - Updated April 10, 2026 -<a href="#"> Back to top</a></div>
+    <div>©<span id="year"></span> AvHouse JFK 3.0 - Updated April 11, 2026 -<a href="#"> Back to top</a></div>
   </footer>
 <script>
 function setTheme(mode){
@@ -420,6 +420,15 @@ window.onload = () => {
   if(glass === "1") document.body.classList.add("liquid");
   if(anim === "1") document.body.classList.add("animations-on");
 };
+</script>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "761bab2f-9c01-4395-bd5b-45cec3d1529e",
+    });
+  });
 </script>
   </body>
 </html>
