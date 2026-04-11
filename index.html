@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="Screenshot (2347).png" type="png">
     <title>AvHouse JFK - JFK Aviation &amp; News</title>
+    /* Load user settings */
+window.onload = () => {
+  let theme = localStorage.getItem("theme");
+  let glass = localStorage.getItem("liquid");
+  let anim = localStorage.getItem("animations");
+
+  if(theme) document.body.classList.add(theme);
+  if(glass === "1") document.body.classList.add("liquid");
+  if(anim === "1") document.body.classList.add("animations-on");
+};
+</script>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "761bab2f-9c01-4395-bd5b-45cec3d1529e",
+    });
+  });
+</script>
+    <script>
+sendAlert(
+  "Test",
+  "AvHouse 3"
+);
+</script>
 <style>
 
 /* -----------------------
@@ -409,26 +435,5 @@ function toggleAnimations(){
     document.body.classList.contains("animations-on") ? "1" : "0"
   );
 }
-
-/* Load user settings */
-window.onload = () => {
-  let theme = localStorage.getItem("theme");
-  let glass = localStorage.getItem("liquid");
-  let anim = localStorage.getItem("animations");
-
-  if(theme) document.body.classList.add(theme);
-  if(glass === "1") document.body.classList.add("liquid");
-  if(anim === "1") document.body.classList.add("animations-on");
-};
-</script>
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "761bab2f-9c01-4395-bd5b-45cec3d1529e",
-    });
-  });
-</script>
   </body>
 </html>
