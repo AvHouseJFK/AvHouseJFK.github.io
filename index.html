@@ -263,9 +263,9 @@ body.animations-on.liquid .header {
     <!-- Hero -->
     <div class="hero">
       <h1>AvHouse JFK - Announcements</h1>
-      <p id="dateline">· Updated 5:55 PM EDT, April 12, 2026</p>
+      <p id="dateline">Updated 12:00 AM EDT, April 12, 2026</p>
       <div class="ticker" aria-label="Breaking ticker">
-        <strong></strong><span>Sunday, April 13, 2026, will mark the official release of AvHouse JFK 3.0, featuring a brand new notification feature (AvAlerts), A comment section (AvChat), and an Aircraft Of The Week section. More features may be added before tomorrow.</span></div>
+        <strong></strong><span>Today, Sunday, April 12, 2026, marks the official release of AvHouse JFK 3.0! It features a brand new notification feature (AvAlerts), a comment section (AvChat), an Aircraft Of The Week section, a revived weekly trivia section, a JFK runway operations history section, and a section that features my most recent uploads on social media. Thank you for supporting AvHouse JFK!</span></div>
     </div>
 
     <!-- ACTIVE RUNWAYS -->
@@ -273,7 +273,7 @@ body.animations-on.liquid .header {
       <h2>Active Runways</h2>
       <div class="grid cols-2">
         <article class="card">
-            <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">Updated 5:35 PM EDT, April 11, 2026</b></div> <h3 style="margin-top:10px"></h3>
+            <div class="pill" id="flowBadge">Runways in use: <b style="margin-left:6px">Updated 12:00 AM EDT, April 12, 2026</b></div> <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
             <div class="kpi"><div class="lbl muted">Arrivals (Primary)</div><div class="v" id="windVal">04R</div></div>
         <div class="kpi"><div class="lbl muted">Arrivals (Secondary)</div><div class="v">04L</div></div>
@@ -281,17 +281,18 @@ body.animations-on.liquid .header {
             <div class="kpi"><div class="lbl muted">Departures (Secondary)</div><div class="v">31L</div></div>
           </div>
         </article>
-        <article class="card">
-          <h3>Additional Websites</h3>
-          <ul>
-            <li><a href="https://datis.clowd.io/KJFK">Digital Atis</a></li>
-            <li><a href="https://www.flightradar24.com/40.65,-73.80/11">Flightradar24</a></li>
-            <li><a href="https://globe.adsbexchange.com/">Globe ADSB Exchange</a></li>
-            <li><a href="https://www.jfkairport.com/flight-tracker">Official KJFK INTL Website</a></li>
-            <li><a href="https://www.liveatc.net/hlisten.php?mount=kjfk9_s&icao=kjfk">Live KJFK ATC</a></li>
-          </ul>
-        </article>
       </div>
+    </section>
+        <section class="anchor">
+        <article class="card">
+           <b style="margin-left:6px">Updated 12:00 AM EDT, April 12, 2026</b></div> <h3 style="margin-top:10px"></h3>
+          <div class="kpis" style="margin-top:10px">
+            <div class="kpi"><div class="lbl muted">Conditions</div><div class="v" id="windVal">Clear</div></div>
+        <div class="kpi"><div class="lbl muted">Temperature</div><div class="v">54°F</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Direction</div><div class="v">350°</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Speed</div><div class="v">12 kts</div></div>
+        </article>
+        </div>
     </section>
     <!-- AVNEWS -->
     <section id="AvNews" class="anchor">
@@ -342,7 +343,26 @@ body.animations-on.liquid .header {
     <a href = "LogArchives.html"><h2>View Flight Logs</h2> </a> 
     </div>
   </section>
- 
+    <!-- LIVE CHAT -->
+<section id="livechat" class="anchor">
+  <h2>AvChat</h2>
+  <div class="card">
+    <p class="muted">This is the Live JFK Aviation Chat for PC. For mobile users, it will be at the bottom of the screen. Have fun, and keep it aviation-related!</p>
+    <div style="width:100%; max-width:1000px; margin: 0 auto; display:flex; justify-content:center;">
+      <!-- Chatango Embed -->
+      <script id="cid0020000436880548519" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%; max-width:800px; height: 500px;">
+      {"handle":"avhousekjfk","arch":"js","styles":{"a":"6600cc","b":100,"c":"FFFFFF","d":"FFFFFF","k":"6600cc","l":"6600cc","m":"6600cc","n":"FFFFFF","p":"10","q":"6600cc","r":100,"fwtickm":1}}
+      </script>
+    </div>
+  </div>
+</section>
+    <!-- Weekly Trivia -->
+    <section id="WT" class="anchor">
+      <h2>KJFK Weekly Trivia (April 12-19, 2026)</h2>
+    <div class="card"> 
+     <img src="Untitled (27).png" alt="AvHouse JFK Banner" width = "500"/>
+  <p>Think you can make the leaderboard? Click  <a href = "https://docs.google.com/forms/d/1DcRoZ47bfuAcwtO-5iz5X_0gxK81b2UMuSR6foAa9no">here</a> to begin the Weekly Trivia!</p></div>
+    </section>
     <!-- AOTW -->
     <section id="AOTW" class="anchor">
       <h2>Aircraft Of The Week (April 12-19, 2026)</h2>
@@ -358,25 +378,44 @@ body.animations-on.liquid .header {
     <h5>HZ-CMJ is an Airbus A319-115(CJ) VIP corporate jet (MSN 4768) operated by Alpha Star Aviation Services, based in Saudi Arabia. Originally produced in 2011, it features a VIP configuration and is actively used for executive transport, frequently traveling between destinations like JFK, Shannon, and the Middle East. It was formerly registered as VP-CMJ.</h5>
     </div>
     </section>
-<!-- LIVE CHAT -->
-<section id="livechat" class="anchor">
-  <h2>AvChat</h2>
-  <div class="card">
-    <p class="muted">This is the Live JFK Aviation Chat for PC. For mobile users, it will be at the bottom of the screen. Have fun, and keep it aviation-related!</p>
-    <div style="width:100%; max-width:1000px; margin: 0 auto; display:flex; justify-content:center;">
-      <!-- Chatango Embed -->
-      <script id="cid0020000436880548519" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%; max-width:800px; height: 500px;">
-      {"handle":"avhousekjfk","arch":"js","styles":{"a":"6600cc","b":100,"c":"FFFFFF","d":"FFFFFF","k":"6600cc","l":"6600cc","m":"6600cc","n":"FFFFFF","p":"10","q":"6600cc","r":100,"fwtickm":1}}
-      </script>
+    <!-- Runway Usage History -->
+    <section id="RUH" class="anchor">
+      <h2>Runway Use History (April 12-19, 2026)</h2>
+    <div class="card"> 
+     <h4>Sunday, April 12, 2026: [12:00 AM EDT] Runway 31R (Arrivals) Runway 31L (Departures)</h4>    </div>
+    </section>
+      <!-- CONTENT -->
+  <section id="airtracker" class="anchor">
+    <h2>My Newest Uploads</h2>
+    <div class="card">
+      <p class="muted">This section shows my latest spots that I've uploaded. These will come from all of my socials, including TikTok and YouTube.</p>
+      <h3>Youtube</h3>
+      <h5>Videos</h5>
+      <div style="width:100%; max-width:1000px; margin: 0 auto;">
+  <iframe 
+    src="https://www.youtube.com/embed/YVRnqpm0-dU" 
+    width="100%" 
+    height="600" 
+    style="border:none;" 
+    allowfullscreen>
+  </iframe>
+</div>
+<h5>Shorts</h5>
+      <iframe 
+    src="https://www.youtube.com/shorts/FI0YFE1MNKc" 
+    width="100%" 
+    height="600" 
+    style="border:none;" 
+    allowfullscreen>
+  </iframe>
+      <h3>TikTok</h3>
+       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@avhousejfk/video/7627362617299930398" data-video-id="7627362617299930398" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@avhousejfk" href="https://www.tiktok.com/@avhousejfk?refer=embed">@avhousejfk</a> Spotting the emirates 777 from my window! <a title="jfkairport" target="_blank" href="https://www.tiktok.com/tag/jfkairport?refer=embed">#jfkairport</a> <a title="avhousejfk" target="_blank" href="https://www.tiktok.com/tag/avhousejfk?refer=embed">#avhousejfk</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a title="b777" target="_blank" href="https://www.tiktok.com/tag/b777?refer=embed">#b777</a> <a title="emiratesairlines" target="_blank" href="https://www.tiktok.com/tag/emiratesairlines?refer=embed">#emiratesairlines</a> <a target="_blank" title="♬ original sound - 🗽✈️dat1dev2_aviation✈️🗽" href="https://www.tiktok.com/music/original-sound-7397270094591593258?refer=embed">♬ original sound - 🗽✈️dat1dev2_aviation✈️🗽</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
     </div>
-  </div>
-</section>
-
-      </form>
-      <!-- CONTACT -->
+  </section>
+            <!-- CONTACT -->
       <section id="contact" class="anchor">
       <p class="muted" style="margin-top:8px">Email: <a href="https://mail.google.com/mail/u/1/#search/avhousejfk%40gmail.com?compose=new">avhousejfk@gmail.com</a> · Youtube: <a href="https://www.youtube.com/@AvHouse_JFK">@AvHouseJFK</a> · Tiktok: <a href="https://www.tiktok.com/@avhouse_jfk">@avhousejfk</a> </p>
-    </div>
+      </div>
   </section>
 
   <footer>
