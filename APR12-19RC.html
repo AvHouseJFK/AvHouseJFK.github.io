@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RWY CHG LOG</title>
+<style>
+  body { background:#0b0f14; color:#d6dde6; font-family:monospace; padding:16px; }
+  .row { padding:4px 0; border-bottom:1px solid #1c2430; }
+  .end { color:#ffcc66; }
+</style>
+</head>
+<body>
+<h2>RW CG: APR 12-19, '26</h2>
+  <img src="APR12-19.png" alt="LongIslandSpotter" width = "1000"/>
+<div class="row">SUN12 0000 31R/31L A/D #1 +06:25</div>
+<div class="row">SUN12 0625 04R/04L A/D #2 +03:55</div>
+<div class="row">SUN12 1020 13L/13R A/D #3 +13:30</div>
+<div class="row">SUN12 2350 22L/22R A/D #4 +37:55*</div>
+
+<div class="row">TUE14 1345 13L/13R A/D #5 +04:45</div>
+<div class="row">TUE14 1830 22L/22R A/D #6 +09:35</div>
+
+<div class="row">WED15 0405 31R/31L A/D #7 +08:05</div>
+<div class="row">WED15 1210 22L/22R A/D #8 +19:00</div>
+
+<div class="row">THU16 0710 13L/13R A/D #9 +09:30</div>
+<div class="row">THU16 1640 22L/22R A/D #10 +07:55</div>
+
+<div class="row">FRI17 0035 22L/31L A/D #11 +04:50</div>
+<div class="row">FRI17 0525 31R/31L A/D #12 +14:15</div>
+<div class="row">FRI17 1940 04R/04L A/D #13 +16:30</div>
+
+<div class="row">SAT18 1210 13L/13R A/D #14 +05:20</div>
+<div class="row end">SAT18 1730 22L/22R END</div>
+  <pre>
+-----------------------------------------
+DURATION EXTREMES
+-----------------------------------------
+MAX:
+SUN12 2350Z → TUE14 1345Z = 37:55
+CFG: 22L/22R HOLD (DOM LOCK / STEADY FLOW)
+
+MIN:
+SUN12 0625Z → 1020Z = 03:55 (04R→13L FAST SWAP)
+TUE14 1345Z → 1830Z = 04:45 (13L→22L TRANS SHIFT)
+FRI17 0035Z → 0525Z = 04:50 (22L→31L REV FLOW)
+
+-----------------------------------------
+PHASE FLOW STRUCTURE
+-----------------------------------------
+PH1 — INITIAL SWEEP (SUN12)
+31R/31L → 04R/04L → 13L/13R → 22L/22R
+- HIGH VARIABILITY
+- FULL DIR CYCLE TEST
+- SYSTEM CALIBRATION MODE
+
+PH2 — STABILIZATION (TUE–THU)
+13L/13R ↔ 22L/22R CORE LOOP
++ OCC 31R/31L RESET INSERTS
+- OSCILLATION CONTROL PHASE
+- PARTIAL FLOW LOCKING
+- REDUCED RWY DIVERSITY
+
+PH3 — CONSOLIDATION (FRI–SAT)
+22L/22R DOMINANT
++ BRIEF REVERTS TO 31/04
+- FINAL ROUTE SETTLING
+- END STATE LOCKING BEHAVIOR
+
+-----------------------------------------
+RUNWAY FUNCTION MAP
+-----------------------------------------
+22L/22R = PRIMARY FLOW NODE / END STATE / HOLD CONFIG
+13L/13R = TRANSITION BRIDGE / MID-CYCLE NODE
+31R/31L = RESET VECTOR / RECONFIG ENTRY POINT
+04R/04L = LOW PRIORITY BURST / SHORT TERM SWITCH
+
+-----------------------------------------
+TREND ANALYSIS
+-----------------------------------------
+HIGH VAR (SUN INIT)
+↓
+OSC STABILITY (MID CYCLE LOOPING)
+↓
+CONVERGENCE (FINAL DOM LOCK)
+
+FLOW DECAY PATTERN:
+MULTI-AXIS SWEEP → CONTROLLED OSC → SINGLE NODE LOCK
+
+-----------------------------------------
+FINAL STATE SUMMARY
+-----------------------------------------
+SYSTEM OUTPUT:
+22L/22R = FINAL DOMINANT CONFIGURATION
+STATUS: STABLE LOCK / END OF CYCLE
+</pre>
+<a href = "">Back to Homepage</a>
+
+</body>
+</html>
