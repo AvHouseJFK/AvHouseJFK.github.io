@@ -32,69 +32,98 @@
 
 <div class="row">SAT18 1210 13L/13R A/D #14 +05:20</div>
 <div class="row end">SAT18 1730 22L/22R END</div>
-  <pre>
------------------------------------------
+<pre>
+KJFK RUNWAY CONFIGURATION TIMELINE (OBSERVED)
+---------------------------------------------
+SUN12 0000 31R/31L A/D
+SUN12 0625 04R/04L A/D   (+06:25)
+SUN12 1020 13L/13R A/D   (+03:55)
+SUN12 2350 22L/22R A/D   (+13:30)
+
+TUE14 1345 13L/13R A/D   (+37:55)
+TUE14 1830 22L/22R A/D   (+04:45)
+
+WED15 0405 31R/31L A/D   (+09:35)
+WED15 1210 22L/22R A/D   (+08:05)
+
+THU16 0710 13L/13R A/D   (+19:00)
+THU16 1640 22L/22R A/D   (+09:30)
+
+FRI17 0035 22L/31L A/D   (+07:55)
+FRI17 0525 31R/31L A/D   (+04:50)
+FRI17 1940 04R/04L A/D   (+14:15)
+
+SAT18 1210 13L/13R A/D   (+16:30)
+SAT18 1730 22L/22R END   (+05:20)
+
+---------------------------------------------
 DURATION EXTREMES
------------------------------------------
-MAX:
-SUN12 2350Z → TUE14 1345Z = 37:55
-CFG: 22L/22R HOLD (DOM LOCK / STEADY FLOW)
+---------------------------------------------
+LONGEST CONTINUOUS CONFIG:
+SUN12 2350 → TUE14 1345 = 37:55
+CONFIG: 22L/22R (SOUTHWEST FLOW HOLD)
 
-MIN:
-SUN12 0625Z → 1020Z = 03:55 (04R→13L FAST SWAP)
-TUE14 1345Z → 1830Z = 04:45 (13L→22L TRANS SHIFT)
-FRI17 0035Z → 0525Z = 04:50 (22L→31L REV FLOW)
+SHORTEST TRANSITIONS:
+04R/04L → 13L/13R = 03:55
+13L/13R → 22L/22R = 04:45
+22L/22R → 31R/31L = 04:50
 
------------------------------------------
-PHASE FLOW STRUCTURE
------------------------------------------
-PH1 — INITIAL SWEEP (SUN12)
-31R/31L → 04R/04L → 13L/13R → 22L/22R
-- HIGH VARIABILITY
-- FULL DIR CYCLE TEST
-- SYSTEM CALIBRATION MODE
+---------------------------------------------
+OBSERVED PATTERN SUMMARY
+---------------------------------------------
+• Initial full directional sweep:
+  31 → 04 → 13 → 22
+  → Consistent with gradual wind rotation
 
-PH2 — STABILIZATION (TUE–THU)
-13L/13R ↔ 22L/22R CORE LOOP
-+ OCC 31R/31L RESET INSERTS
-- OSCILLATION CONTROL PHASE
-- PARTIAL FLOW LOCKING
-- REDUCED RWY DIVERSITY
+• Mid-period behavior:
+  Alternation between 13s and 22s
+  → Indicates variable but generally southerly flow
 
-PH3 — CONSOLIDATION (FRI–SAT)
-22L/22R DOMINANT
-+ BRIEF REVERTS TO 31/04
-- FINAL ROUTE SETTLING
-- END STATE LOCKING BEHAVIOR
+• Late-period behavior:
+  Increased use of 22s with brief reversals (31 / 04)
+  → Suggests temporary stabilization with passing disturbances
 
------------------------------------------
-RUNWAY FUNCTION MAP
------------------------------------------
-22L/22R = PRIMARY FLOW NODE / END STATE / HOLD CONFIG
-13L/13R = TRANSITION BRIDGE / MID-CYCLE NODE
-31R/31L = RESET VECTOR / RECONFIG ENTRY POINT
-04R/04L = LOW PRIORITY BURST / SHORT TERM SWITCH
+---------------------------------------------
+RUNWAY USAGE INSIGHTS
+---------------------------------------------
+22L/22R:
+- Most frequently sustained configuration
+- Longest continuous usage period
+- Associated with southwest flow conditions
 
------------------------------------------
-TREND ANALYSIS
------------------------------------------
-HIGH VAR (SUN INIT)
-↓
-OSC STABILITY (MID CYCLE LOOPING)
-↓
-CONVERGENCE (FINAL DOM LOCK)
+13L/13R:
+- Common intermediate configuration
+- Often appears during transitions between flow directions
 
-FLOW DECAY PATTERN:
-MULTI-AXIS SWEEP → CONTROLLED OSC → SINGLE NODE LOCK
+31R/31L:
+- Used during northerly flow periods
+- Typically appears during directional reversals
 
------------------------------------------
-FINAL STATE SUMMARY
------------------------------------------
-SYSTEM OUTPUT:
-22L/22R = FINAL DOMINANT CONFIGURATION
-STATUS: STABLE LOCK / END OF CYCLE
+04R/04L:
+- Least utilized in this dataset
+- Short-duration usage during rapid wind shifts
+
+---------------------------------------------
+INTERPRETATION
+---------------------------------------------
+This dataset reflects normal JFK operational behavior driven by:
+- Wind direction changes
+- Passing weather systems
+- Air traffic demand
+
+No fixed “cycle” or repeating phase structure is implied.
+Observed patterns are specific to this time window.
+
+---------------------------------------------
+FINAL SUMMARY
+---------------------------------------------
+Dominant configuration during analysis period:
+→ 22L/22R (Southwest flow bias)
+
+Overall pattern:
+→ Directional rotation followed by partial stabilization
 </pre>
-<a href = "">Back to Homepage</a>
+<a href = "https://avhousejfk.github.io/">Back to Homepage</a>
 
 </body>
 </html>
