@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="AvHouse JFK.png" type="png">
+    <link rel="icon" href="Screenshot (2347).png" type="png">
     <title>AvHouse JFK - JFK Aviation &amp; News</title>
 <style>
 
@@ -31,6 +31,14 @@ body {
   transition: background var(--speed), color var(--speed), backdrop-filter var(--speed);
   background: radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg);
 }
+  /* -----------------------
+   DARK MODE (UPDATED)
+------------------------*/
+[data-theme="dark"]{
+  --bg:#000000;              /* pure black background */
+  --text:#ffffff;
+  --secondary:#2f2f2f;      /* gray secondary */
+}
 
 /* -----------------------
    LIGHT MODE
@@ -48,7 +56,7 @@ body.light {
    AV MODE
 ------------------------*/
 body.avmode {
-  background: url("AvBack.png"), var(--bg) !important;
+  background: url("avback.jpg"), var(--bg) !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
