@@ -32,6 +32,193 @@ body {
   background: radial-gradient(900px 500px at 10% -10%, #1f2a44 0%, transparent 60%), var(--bg);
 }
   /* -----------------------
+   JULY 4 MODE
+------------------------*/
+body.july4 {
+  --bg:#041225;
+  --panel:rgba(8,24,52,.92);
+  --ink:#ffffff;
+  --muted:#d8dce5;
+  --border:rgba(255,255,255,.10);
+  --brand:#2b7fff;
+  --accent:#d62839;
+
+  background:
+    radial-gradient(circle at top right, rgba(214,40,57,.18), transparent 28%),
+    radial-gradient(circle at top left, rgba(43,127,255,.18), transparent 30%),
+    linear-gradient(180deg,#041225,#081c3c,#05142d) !important;
+
+  background-attachment:fixed;
+}
+
+/* Header */
+
+body.july4 .header{
+  background:rgba(3,12,30,.90);
+  border-bottom:2px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+}
+
+/* Hero */
+
+body.july4 .hero{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(rgba(3,10,28,.72),rgba(3,10,28,.72)),
+    linear-gradient(135deg,#103b84,#0d2f73,#081c46);
+
+  border:2px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 0 35px rgba(43,127,255,.15),
+    0 0 40px rgba(214,40,57,.12);
+}
+
+body.july4 .hero::before{
+  content:"🇺🇸";
+  position:absolute;
+  top:18px;
+  right:35px;
+  font-size:90px;
+  opacity:.08;
+  animation:julyFlag 5s ease-in-out infinite;
+}
+
+body.july4 .hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(circle,#ffffff 2px,transparent 3px) 15% 20%/170px 170px,
+    radial-gradient(circle,#ff4d4d 2px,transparent 3px) 75% 20%/170px 170px,
+    radial-gradient(circle,#4da6ff 2px,transparent 3px) 45% 10%/170px 170px,
+    radial-gradient(circle,#ffd166 2px,transparent 3px) 92% 18%/150px 150px;
+
+  opacity:.22;
+  pointer-events:none;
+
+  animation:julyFireworks 7s linear infinite;
+}
+
+/* Cards */
+
+body.july4 .card{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,28,61,.94),
+      rgba(6,18,40,.95));
+
+  border:1px solid rgba(255,255,255,.08);
+}
+
+body.july4 .card:hover{
+  border-color:#d62839;
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.45),
+    0 0 18px rgba(214,40,57,.25),
+    0 0 25px rgba(43,127,255,.18);
+}
+
+body.july4 h2{
+  border-left:5px solid #d62839;
+  padding-left:14px;
+}
+
+body.july4 .ticker{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214,40,57,.15),
+      rgba(43,127,255,.15));
+}
+
+body.july4 .badge{
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      white,
+      #d62839);
+
+  color:#041225;
+
+  animation:julyBadgeGlow 3s infinite alternate;
+}
+
+/* Animations */
+
+@keyframes julyBadgeGlow{
+
+0%{
+box-shadow:0 0 10px rgba(43,127,255,.35);
+}
+
+50%{
+box-shadow:0 0 18px rgba(255,255,255,.45);
+}
+
+100%{
+box-shadow:0 0 18px rgba(214,40,57,.35);
+}
+
+}
+
+@keyframes julyFlag{
+
+0%{
+transform:translateY(0) rotate(-3deg);
+}
+
+50%{
+transform:translateY(-8px) rotate(3deg);
+}
+
+100%{
+transform:translateY(0) rotate(-3deg);
+}
+
+}
+
+@keyframes julyFireworks{
+
+0%{
+opacity:.08;
+transform:scale(.9);
+}
+
+25%{
+opacity:.35;
+transform:scale(1);
+}
+
+50%{
+opacity:.15;
+transform:scale(1.04);
+}
+
+75%{
+opacity:.35;
+transform:scale(1);
+}
+
+100%{
+opacity:.08;
+transform:scale(.9);
+}
+
+}
+  .july4-btn{
+    background:linear-gradient(135deg,#c1121f,#1d4ed8) !important;
+    color:white !important;
+    font-weight:800;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 0 15px rgba(29,78,216,.25);
+}
+  /* -----------------------
    DARK MODE (UPDATED)
 ------------------------*/
 [data-theme="dark"]{
@@ -263,6 +450,7 @@ body.animations-on.liquid .header {
   <button onclick="setTheme('dark')">Dark</button>
   <button onclick="setTheme('light')">Light</button>
   <button onclick="setTheme('avmode')">AvMode</button>
+  <button onclick="setTheme('july4')">250th</button>
   <button onclick="toggleLiquid()">Glass</button>
 </div>
         </div>
@@ -271,9 +459,9 @@ body.animations-on.liquid .header {
     <!-- Hero -->
     <div class="hero">
       <h1>AvHouse JFK - Announcements</h1>
-      <p id="dateline">Updated 10:45 PM EDT, June 30, 2026</p>
+      <p id="dateline">Updated 12:10 AM EDT, July 4, 2026</p>
       <div class="ticker" aria-label="Breaking ticker">
-        <span>The month of June is finally over! Since this month has brought so many rare aircraft, I've decided to create weekly flight highlights, starting July 1, 2026. This section will rank the week's BEST arrivals & departures, ranked based on aircraft / airline rarity and purpose (example: government/military).</span></div>
+        <span>Happy Independence Day! 🇺🇸 As the United States celebrates its 250th anniversary and Independence Day, AvHouse JFK is joining the celebration with a special patriotic theme for July 4, 2026. Throughout the day, the website will feature a limited-time America 250 design honoring the nation's aviation heritage while continuing to provide live JFK updates, rare aircraft tracking, weather information, and aviation news. We hope you enjoy this special event as we celebrate America's 250 years of history. 🎆✈️</span></div>
     </div>
 
     <!-- ACTIVE RUNWAYS -->
@@ -281,7 +469,7 @@ body.animations-on.liquid .header {
       <h2>Active Runways</h2>
       <div class="grid cols">
         <article class="card">
-           <b style="margin-left:6px">Updated 3:50 AM EDT, July 2, 2026</b><h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:10 AM EDT, July 4, 2026</b><h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
             <div class="kpi"><div class="lbl muted">Arrivals (Primary)</div><div class="v" id="windVal">Runway 22L</div></div>
         <div class="kpi"><div class="lbl muted">Arrivals (Secondary)</div><div class="v">Runway 22R</div></div>
@@ -294,24 +482,24 @@ body.animations-on.liquid .header {
         <section class="anchor">
           <h2>KJFK Weather</h2>
         <article class="card">
-           <b style="margin-left:6px">Updated 3:50 AM EDT, July 2, 2026</b></div> <h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:10 AM EDT, July 4, 2026</b></div> <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
-            <div class="kpi"><div class="lbl muted">Conditions</div><div class="v" id="windVal">Cloudy</div></div>
-        <div class="kpi"><div class="lbl muted">Temperature</div><div class="v">75°F</div></div>
-            <div class="kpi"><div class="lbl muted">Wind Direction</div><div class="v">190°</div></div>
-            <div class="kpi"><div class="lbl muted">Wind Speed</div><div class="v">6 kts</div></div>
+            <div class="kpi"><div class="lbl muted">Conditions</div><div class="v" id="windVal">Overcast</div></div>
+        <div class="kpi"><div class="lbl muted">Temperature</div><div class="v">82°F</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Direction</div><div class="v">320°</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Speed</div><div class="v">8 kts</div></div>
         </article>
         </div>
     </section>
             <section class="anchor">
           <h2>KJFK Disruptions</h2>
         <article class="card">
-           <b style="margin-left:6px">Updated 3:50 AM EDT, July 2, 2026</b></div> <h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:10 AM EDT, July 4, 2026</b></div> <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
-            <div class="kpi"><div class="lbl muted">Average Delay</div><div class="v">4 minutes</div></div>
-            <div class="kpi"><div class="lbl muted">Disruptions (M1, M2, S3)</div><div class="v">Minor (M1)</div></div>
-            <div class="kpi"><div class="lbl muted">Flights Cancelled</div><div class="v">5</div></div>
-            <div class="kpi"><div class="lbl muted">Flights Delayed</div><div class="v">20 (2%)</div></div>
+            <div class="kpi"><div class="lbl muted">Average Delay</div><div class="v">30 minutes</div></div>
+            <div class="kpi"><div class="lbl muted">Disruptions (M1, M2, S3)</div><div class="v">Moderate (M1)</div></div>
+            <div class="kpi"><div class="lbl muted">Flights Cancelled</div><div class="v">9</div></div>
+            <div class="kpi"><div class="lbl muted">Flights Delayed</div><div class="v">0 (0%)</div></div>
         </article>
         </div>
     </section>
@@ -454,6 +642,12 @@ function toggleAnimations(){
     document.body.classList.contains("animations-on") ? "1" : "0"
   );
 }
+  document.body.classList.remove(
+  "dark",
+  "light",
+  "avmode",
+  "july4"
+);
       /* Load user settings */
 window.onload = () => {
   let theme = localStorage.getItem("theme");
