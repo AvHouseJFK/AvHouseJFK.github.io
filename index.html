@@ -633,6 +633,23 @@ body.animations-on.liquid .header {
     <a href = "LogArchives.html"><h2>View Flight Logs</h2> </a> 
     </div>
   </section>
+    <section id="flightLogs">
+    <h2>Flight Logs</h2>
+
+    <table id="flightTable">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Aircraft</th>
+                <th>Registration</th>
+                <th>Airline</th>
+                <th>Route</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+</section>
     <!-- WFH -->
     <section id="WFH" class="anchor">
       <h2>Weekly Flights Highlights</h2>
@@ -740,6 +757,27 @@ window.onload = () => {
         enable: true
       }
     });
+    fetch("/api/log")
+.then(r => r.json())
+.then(data => {
+
+    const tbody = document.querySelector("#flightTable tbody");
+
+    data.forEach(flight => {
+
+        tbody.innerHTML += `
+        <tr>
+            <td>${flight.time}</td>
+            <td>${flight.aircraft}</td>
+            <td>${flight.registration}</td>
+            <td>${flight.airline}</td>
+            <td>${flight.route}</td>
+        </tr>
+        `;
+
+    });
+
+});
 
     //
     OneSignal.showSlidedownPrompt();
