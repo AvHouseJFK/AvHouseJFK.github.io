@@ -1,0 +1,16 @@
+{
+  "name": "jfk-flight-log",
+  "version": "1.0.0",
+  "description": "Scrollable, persisted log of JFK arrivals and departures backed by OpenSky",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
