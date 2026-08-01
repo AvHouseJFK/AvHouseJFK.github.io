@@ -542,7 +542,7 @@ body.animations-on.liquid .header {
       <h1>AvHouse JFK - Announcements</h1>
       <p id="dateline">Updated 5:40 PM EDT, July 30, 2026</p>
       <div class="ticker" aria-label="Breaking ticker">
-        <span>Updated Active Runways, KJFK Weather, KJFK Disruptions, AvGallery, and Flight Logs</span></div>
+        <span>Updated Active Runways, KJFK Weather, KJFK Disruptions, and Flight Logs | Added Runway Configuration History for June 2026</span></div>
     </div>
 
     <!-- ACTIVE RUNWAYS -->
@@ -550,7 +550,7 @@ body.animations-on.liquid .header {
       <h2>Active Runways</h2>
       <div class="grid cols">
         <article class="card">
-           <b style="margin-left:6px">Updated 4:00 PM EDT, July 31, 2026</b><h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:45 AM EDT, August 1, 2026</b><h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
             <div class="kpi"><div class="lbl muted">Arrivals (Primary)</div><div class="v" id="windVal">Runway 22L</div></div>
         <div class="kpi"><div class="lbl muted">Arrivals (Secondary)</div><div class="v">Runway 22R</div></div>
@@ -563,24 +563,24 @@ body.animations-on.liquid .header {
         <section class="anchor">
           <h2>KJFK Weather</h2>
         <article class="card">
-           <b style="margin-left:6px">Updated 4:00 PM EDT, July 31, 2026</b></div> <h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:45 AM EDT, August 1, 2026</b></div> <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
-            <div class="kpi"><div class="lbl muted">Conditions</div><div class="v" id="windVal">Overcast</div></div>
-        <div class="kpi"><div class="lbl muted">Temperature</div><div class="v">81°F</div></div>
-            <div class="kpi"><div class="lbl muted">Wind Direction</div><div class="v">200°</div></div>
-            <div class="kpi"><div class="lbl muted">Wind Speed</div><div class="v">12 kts</div></div>
+            <div class="kpi"><div class="lbl muted">Conditions</div><div class="v" id="windVal">Cloudy</div></div>
+        <div class="kpi"><div class="lbl muted">Temperature</div><div class="v">73°F</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Direction</div><div class="v">210°</div></div>
+            <div class="kpi"><div class="lbl muted">Wind Speed</div><div class="v">6 kts</div></div>
         </article>
         </div>
     </section>
             <section class="anchor">
           <h2>KJFK Disruptions</h2>
         <article class="card">
-           <b style="margin-left:6px">Updated 4:00 PM EDT, July 31, 2026</b></div> <h3 style="margin-top:10px"></h3>
+           <b style="margin-left:6px">Updated 12:45 AM EDT, August 1, 2026</b></div> <h3 style="margin-top:10px"></h3>
           <div class="kpis" style="margin-top:10px">
-            <div class="kpi"><div class="lbl muted">Average Delay</div><div class="v">14 minutes (🟢)</div></div>
+            <div class="kpi"><div class="lbl muted">Average Delay</div><div class="v">18 minutes (🟡)</div></div>
             <div class="kpi"><div class="lbl muted">Disruptions (M1, M2, S)</div><div class="v">Minor (M1)</div></div>
-            <div class="kpi"><div class="lbl muted">Flights Cancelled</div><div class="v">16 (1%)</div></div>
-            <div class="kpi"><div class="lbl muted">Flights Delayed</div><div class="v">300 (22%)</div></div>
+            <div class="kpi"><div class="lbl muted">Flights Cancelled</div><div class="v">6 (0%)</div></div>
+            <div class="kpi"><div class="lbl muted">Flights Delayed</div><div class="v">1 (0%)</div></div>
         </article>
         </div>
     </section>
@@ -685,6 +685,40 @@ body.animations-on.liquid .header {
     <p>Airframe Age: ~24 Years</p>
     <p>Engines: 2x Rolls-Royce BR715 Turbofan Engines</p>
     </div>
+    </section>
+    <section id="JUNE26_RWYCFG" class="anchor">
+       <h2>Runway Configuration History: June 2026</h2>
+<div style="position: relative; width: 100%; height: 280px;">
+  <canvas id="rwChart"></canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+<script>
+new Chart(document.getElementById('rwChart'), {
+  type: 'bar',
+  data: {
+    labels: ['22L / 22R', '31R / 31L', '13L / 13R', '04R / 04L', '22L / 13R (mixed)'],
+    datasets: [{
+      label: 'Times used',
+      data: [18, 12, 11, 5, 3],
+      backgroundColor: '#2a78d6',
+      borderRadius: 4,
+      barThickness: 24
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { beginAtZero: true },
+      y: { grid: { display: false } }
+    }
+  }
+});
+</script>
     </section>
             <!-- CONTACT -->
       <section id="contact" class="anchor">
