@@ -93,85 +93,10 @@
 
       footer{width:var(--container); margin:30px auto 60px; color:var(--muted); font-size:14px}
       .anchor{scroll-margin-top:80px}
-   :root{
-    --bg:#0f172a;
-    ...
-  }
-  ...
-  .anchor{scroll-margin-top:80px}
-
-  /* ADD THIS AT THE END */
-  @media (max-width: 900px) {
-    .search-fixed {
-      position: static !important;
-      width: 100% !important;
-      margin: 0 auto 20px;
-    }
-  }
     </style>
   </head>
-  <body>
- <script>
-(function () {
-  const searchInput = document.getElementById('flightSearch');
-  if (!searchInput) {
-    console.error('flightSearch input not found in the DOM.');
-    return; // stops here instead of crashing
-  }
-  const countEl = document.getElementById('searchCount');
-
-  function runSearch() {
-    const terms = searchInput.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
-    let total = 0;
-    let currentHeading = null;
-    let currentHeadingHasMatch = false;
-    const headingsSeen = [];
-
-    document.querySelectorAll('h2, table tbody tr').forEach(el => {
-      if (el.tagName === 'H2') {
-        if (currentHeading) headingsSeen.push([currentHeading, currentHeadingHasMatch]);
-        currentHeading = el;
-        currentHeadingHasMatch = false;
-      } else if (el.closest('tbody')) {
-        const text = el.textContent.toLowerCase();
-        const match = terms.length === 0 || terms.every(t => text.includes(t));
-        el.style.display = match ? '' : 'none';
-        if (match) {
-          total++;
-          currentHeadingHasMatch = true;
-        }
-      }
-    });
-    if (currentHeading) headingsSeen.push([currentHeading, currentHeadingHasMatch]);
-
-    headingsSeen.forEach(([h2, hasMatch]) => {
-      const show = terms.length === 0 || hasMatch;
-      h2.style.display = show ? '' : 'none';
-      let t = h2.nextElementSibling;
-      while (t && t.tagName !== 'H2') {
-        if (t.tagName === 'TABLE') t.style.display = show ? '' : 'none';
-        t = t.nextElementSibling;
-      }
-    });
-
-    if (countEl) {
-      countEl.textContent = terms.length === 0 ? '' : `${total} flight${total === 1 ? '' : 's'} found`;
-    }
-  }
-
-  let debounce;
-  searchInput.addEventListener('input', () => {
-    clearTimeout(debounce);
-    debounce = setTimeout(runSearch, 150);
-  });
-})();
-</script>       
+  <body>    
     <tr><td><h1><a href = "avhousejfk.github.io/index.html">Back to Homepage</a></h1></td></tr>
- <div class="card" style="max-width:320px; margin:16px 0 20px auto;">
-  <input type="text" id="flightSearch" class="input"
-         placeholder="Search flights...">
-  <div id="searchCount" class="muted" style="margin-top:8px;"></div>
-</div>
       <section id="FlightLogs" class="anchor">
 <div class>
       </div>
