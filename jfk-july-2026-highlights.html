@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Screenshot (2347).png" type="png">
+    <title>AvHouse JFK - July 2026 Monthly Flight Highlights</title>
+    <style>
+      :root{
+        --bg:#0f172a;
+        --panel:#111827;
+        --ink:#e5e7eb;
+        --muted:#9ca3af;
+        --brand:#38bdf8;
+        --accent:#a78bfa;
+        --ok:#34d399;
+        --warn:#f59e0b;
+        --danger:#ef4444;
+        --border:rgba(255,255,255,.08);
+        --radius:16px;
+        --shadow:0 10px 28px rgba(0,0,0,.35);
+        --container:min(1100px,92vw);
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+        color:var(--ink);
+        background:radial-gradient(900px 500px at 10% -10%,#1f2a44 0%,transparent 60%),var(--bg);
+        line-height:1.6;
+        padding:28px;
+      }
+      a{color:var(--brand);text-decoration:none}
+      a:hover{text-decoration:underline}
+      .container{max-width:var(--container);margin:0 auto}
+      header{margin-bottom:20px}
+      .site-id{display:flex;align-items:center;gap:12px}
+      .badge{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--accent));color:#071123;font-weight:900;box-shadow:var(--shadow)}
+      h1{font-size:clamp(24px,4.5vw,40px);margin:12px 0;color:var(--brand)}
+      h2{font-size:clamp(20px,3.2vw,28px);margin-top:28px;margin-bottom:10px}
+      h3{font-size:18px;margin-top:18px;margin-bottom:8px;color:var(--accent)}
+      .byline{color:var(--muted);margin-bottom:14px}
+      .card{
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        padding:20px;
+        box-shadow:var(--shadow);
+        margin-bottom:20px;
+      }
+      .alert{
+        display:inline-block;
+        background:var(--brand);
+        color:#fff;
+        padding:8px 12px;
+        border-radius:12px;
+        font-weight:800;
+        margin-bottom:12px;
+      }
+      table{width:100%;border-collapse:collapse;margin-top:12px}
+      th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left;font-size:14px}
+      .small{font-size:13px;color:var(--muted)}
+      img{max-width:100%;border-radius:12px;margin:14px 0;display:block}
+      blockquote{border-left:4px solid var(--accent);padding-left:14px;color:var(--muted);font-style:italic;margin:14px 0}
+      footer{margin-top:34px;color:var(--muted);font-size:14px;text-align:center}
+
+      .stat-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+        gap:12px;
+        margin-top:14px;
+      }
+      .stat{
+        background:rgba(255,255,255,.03);
+        border:1px solid var(--border);
+        border-radius:12px;
+        padding:14px;
+        text-align:center;
+      }
+      .stat .num{font-size:24px;font-weight:900;color:var(--brand)}
+      .stat .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+
+      .tag{
+        display:inline-block;
+        background:rgba(56,189,248,.12);
+        color:var(--brand);
+        border:1px solid rgba(56,189,248,.35);
+        padding:4px 10px;
+        border-radius:10px;
+        font-size:12.5px;
+        font-weight:700;
+        margin:2px 6px 6px 0;
+      }
+      .tag.rare{background:rgba(167,139,250,.12);color:var(--accent);border-color:rgba(167,139,250,.35)}
+      .tag.gov{background:rgba(245,158,11,.12);color:var(--warn);border-color:rgba(245,158,11,.35)}
+      .tag.new{background:rgba(52,211,153,.12);color:var(--ok);border-color:rgba(52,211,153,.35)}
+
+      .highlight-list{list-style:none;margin:10px 0 0;padding:0}
+      .highlight-list li{
+        padding:12px 0;
+        border-bottom:1px solid var(--border);
+      }
+      .highlight-list li:last-child{border-bottom:none}
+      .highlight-list .hl-title{font-weight:700;color:var(--ink)}
+      .highlight-list .hl-meta{font-size:13px;color:var(--muted);margin-top:2px}
+
+      details{
+        background:rgba(255,255,255,.02);
+        border:1px solid var(--border);
+        border-radius:12px;
+        padding:10px 14px;
+        margin-bottom:10px;
+      }
+      summary{
+        cursor:pointer;
+        font-weight:700;
+        color:var(--brand);
+        padding:6px 0;
+        list-style:none;
+      }
+      summary::-webkit-details-marker{display:none}
+      summary:before{content:"▸ ";color:var(--muted)}
+      details[open] summary:before{content:"▾ "}
+      details table{margin-top:6px}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="site-id">
+          <div class="badge">AV</div>
+          <div>
+            <div style="font-weight:900;font-size:16px">AvHouse JFK</div>
+            <div class="small">JFK Aviation and News</div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <article class="card">
+          <div class="alert">📅 Monthly Recap</div>
+          <h1>July 2026 Monthly Flight Highlights at JFK</h1>
+          <div class="byline">Covering July 1 – July 31, 2026 · Compiled from daily spotting logs</div>
+
+          <p>July was a stacked month at JFK, headlined by Fleet Week military traffic, a Presidential visit, two new airline launches, a steady rotation of Airbus A380 superjumbos, and a run of genuinely rare cargo and government aircraft. Below is a roundup of the month's biggest movements, followed by the full day-by-day log.</p>
+
+          <div>
+            <span class="tag gov">🎖️ Fleet Week</span>
+            <span class="tag gov">🇺🇸 Air Force One</span>
+            <span class="tag new">✈️ New Airlines</span>
+            <span class="tag">🐘 A380 Rotation</span>
+            <span class="tag rare">💎 Extremely Rare</span>
+          </div>
+
+          <h2>📊 July 2026 By The Numbers</h2>
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="num">31</div>
+              <div class="lbl">Days of movements logged</div>
+            </div>
+            <div class="stat">
+              <div class="num">2</div>
+              <div class="lbl">New airlines launched at JFK</div>
+            </div>
+            <div class="stat">
+              <div class="num">3</div>
+              <div class="lbl">A380 operators (Emirates, Korean Air, Asiana)</div>
+            </div>
+            <div class="stat">
+              <div class="num">1</div>
+              <div class="lbl">Presidential visit (Air Force One)</div>
+            </div>
+          </div>
+
+          <h2>🇺🇸 Presidential &amp; Government Traffic</h2>
+          <p>The month's single biggest catch was <strong>Air Force One</strong> — a Boeing VC-25B (25-33000) — arriving July 17 from Joint Base Andrews and departing the same evening, escorted on the ground by Marine Corps MV-22 Ospreys and supported by a USAF C-17A Globemaster III. Fleet Week (July 2–4 and July 14) brought a steady stream of US Navy MH-60S Knighthawks and Marine Corps Ospreys shuttling between JFK and the Wall Street Heliport (JRB), alongside Air Force Two (a Boeing C-32A) on July 4.</p>
+          <p>Foreign state aircraft were also well represented: a German Air Force Airbus A319 ACJ passed through twice (July 3 and July 5), two UAE Air Force A330 MRTT tankers visited July 11, Russia's Special Flight Detachment flew an Ilyushin IL-96-300PU through JFK on three separate occasions (July 2, 6, and 8), a Nigerian Air Force Global 7500 arrived July 18, and Spain's Ministry of Defense rotated an Airbus A310 and Dassault Falcon 900 through JFK July 18–20. An Angolan government Global 7500 rounded out the month's diplomatic traffic on July 23.</p>
+
+          <h2>✈️ New Airlines at JFK</h2>
+          <ul class="highlight-list">
+            <li>
+              <div class="hl-title">GOL Linhas Aéreas — Airbus A330-243 (EC-NBN)</div>
+              <div class="hl-meta">Began regular JFK–Rio de Janeiro (GIG) service in July, with rotations logged July 13, 21, 27, and 31.</div>
+            </li>
+            <li>
+              <div class="hl-title">Israir Airlines — Airbus A330-243 (4X-BAK)</div>
+              <div class="hl-meta">Flew its inaugural JFK service from Tel Aviv (TLV) on July 31, arriving 5:54 PM EDT.</div>
+            </li>
+          </ul>
+
+          <h2>🐘 A380 Superjumbo Rotation</h2>
+          <p>Emirates, Korean Air, and Asiana Airlines kept the Airbus A380 in near-daily rotation through JFK all month, mostly on the Dubai (DXB), Seoul (ICN), and Milan (MXP) routes. A few stood out for their liveries: Emirates flew an <strong>NBA-branded A380</strong> on July 15 and again July 27, and closed the month with an A380 wearing a "Destination Dubai" scheme on July 23.</p>
+
+          <h2>💎 Rarest of the Rare</h2>
+          <ul class="highlight-list">
+            <li>
+              <div class="hl-title">Delta Boeing 717-2BD (N994AT) — JFK–MDW</div>
+              <div class="hl-meta">July 23, 12:40 AM EDT · Tagged "Extremely Rare" — the 717 rarely appears in Delta's JFK rotation.</div>
+            </li>
+            <li>
+              <div class="hl-title">Icelandair Boeing 757 in National Geographic livery</div>
+              <div class="hl-meta">July 20, 1:01 PM EDT · KEF–JFK, tagged "Extremely Rare.”</div>
+            </li>
+            <li>
+              <div class="hl-title">Ukraine Air Alliance Antonov AN-12BK (UR-CNT)</div>
+              <div class="hl-meta">July 3 · Round trip MIA–JFK–LRD, tagged "Extremely Rare."</div>
+            </li>
+            <li>
+              <div class="hl-title">Aerolíneas Argentinas World Cup rotation</div>
+              <div class="hl-meta">July 18–20 · A330s on EZE–JFK, tagged "Very Rare" amid World Cup-related charter demand.</div>
+            </li>
+            <li>
+              <div class="hl-title">KaiserAir Boeing 737-800 (N778MA)</div>
+              <div class="hl-meta">Logged July 16, 19, and 20 on charter routings — an uncommon operator/type combination for JFK.</div>
+            </li>
+            <li>
+              <div class="hl-title">The Yucaipa Companies Boeing 757-2J4 (N770BB)</div>
+              <div class="hl-meta">July 31, 8:10 PM EDT · IAD–JFK, tagged "Very Rare + VVIP."</div>
+            </li>
+          </ul>
+
+          <blockquote>Between Fleet Week, a Presidential visit, and two airline launches, July 2026 was one of the busiest months for notable movements at JFK all year.</blockquote>
+
+          <h2>🗂️ Full Daily Log — July 2026</h2>
+          <p class="small">Expand any date below for the complete list of notable movements logged that day.</p>
+
+          <details>
+            <summary>July 31, 2026 — 15 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:02 AM</td><td>Airbus A330-243</td><td>EC-NBN [GLO7001]</td><td>GOL Linhas Aéreas</td><td>JFK-GIG</td><td>New Airline</td></tr>
+                <tr><td>2:08 AM</td><td>Boeing 767-3Y0(ER)(BDSF)</td><td>N1619A [GTI9157]</td><td>Atlas Air</td><td>JFK-MIA</td><td>Rare</td></tr>
+                <tr><td>3:41 AM</td><td>Boeing 747-867F</td><td>B-LJF [CPA3298]</td><td>Cathay Cargo</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>5:12 AM</td><td>Airbus A330-202</td><td>9H-ALC [AIZ993]</td><td>Arkia - Hi Fly Malta</td><td>TLV-JFK</td><td>—</td></tr>
+                <tr><td>11:00 AM</td><td>Boeing 747-412F</td><td>4X-IAB [ICL984]</td><td>Challenge Airlines Israel</td><td>JFK-TLV</td><td>B744(F)</td></tr>
+                <tr><td>12:11 PM</td><td>Airbus A380-861</td><td>A6-EUH [UAE5V]</td><td>Emirates</td><td>JFK-DXB</td><td>A388 + Livery</td></tr>
+                <tr><td>12:11 PM</td><td>Gulfstream G280</td><td>N44M [LJY241]</td><td>Seward Prosser Mellon</td><td>PIT-JFK</td><td>Private</td></tr>
+                <tr><td>1:09 PM</td><td>Dassault Falcon 900EX</td><td>N2828 [JTL2828]</td><td>Jet Linx Aviation</td><td>FCM-JFK</td><td>Private</td></tr>
+                <tr><td>1:27 PM</td><td>Gulfstream G650ER</td><td>LX-JLK [SWV68JK]</td><td>Radial Crest</td><td>LBG-JFK</td><td>Private</td></tr>
+                <tr><td>2:14 PM</td><td>Airbus A380-861</td><td>A6-EOE [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>A388 + Livery</td></tr>
+                <tr><td>4:21 PM</td><td>Beech C90A King Air</td><td>N49JP [N49JP]</td><td>Private Owner</td><td>PSM-JFK</td><td>General Aviation</td></tr>
+                <tr><td>5:54 PM</td><td>Airbus A330-243</td><td>4X-BAK [ISR995]</td><td>Israir Airlines</td><td>TLV-JFK</td><td>New Airline + Inaugural</td></tr>
+                <tr><td>8:10 PM</td><td>Boeing 757-2J4(WL)</td><td>N770BB [N770BB]</td><td>The Yucaipa Companies</td><td>IAD-JFK</td><td>Very Rare + VVIP</td></tr>
+                <tr><td>11:57 PM</td><td>Boeing 747-48EF(SCD)</td><td>HL7436 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 30, 2026 — 11 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>8:43 AM</td><td>Airbus A380-842</td><td>A6-EVN [UAE8ER]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>10:09 AM</td><td>Boeing 787-8 Dreamliner</td><td>UK78706 [UZB101]</td><td>Uzbekistan Airways</td><td>TAS-JFK</td><td>Livery</td></tr>
+                <tr><td>10:46 AM</td><td>Boeing 777-F</td><td>B-18773 [CAL5310]</td><td>China Airlines Cargo</td><td>YYZ-JFK</td><td>—</td></tr>
+                <tr><td>11:12 AM</td><td>Airbus A380-861</td><td>HL7621 [KAL081]</td><td>Korean Air</td><td>ICN-JFK</td><td>A388</td></tr>
+                <tr><td>1:15 PM</td><td>Boeing 777-FB5</td><td>HL8077 [KAL8250]</td><td>Korean Air Cargo</td><td>JFK-YHZ</td><td>—</td></tr>
+                <tr><td>1:16 PM</td><td>Boeing 777-F</td><td>B-18773 [CAL5309]</td><td>China Airlines Cargo</td><td>JFK-ANC</td><td>—</td></tr>
+                <tr><td>1:34 PM</td><td>Boeing 777-F</td><td>N795CK [CKS4255]</td><td>Kalitta Air</td><td>YHM-JFK</td><td>—</td></tr>
+                <tr><td>2:17 PM</td><td>Airbus A380-842</td><td>A6-EOD [UAE201]</td><td>Emirates</td><td>DXB-JFK</td><td>NBA Livery</td></tr>
+                <tr><td>2:20 PM</td><td>Boeing 747-46NF</td><td>N451PA [GTI8274]</td><td>Atlas Air</td><td>JFK-NGU</td><td>Military / Repos.</td></tr>
+                <tr><td>5:12 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8977]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>10:22 PM</td><td>Boeing 767-3Y0(ER)(BDSF)</td><td>N1619A [GTI8012]</td><td>Atlas Air</td><td>HHN-JFK</td><td>Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 29, 2026 — 13 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>8:15 AM</td><td>Airbus A380-842</td><td>A6-EVQ [UAE203]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>10:48 AM</td><td>Boeing 777-F</td><td>B-18779 [CAL5312]</td><td>China Airlines Cargo</td><td>ANC-JFK</td><td>—</td></tr>
+                <tr><td>10:56 AM</td><td>Airbus A380-861</td><td>HL7627 [KAL081]</td><td>Korean Air</td><td>ICN-JFK</td><td>A388</td></tr>
+                <tr><td>11:43 AM</td><td>Airbus A380-842</td><td>A6-EVQ [UAE5V]</td><td>Emirates</td><td>JFK-DXB</td><td>A388</td></tr>
+                <tr><td>1:41 PM</td><td>Boeing 777-F</td><td>B-18779 [CAL5311]</td><td>China Airlines Cargo</td><td>JFK-ANC</td><td>—</td></tr>
+                <tr><td>2:00 PM</td><td>Airbus A380-861</td><td>HL7627 [KAL082]</td><td>Korean Air</td><td>JFK-ICN</td><td>A388</td></tr>
+                <tr><td>2:45 PM</td><td>Boeing 777-F</td><td>N772CK [CKS4253]</td><td>DHL - Kalitta Air</td><td>YHM-JFK</td><td>—</td></tr>
+                <tr><td>3:06 PM</td><td>Airbus A380-842</td><td>A6-EUH [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>Livery</td></tr>
+                <tr><td>7:26 PM</td><td>Airbus A380-842</td><td>A6-EOZ [UAE4PV]</td><td>Emirates</td><td>MXP-JFK</td><td>A388</td></tr>
+                <tr><td>8:13 PM</td><td>Boeing 747-47UF</td><td>N492MC [QFA7550]</td><td>Atlas Air</td><td>JFK-ORD</td><td>B744(F)</td></tr>
+                <tr><td>10:05 PM</td><td>Airbus A380-841</td><td>HL7626 [AAR224]</td><td>Asiana Airlines</td><td>ICN-JFK</td><td>A388</td></tr>
+                <tr><td>10:56 PM</td><td>Airbus A380-842</td><td>A6-EOZ [UAE5RQ]</td><td>Emirates</td><td>JFK-MXP</td><td>A388</td></tr>
+                <tr><td>11:18 PM</td><td>Airbus A380-842</td><td>A6-EUH [UAE8UW]</td><td>Emirates</td><td>JFK-DXB</td><td>Livery</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 28, 2026 — 37 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:47 AM</td><td>Airbus A330-343(P2F)</td><td>N5827K [ASA2626]</td><td>Amazon Air</td><td>AFW-JFK</td><td>—</td></tr>
+                <tr><td>1:50 AM</td><td>Boeing 767-319(ER)(BDSF)</td><td>N367AZ [ATN3327]</td><td>Amazon Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>2:06 AM</td><td>Boeing 747-8KZF</td><td>JA18KZ [NCA115]</td><td>Nippon Cargo Airlines</td><td>JFK-ANC</td><td>B748(F)</td></tr>
+                <tr><td>2:24 AM</td><td>Boeing 747-4R7F</td><td>LX-SCV [CLX9]</td><td>Cargolux</td><td>JFK-IND</td><td>B744(F)</td></tr>
+                <tr><td>2:31 AM</td><td>Boeing 777-FB5</td><td>HL8251 [KAL252]</td><td>Korean Air Cargo</td><td>JFK-ICN</td><td>—</td></tr>
+                <tr><td>2:31 AM</td><td>Boeing 767-338(ER)(BDSF)</td><td>N307AZ [ATN3345]</td><td>Amazon Air</td><td>ILN-JFK</td><td>—</td></tr>
+                <tr><td>2:37 AM</td><td>Airbus A380-861</td><td>HL7626 [AAR223]</td><td>Asiana Airlines</td><td>JFK-ICN</td><td>A388</td></tr>
+                <tr><td>2:42 AM</td><td>Boeing 747-89L</td><td>B-2487 [CCA982]</td><td>Air China</td><td>JFK-PEK</td><td>B748</td></tr>
+                <tr><td>5:33 AM</td><td>Boeing 767-300F</td><td>N916UP [UPS1114]</td><td>UPS</td><td>SDF-JFK</td><td>—</td></tr>
+                <tr><td>5:43 AM</td><td>Boeing 767-316(ER)(BCF)</td><td>G-DHLO [DHK815]</td><td>DHL</td><td>LEJ-JFK</td><td>—</td></tr>
+                <tr><td>5:55 AM</td><td>Boeing 767-300F</td><td>N919UP [UPS1112]</td><td>UPS</td><td>SDF-JFK</td><td>—</td></tr>
+                <tr><td>6:00 AM</td><td>Airbus A300F4-622R</td><td>N152UP [UPS1126]</td><td>UPS</td><td>RFD-JFK</td><td>A306(F)</td></tr>
+                <tr><td>6:02 AM</td><td>Boeing 767-300F</td><td>N189FE [FDX1431]</td><td>FedEx</td><td>MEM-JFK</td><td>—</td></tr>
+                <tr><td>6:36 AM</td><td>Boeing 767-300F</td><td>N291FE [FDX1483]</td><td>FedEx</td><td>MEM-JFK</td><td>—</td></tr>
+                <tr><td>6:37 AM</td><td>Boeing 767-300F</td><td>N254FE [FDX1712]</td><td>FedEx</td><td>MEM-JFK</td><td>—</td></tr>
+                <tr><td>7:30 AM</td><td>Boeing 767-383(ER)(BDSF)</td><td>N220CY [ABX552]</td><td>ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>8:08 AM</td><td>Piper Cheyenne I</td><td>N195AA [N195AA]</td><td>Private Owner</td><td>VVS-JFK</td><td>General Aviation</td></tr>
+                <tr><td>8:15 AM</td><td>Boeing 767-300F</td><td>N189FE [FDX644]</td><td>FedEx</td><td>JFK-MEM</td><td>—</td></tr>
+                <tr><td>8:16 AM</td><td>Boeing 767-300F</td><td>N916UP [UPS2115]</td><td>UPS</td><td>JFK-SDF</td><td>—</td></tr>
+                <tr><td>8:25 AM</td><td>Boeing 777-F16</td><td>N702GT [GTI8608]</td><td>Atlas Air</td><td>JFK-YHZ</td><td>—</td></tr>
+                <tr><td>8:38 AM</td><td>Boeing 767-316(ER)(BCF)</td><td>G-DHLO [DHK816]</td><td>DHL</td><td>JFK-LEJ</td><td>—</td></tr>
+                <tr><td>8:41 AM</td><td>Boeing 767-300F</td><td>N919UP [UPS5125]</td><td>UPS</td><td>JFK-SDF</td><td>—</td></tr>
+                <tr><td>8:46 AM</td><td>Boeing 747-412F</td><td>4X-IAB [ICL921]</td><td>Challenge Airlines Israel</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>8:57 AM</td><td>Airbus A380-842</td><td>A6-EVJ [UAE8ER]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>10:18 AM</td><td>Learjet 40</td><td>N35FJ [N35FJ]</td><td>TFJG Air LLC</td><td>ORF-JFK</td><td>Private</td></tr>
+                <tr><td>10:20 AM</td><td>Boeing 787-8 Dreamliner</td><td>UK78706 [UZB101]</td><td>Uzbekistan Airways</td><td>TAS-JFK</td><td>Livery</td></tr>
+                <tr><td>10:58 AM</td><td>Boeing 747-46NF</td><td>N451PA [GTI8603]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>12:38 PM</td><td>Boeing 747-412F</td><td>4X-IAB [ICL982]</td><td>Challenge Airlines Israel</td><td>JFK-TLV</td><td>B744(F)</td></tr>
+                <tr><td>12:45 PM</td><td>Boeing 777-368(ER)</td><td>HZ-AK43 [SVA022]</td><td>Saudia</td><td>JFK-RUH</td><td>Livery</td></tr>
+                <tr><td>1:01 PM</td><td>Airbus A340-642</td><td>D-AIHW [DLH400]</td><td>Lufthansa</td><td>FRA-JFK</td><td>A346</td></tr>
+                <tr><td>2:10 PM</td><td>Boeing 747-4B5F</td><td>N701CK [CKS935]</td><td>Kalitta Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>2:42 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8977]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>3:33 PM</td><td>Dassault Falcon 50</td><td>N200SG [N200SG]</td><td>Jacks Wings LLC</td><td>BUF-JFK</td><td>Private</td></tr>
+                <tr><td>4:31 PM</td><td>Airbus A330-343</td><td>LN-RKR [SAS915]</td><td>Scandinavian Airlines</td><td>CPH-JFK</td><td>80 Years Livery</td></tr>
+                <tr><td>4:55 PM</td><td>Boeing 767-332(ER)(BDSF)</td><td>N641AZ [ATN3327]</td><td>Amazon Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>5:29 PM</td><td>Boeing 747-4B5F</td><td>N701CK [CKS998]</td><td>Kalitta Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>8:04 PM</td><td>Boeing 747-46NF</td><td>N451PA [GTI8602]</td><td>Atlas Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>8:31 PM</td><td>Boeing 767-300F</td><td>N273FE [FDX764]</td><td>FedEx</td><td>MEM-JFK</td><td>—</td></tr>
+                <tr><td>11:45 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8976]</td><td>Atlas Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>11:49 PM</td><td>Boeing 767-381(ER)(BDSF)</td><td>N391CM [ABX480]</td><td>DHL</td><td>CVG-JFK</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 27, 2026 — 14 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>2:02 AM</td><td>Boeing 747-409F</td><td>HL7646 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>2:07 AM</td><td>Boeing 767-383(ER)(BDSF)</td><td>N220CY [ABX552]</td><td>ABX Air</td><td>ANC-JFK</td><td>—</td></tr>
+                <tr><td>5:05 AM</td><td>Airbus A330-202</td><td>9H-ALC [AIZ991]</td><td>Arkia - Hi Fly Malta</td><td>TLV-JFK</td><td>—</td></tr>
+                <tr><td>5:28 AM</td><td>Boeing 787-9 Dreamliner</td><td>4X-EDC [ELY001]</td><td>El Al</td><td>TLV-JFK</td><td>—</td></tr>
+                <tr><td>6:34 AM</td><td>Airbus A330-243</td><td>EC-NBN [GLO7000]</td><td>GOL Linhas Aéreas</td><td>GIG-JFK</td><td>New Airline</td></tr>
+                <tr><td>6:37 AM</td><td>Bombardier Global 6000</td><td>C-GIIT [CGIIT]</td><td>I.M.P. Group Limited</td><td>YUL-JFK</td><td>Private</td></tr>
+                <tr><td>7:25 AM</td><td>Airbus A330-343(P2F)</td><td>TC-MCN [MNB412]</td><td>MNG Airlines</td><td>YYZ-JFK</td><td>—</td></tr>
+                <tr><td>10:16 AM</td><td>Boeing 747-8R7F</td><td>LX-VCA [CLX226]</td><td>Cargolux</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>2:58 PM</td><td>Airbus A380-861</td><td>A6-EOD [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>NBA Livery</td></tr>
+                <tr><td>4:22 PM</td><td>Boeing 777-F</td><td>B-220F [CKK231]</td><td>China Cargo</td><td>ANC-JFK</td><td>Livery</td></tr>
+                <tr><td>7:15 PM</td><td>Boeing 787-9 Dreamliner</td><td>ZK-NZM [ANZ2]</td><td>Air New Zealand</td><td>AKL-JFK</td><td>—</td></tr>
+                <tr><td>10:46 PM</td><td>Boeing 747-4R7F</td><td>LX-SCV [CLX9]</td><td>Cargolux</td><td>LUX-JFK</td><td>B748(F)</td></tr>
+                <tr><td>10:59 PM</td><td>Boeing 767-381(ER)(BDSF)</td><td>N391CM [ABX480]</td><td>DHL - ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>11:26 PM</td><td>Airbus A330-243</td><td>EC-NBN [GLO7001]</td><td>GOL Linhas Aéreas</td><td>JFK-GIG</td><td>New Airline</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 26, 2026 — 21 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>1:31 AM</td><td>Boeing 747-867F</td><td>B-LJD [CPA095]</td><td>Cathay Cargo</td><td>JFK-HKG</td><td>B748(F)</td></tr>
+                <tr><td>2:16 AM</td><td>Boeing 747-89L</td><td>B-2487 [CCA982]</td><td>Air China</td><td>JFK-PEK</td><td>B748</td></tr>
+                <tr><td>2:23 AM</td><td>Boeing 747-4R7F</td><td>LX-OCV [CLX74A]</td><td>Cargolux</td><td>JFK-LUX</td><td>B748(F)</td></tr>
+                <tr><td>2:38 AM</td><td>Airbus A380-841</td><td>HL7626 [AAR223]</td><td>Asiana Airlines</td><td>JFK-ICN</td><td>A388</td></tr>
+                <tr><td>4:29 AM</td><td>Boeing 747-47UF</td><td>N409MC [QFA7571]</td><td>Atlas Air</td><td>ORD-JFK</td><td>B744(F)</td></tr>
+                <tr><td>6:21 AM</td><td>Boeing 747-412(BCF)</td><td>OO-ACE [CHG541]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>7:07 AM</td><td>Boeing 747-867F</td><td>B-LJE [CPA3296]</td><td>Cathay Cargo</td><td>ANC-JFK</td><td>B748(F) + Livery</td></tr>
+                <tr><td>8:16 AM</td><td>Boeing 747-4B5(BCF)</td><td>N709CK [CKS935]</td><td>Kalitta Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>9:11 AM</td><td>Airbus A380-842</td><td>A6-EVH [UAE8ER]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>10:50 AM</td><td>Boeing 747-4B5(BCF)</td><td>N709CK [CKS960]</td><td>Kalitta Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>10:51 AM</td><td>Airbus A380-861</td><td>HL7619 [KAL081]</td><td>Korean Air</td><td>ICN-JFK</td><td>A388</td></tr>
+                <tr><td>11:44 AM</td><td>Boeing 747-412(BCF)</td><td>OO-ACE [CHG542]</td><td>Challenge Airlines</td><td>JFK-LGG</td><td>B744(F)</td></tr>
+                <tr><td>12:14 PM</td><td>Airbus A380-842</td><td>A6-EVH [UAE5V]</td><td>Emirates</td><td>JFK-DXB</td><td>A388</td></tr>
+                <tr><td>1:21 PM</td><td>Boeing 747-47UF</td><td>N418MC [QFA7583]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>1:29 PM</td><td>Airbus A340-642</td><td>D-AIHW [DLH400]</td><td>Lufthansa</td><td>FRA-JFK</td><td>A346</td></tr>
+                <tr><td>1:53 PM</td><td>Boeing 747-867F</td><td>B-LJE [CPA085]</td><td>Cathay Cargo</td><td>JFK-HKG</td><td>B748(F) + Livery</td></tr>
+                <tr><td>4:54 PM</td><td>Boeing 747-47UF</td><td>N409MC [QFA7554]</td><td>Atlas Air</td><td>JFK-ORD</td><td>B744(F)</td></tr>
+                <tr><td>6:36 PM</td><td>Boeing 757-232</td><td>N652DL [DAL8963]</td><td>Delta Air Lines</td><td>JFK-LAX</td><td>VIP / Charter</td></tr>
+                <tr><td>7:10 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8976]</td><td>Atlas Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>8:34 PM</td><td>Boeing 747-46NF</td><td>N451PA [GTI8602]</td><td>Atlas Air</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>10:11 PM</td><td>Boeing 747-89L</td><td>B-2480 [CCA981]</td><td>Air China</td><td>PEK-JFK</td><td>B748</td></tr>
+                <tr><td>10:56 PM</td><td>Airbus A380-841</td><td>HL7634 [AAR224]</td><td>Asiana Airlines</td><td>ICN-JFK</td><td>A388</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 25, 2026 — 10 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>8:48 AM</td><td>Boeing 747-8KZF</td><td>JA11KZ [NCA5175]</td><td>Nippon Cargo Airlines</td><td>JFK-ANC</td><td>B748(F)</td></tr>
+                <tr><td>9:46 AM</td><td>Boeing 767-338(ER)(BDSF)</td><td>N362CM [ABX552]</td><td>ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>10:16 AM</td><td>Boeing 767-319(ER)(BCF)</td><td>TF-ISP [ICE5711]</td><td>Icelandair Cargo</td><td>JFK-SFO</td><td>—</td></tr>
+                <tr><td>10:41 AM</td><td>Boeing 747-4EVF(ER)</td><td>B-2423 [CSS181]</td><td>SF Airlines</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>12:20 PM</td><td>Boeing 767-338(ER)(BDSF)</td><td>N362CM [ABX1152]</td><td>ABX Air</td><td>JFK-CVG</td><td>—</td></tr>
+                <tr><td>12:47 PM</td><td>Boeing 747-4EVF(ER)</td><td>B-2423 [CSS182]</td><td>SF Airlines</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>5:13 PM</td><td>Boeing 777-3FG(ER)</td><td>HZ-AK36 [SVA021]</td><td>Saudia</td><td>JED-JFK</td><td>80 Years Livery</td></tr>
+                <tr><td>5:41 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8977]</td><td>Atlas Air</td><td>ANC-JFK</td><td>Rare Arrival Runway</td></tr>
+                <tr><td>8:12 PM</td><td>Boeing 777-219(ER)</td><td>EC-OJL [LOT4L]</td><td>Privilege Style</td><td>WAW-JFK</td><td>—</td></tr>
+                <tr><td>11:38 PM</td><td>Boeing 747-4R7F</td><td>LX-OCV [CLX2]</td><td>Cargolux</td><td>LUX-JFK</td><td>B744(F)</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 24, 2026 — 11 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>4:51 AM</td><td>Airbus A330-202</td><td>9H-ALC [AIZ993]</td><td>Arkia - Hi Fly Malta</td><td>TLV-JFK</td><td>—</td></tr>
+                <tr><td>7:20 AM</td><td>Boeing 767-338(ER)(BDSF)</td><td>N362CM [ABX552]</td><td>ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>8:35 AM</td><td>Airbus A380-861</td><td>A6-EOD [UAE8ER]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>9:08 AM</td><td>Boeing 787-9 Dreamliner</td><td>A9C-FG [GFA091]</td><td>Gulf Air</td><td>BAH-JFK</td><td>Retro Livery</td></tr>
+                <tr><td>10:04 AM</td><td>Boeing 747-46NF</td><td>N451PA [GTI812]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>11:46 AM</td><td>Boeing 787-9 Dreamliner</td><td>B-1357 [CXA849]</td><td>Xiamen Air</td><td>FOC-JFK</td><td>—</td></tr>
+                <tr><td>12:03 PM</td><td>Tecnam P2012 Traveller</td><td>N969CA [KAP68]</td><td>Cape Air</td><td>SLK-JFK</td><td>P212</td></tr>
+                <tr><td>1:14 PM</td><td>Cirrus G2+ Vision Jet</td><td>N613YR [N613YR]</td><td>Private Owner</td><td>LUK-JFK</td><td>Private + Rare</td></tr>
+                <tr><td>2:12 PM</td><td>Boeing 747-409F</td><td>N569CA [NCR4838]</td><td>National Air Cargo</td><td>LGG-JFK</td><td>B744(F) + Rare</td></tr>
+                <tr><td>4:26 PM</td><td>Boeing 767-323(ER)(BDSF)</td><td>N321CM [ATN3327]</td><td>Air Transport International</td><td>CVG-JFK</td><td>Uncommon</td></tr>
+                <tr><td>5:21 PM</td><td>Boeing 747-409F</td><td>N569CA [NCR4838]</td><td>National Air Cargo</td><td>JFK-NLU</td><td>B744(F) + Rare</td></tr>
+                <tr><td>8:53 PM</td><td>Boeing 747-409F</td><td>HL7645 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 23, 2026 — 18 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:40 AM</td><td>Boeing 717-2BD</td><td>N994AT [DAL8960]</td><td>Delta Air Lines</td><td>JFK-MDW</td><td>Extremely Rare + B712</td></tr>
+                <tr><td>2:23 AM</td><td>Boeing 767-323(ER)(BDSF)</td><td>N351CM [ATN3345]</td><td>Air Transport International</td><td>ILN-JFK</td><td>Uncommon</td></tr>
+                <tr><td>2:31 AM</td><td>Boeing 747-8R7F</td><td>LX-VCA [CLX261]</td><td>Cargolux</td><td>JFK-LUX</td><td>B748(F)</td></tr>
+                <tr><td>2:37 AM</td><td>Boeing 747-89L</td><td>B-2486 [CCA982]</td><td>Air China</td><td>JFK-PEK</td><td>B748</td></tr>
+                <tr><td>2:49 AM</td><td>Airbus A380-841</td><td>HL7635 [AAR223]</td><td>Asiana Airlines</td><td>JFK-ICN</td><td>A388</td></tr>
+                <tr><td>5:11 AM</td><td>Boeing 747-412F</td><td>9H-AKJ [SVA903]</td><td>Saudia Cargo</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>5:22 AM</td><td>Boeing 767-332(ER)</td><td>N187DN [DAL960]</td><td>Delta Air Lines</td><td>LAX-JFK</td><td>—</td></tr>
+                <tr><td>6:32 AM</td><td>Boeing 767-323(ER)(BDSF)</td><td>N351CM [ATN3359]</td><td>Air Transport International</td><td>JFK-CVG</td><td>Uncommon</td></tr>
+                <tr><td>7:58 AM</td><td>Boeing 747-867F</td><td>B-LJJ [CPA3294]</td><td>Cathay Cargo</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>10:38 AM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [CHZ791]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B77W(F)</td></tr>
+                <tr><td>10:59 AM</td><td>Boeing 747-867F</td><td>B-LJJ [CPA3509]</td><td>Cathay Cargo</td><td>JFK-YYZ</td><td>B748(F)</td></tr>
+                <tr><td>11:45 AM</td><td>Bombardier Global 7500</td><td>OE-IXI [ANGOLA6]</td><td>Eden Jets - Angolan Government</td><td>JFK-BJM</td><td>Rare + Government</td></tr>
+                <tr><td>12:23 PM</td><td>Boeing 737-823</td><td>N883NN [AAL525]</td><td>American Airlines</td><td>JFK-MIA</td><td>Diversion</td></tr>
+                <tr><td>12:30 PM</td><td>Boeing 747-412F</td><td>9H-AKJ [SVA902]</td><td>Saudia Cargo</td><td>JFK-RUH</td><td>B744(F)</td></tr>
+                <tr><td>12:31 PM</td><td>Boeing 747-409F</td><td>N439GT [GTI8603]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>2:51 PM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [CHZ792]</td><td>Challenge Airlines</td><td>JFK-LGG</td><td>B77W(F)</td></tr>
+                <tr><td>3:25 PM</td><td>Airbus A380-861</td><td>A6-EEU [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>Dest. Dubai Livery</td></tr>
+                <tr><td>4:47 PM</td><td>Boeing 787-8 Dreamliner</td><td>JY-BAH [RJA261G]</td><td>Royal Jordanian</td><td>AMM-JFK</td><td>—</td></tr>
+                <tr><td>7:19 PM</td><td>Boeing 747-409F</td><td>OE-LRI [ICL984]</td><td>Challenge Airlines</td><td>JFK-TLV</td><td>—</td></tr>
+                <tr><td>7:58 PM</td><td>Pilatus PC-12 NGX</td><td>N434TW [GPD434]</td><td>Tradewind Aviation</td><td>ACK-JFK</td><td>General Aviation</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 22, 2026 — 12 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>1:12 AM</td><td>Boeing 747-48EF(SCD)</td><td>HL7436 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>3:55 AM</td><td>Boeing 767-375(ER)(BDSF)</td><td>C-FCAE [CJT3184]</td><td>Cargojet Airways</td><td>JFK-YHM</td><td>Rare</td></tr>
+                <tr><td>4:15 AM</td><td>Boeing 747-48EF(SCF)</td><td>HL7436 [AIH587]</td><td>AirZeta</td><td>JFK-BRU</td><td>B744(F)</td></tr>
+                <tr><td>5:04 AM</td><td>Boeing 747-4EVF(ER)</td><td>B-2422 [CSS185]</td><td>SF Airlines</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>5:50 AM</td><td>Boeing 767-300F</td><td>N368UP [UPS1112]</td><td>UPS</td><td>SDF-JFK</td><td>—</td></tr>
+                <tr><td>6:56 AM</td><td>Boeing 767-319(ER)(BCF)</td><td>TF-ISP [ICE721]</td><td>Icelandair Cargo</td><td>KEF-JFK</td><td>Uncommon</td></tr>
+                <tr><td>7:16 AM</td><td>Boeing 767-338(ER)(BDSF)</td><td>N362CM [ABX552]</td><td>ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>7:18 AM</td><td>Dassault Falcon 900EX</td><td>N18CG [N18CG]</td><td>Corning INC.</td><td>N/A-JFK</td><td>Private</td></tr>
+                <tr><td>8:29 AM</td><td>Boeing 747-409F</td><td>OE-LRI [ICL931]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>11:44 AM</td><td>Boeing 747-412(BCF)</td><td>N756CA [NCR815]</td><td>National Air Cargo</td><td>HHN-JFK</td><td>B744(F) + Uncommon</td></tr>
+                <tr><td>12:00 PM</td><td>Boeing 747-47UF</td><td>N418MC [QFA7581]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>12:16 PM</td><td>Cirrus SR22T</td><td>N119PT [N119PT]</td><td>Private Owner</td><td>BHB-JFK</td><td>General Aviation</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 21, 2026 — 16 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:04 AM</td><td>Airbus A330-243</td><td>EC-NBN [GLO7001]</td><td>GOL Linhas Aéreas</td><td>JFK-GIG</td><td>New Airline</td></tr>
+                <tr><td>12:27 AM</td><td>Boeing 747-8KZF</td><td>JA11KZ [NCA114]</td><td>Nippon Cargo Airlines</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>6:16 AM</td><td>Bombardier Challenger 350</td><td>N576FX [LXJ576]</td><td>Flexjet</td><td>BLM-JFK</td><td>Private</td></tr>
+                <tr><td>6:25 AM</td><td>Airbus A300F4-622R</td><td>N135UP [UPS1126]</td><td>UPS</td><td>RFD-JFK</td><td>A306(F)F</td></tr>
+                <tr><td>11:59 AM</td><td>Boeing 747-867F</td><td>B-LJN [CPA3286]</td><td>Cathay Cargo</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>12:21 PM</td><td>Boeing 777-F16</td><td>N702GT [GTI8609]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B77LF</td></tr>
+                <tr><td>12:51 PM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8977]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>1:37 PM</td><td>Pilatus PC-12 NGX</td><td>N435TW [GPD435]</td><td>Tradewind Aviation</td><td>ACK-JFK</td><td>General Aviation</td></tr>
+                <tr><td>2:05 PM</td><td>Boeing 747-412F</td><td>9H-AKJ [SVA903]</td><td>Saudia Cargo</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>2:09 PM</td><td>Boeing 747-4EVF(ER)</td><td>OO-ACF [CHG521]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B744(F)</td></tr>
+                <tr><td>4:26 PM</td><td>Embraer Legacy 600</td><td>N135SC [ELZ0005]</td><td>Elite Air</td><td>ELH-TEB (Diverted to JFK)</td><td>Diversion + Rare</td></tr>
+                <tr><td>5:57 PM</td><td>Airbus A330-343</td><td>EC-OLG [VIR127C]</td><td>Wamos Air</td><td>MAN-JFK</td><td>—</td></tr>
+                <tr><td>7:47 PM</td><td>Airbus A340-313</td><td>D-AIGZ [DLH404]</td><td>Lufthansa</td><td>FRA-JFK</td><td>A343</td></tr>
+                <tr><td>7:51 PM</td><td>Airbus A380-861</td><td>A6-EUB [UAE4PV]</td><td>Emirates</td><td>MXP-JFK</td><td>A388</td></tr>
+                <tr><td>8:23 PM</td><td>Boeing 747-4B5F</td><td>N705CK [CKS935]</td><td>Kalitta Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>8:25 PM</td><td>Boeing 777-FBT</td><td>D-ALFC [GEC8162]</td><td>Lufthansa Cargo</td><td>FRA-JFK</td><td>—</td></tr>
+                <tr><td>8:28 PM</td><td>Airbus A330-223</td><td>9H-HFJ [AIZ993]</td><td>Hi Fly</td><td>TLV-JFK</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 20, 2026 — 10 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:23 AM</td><td>Boeing 767-316(ER)</td><td>CC-CXI [LPE2469]</td><td>LATAM Airlines</td><td>JFK-LIM</td><td>—</td></tr>
+                <tr><td>12:32 AM</td><td>Boeing 777-219(ER)</td><td>EC-OJL [LOT5N]</td><td>Privilege Style</td><td>JFK-WAW</td><td>—</td></tr>
+                <tr><td>1:25 AM</td><td>Boeing 747-4EVF(ER)</td><td>OO-ACF [ICL981]</td><td>Challenge Airlines</td><td>TLV-JFK</td><td>B744(F)</td></tr>
+                <tr><td>1:49 AM</td><td>Boeing 747-409F</td><td>HL7646 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>3:57 AM</td><td>Airbus A330-203</td><td>LV-GKP [ARG1951]</td><td>Aerolíneas Argentinas</td><td>JFK-EZE</td><td>World Cup + Very Rare</td></tr>
+                <tr><td>7:17 AM</td><td>Airbus A330-202</td><td>LV-KAN [ARG1971]</td><td>Aerolíneas Argentinas</td><td>JFK-EZE</td><td>World Cup + Very Rare</td></tr>
+                <tr><td>7:39 AM</td><td>Boeing 747-4B5F</td><td>N706CK [CKS935]</td><td>Kalitta Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>12:41 PM</td><td>Airbus A330-202</td><td>LV-GHQ [ARG1909]</td><td>Aerolíneas Argentinas</td><td>JFK-EZE</td><td>Very Rare</td></tr>
+                <tr><td>1:01 PM</td><td>Boeing 757-256</td><td>TF-LLL [ICE1343]</td><td>Icelandair - National Geographic</td><td>KEF-JFK</td><td>Extremely Rare</td></tr>
+                <tr><td>7:20 PM</td><td>Boeing 767-232(BDSF)</td><td>N745AX [ABX5256]</td><td>ABX Air</td><td>CVG-JFK</td><td>B762F + Very Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 19, 2026 — 20 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>1:51 AM</td><td>Airbus A330-202</td><td>LV-KAN [ARG1916]</td><td>Aerolíneas Argentinas</td><td>IAD-JFK</td><td>World Cup + Very Rare</td></tr>
+                <tr><td>5:40 AM</td><td>Boeing 747-4KZF</td><td>N405KZ [GTI8977]</td><td>Atlas Air</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>5:58 AM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [ICL941]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B77W(F)</td></tr>
+                <tr><td>6:00 AM</td><td>Boeing 747-40BF(ER)</td><td>B-2426 [CSS182]</td><td>SF Airlines</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>6:04 AM</td><td>Boeing 747-89L</td><td>B-2486 [CCA982]</td><td>Air China</td><td>JFK-PEK</td><td>B748</td></tr>
+                <tr><td>7:32 AM</td><td>Boeing 787-8 Dreamliner</td><td>5Y-KZF [KQA002]</td><td>Kenya Airways</td><td>NBO-JFK</td><td>—</td></tr>
+                <tr><td>8:01 AM</td><td>Airbus A330-203</td><td>LV-GKP [ARG1934]</td><td>Aerolíneas Argentinas</td><td>EZE-JFK</td><td>World Cup + Very Rare</td></tr>
+                <tr><td>8:58 AM</td><td>Airbus A330-343</td><td>EC-NOG [PLM569]</td><td>Wamos Air</td><td>MAD-JFK</td><td>Rare</td></tr>
+                <tr><td>9:19 AM</td><td>Boeing 787-9 Dreamliner</td><td>A9C-FJ [GFA091]</td><td>Gulf Air</td><td>BAH-JFK</td><td>—</td></tr>
+                <tr><td>10:18 AM</td><td>Airbus A350-941</td><td>SU-GGJ [MSR985]</td><td>EgyptAir</td><td>CAI-JFK</td><td>—</td></tr>
+                <tr><td>10:21 AM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [ICL982]</td><td>Challenge Airlines</td><td>JFK-TLV</td><td>B77W(F)</td></tr>
+                <tr><td>10:35 AM</td><td>Boeing 767-332(ER)</td><td>N185DN [DAL9909]</td><td>Delta Air Lines</td><td>BOS-JFK</td><td>B77W(F)</td></tr>
+                <tr><td>11:44 AM</td><td>Airbus A321-211</td><td>N718FR [FFT4732]</td><td>Frontier</td><td>ATL-JFK</td><td>—</td></tr>
+                <tr><td>12:23 PM</td><td>Boeing 767-383(ER)(BDSF)</td><td>N220CY [ABX305]</td><td>ABX Air</td><td>CVG-JFK</td><td>—</td></tr>
+                <tr><td>2:10 PM</td><td>Boeing 737-808</td><td>N778MA [KAI529]</td><td>KaiserAir</td><td>BZN-JFK</td><td>Rare</td></tr>
+                <tr><td>3:43 PM</td><td>Boeing 737-808</td><td>N778MA [KAI529]</td><td>KaiserAir</td><td>JFK-OAK</td><td>Rare</td></tr>
+                <tr><td>8:35 PM</td><td>Bombardier Global 7500</td><td>9H-VIG [VJT731]</td><td>VistaJet</td><td>TPA-JFK</td><td>Rare</td></tr>
+                <tr><td>9:43 PM</td><td>Airbus A310-304</td><td>T-22.2 [AME4543]</td><td>Aeronave Militar Española</td><td>JFK-ALG</td><td>Government + Extremely Rare</td></tr>
+                <tr><td>10:18 PM</td><td>Dassault Falcon 900</td><td>T.18-2 [AME4551]</td><td>Aeronave Militar Española</td><td>JFK-TOJ</td><td>Government + Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 18, 2026 — 5 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>7:48 AM</td><td>Airbus A330-202</td><td>LV-GHQ [ARG1904]</td><td>Aerolíneas Argentinas</td><td>EZE-JFK</td><td>Very Rare</td></tr>
+                <tr><td>8:02 AM</td><td>Airbus A330-203</td><td>LV-GKP [ARG1934]</td><td>Aerolíneas Argentinas</td><td>EZE-JFK</td><td>World Cup + Very Rare</td></tr>
+                <tr><td>8:09 AM</td><td>Bombardier Global 7500</td><td>5N-FGY [N5NFGY]</td><td>Nigerian Air Force</td><td>LOS-JFK</td><td>Government + Rare</td></tr>
+                <tr><td>6:00 PM</td><td>Airbus A310-304</td><td>T-22.2 [AME4543]</td><td>Aeronave Militar Española</td><td>TOJ-JFK</td><td>Government + Extremely Rare</td></tr>
+                <tr><td>8:28 PM</td><td>Dassault Falcon 900</td><td>T.18-2 [AME4551]</td><td>Aeronave Militar Española</td><td>TER-JFK</td><td>Government + Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 17, 2026 — Air Force One visit — 8 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>3:08 PM</td><td>Boeing VC-25B</td><td>25-33000 [AF1]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Air Force 1 + Extremely Rare</td></tr>
+                <tr><td>3:25 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168284</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+                <tr><td>3:25 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>[OSPREY]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+                <tr><td>3:25 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>[AE53F1]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+                <tr><td>3:53 PM</td><td>Bombardier Global 7500</td><td>N1209G</td><td>Private Owner</td><td>JFK-BOS</td><td>Private + GL7T</td></tr>
+                <tr><td>4:23 PM</td><td>Boeing VC-25B</td><td>25-33000 [AF1]</td><td>United States Air Force</td><td>JFK-ADW</td><td>Air Force 1 + Extremely Rare</td></tr>
+                <tr><td>7:25 PM</td><td>McDonnell Douglas C-17A</td><td>89-1190 [FAMUS17]</td><td>United States Air Force</td><td>WRI-JFK</td><td>Military + C17</td></tr>
+                <tr><td>9:54 PM</td><td>Boeing 767-24Q(ER)</td><td>N767CJ [ELX21]</td><td>Elan Express</td><td>YYZ-JFK</td><td>Air Drake + Private</td></tr>
+                <tr><td>10:19 PM</td><td>McDonnell Douglas C-17A</td><td>89-1190 [FAMUS17]</td><td>United States Air Force</td><td>JFK-ADW</td><td>Military + C17</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 16, 2026 — 6 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>10:40 AM</td><td>McDonnell Douglas C-17A</td><td>89-1190 [TEDDY47]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Military + C17</td></tr>
+                <tr><td>11:30 AM</td><td>Boeing 737-808</td><td>N778MA [KAI529]</td><td>KaiserAir</td><td>JFK-BZN</td><td>Rare</td></tr>
+                <tr><td>11:53 AM</td><td>McDonnell Douglas C-17A</td><td>89-1190 [TEDDY47]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Military + C17</td></tr>
+                <tr><td>1:49 PM</td><td>McDonnell Douglas C-17A</td><td>94-0070 [MYSTC13]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Military + C17</td></tr>
+                <tr><td>3:50 PM</td><td>Embraer E170LR</td><td>N780NC [UCA1500]</td><td>CommuteAir</td><td>JFK-MOT</td><td>Very Rare</td></tr>
+                <tr><td>3:53 PM</td><td>McDonnell Douglas C-17A</td><td>94-0070 [MYSTC13]</td><td>United States Air Force</td><td>JFK-WRI</td><td>Military + C17</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 15, 2026 — 11 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>7:07 AM</td><td>Boeing 767-319(ER)(BCF)</td><td>TF-ISP [ICE721]</td><td>Icelandair Cargo</td><td>KEF-JFK</td><td>—</td></tr>
+                <tr><td>11:20 AM</td><td>Boeing 747-4EVF(ER)</td><td>B-2422 [CSS185]</td><td>SF Airlines</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>1:22 PM</td><td>Embraer Legacy 450</td><td>XA-VPA</td><td>Avemex</td><td>TLC-JFK</td><td>Private</td></tr>
+                <tr><td>3:00 PM</td><td>Pilatus PC-12</td><td>N409FZ</td><td>Flying Zebra</td><td>ACK-JFK</td><td>General Aviation</td></tr>
+                <tr><td>3:37 PM</td><td>Airbus A380-861</td><td>A6-EOD [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>NBA Livery</td></tr>
+                <tr><td>4:15 PM</td><td>Boeing 737 MAX 8</td><td>C-FTXF [WJA1860]</td><td>WestJet</td><td>YYC-JFK</td><td>Sunwing Livery</td></tr>
+                <tr><td>4:30 PM</td><td>Bombardier Global 7500</td><td>N7509 [VJA759]</td><td>Vista America</td><td>MIA-JFK</td><td>Rare + GL7T</td></tr>
+                <tr><td>5:12 PM</td><td>Airbus A380-861</td><td>HL7627 [KAL081]</td><td>Korean Air</td><td>ICN-JFK</td><td>A388</td></tr>
+                <tr><td>7:35 PM</td><td>Embraer E170LR</td><td>N780NC [UCA1500]</td><td>CommuteAir</td><td>IDA-JFK</td><td>Very Rare</td></tr>
+                <tr><td>8:56 PM</td><td>Boeing 737-808</td><td>N778MA [KAI10]</td><td>KaiserAir</td><td>ILG-JFK</td><td>Rare + Charter</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 14, 2026 — Fleet Week Ospreys — 4 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>4:07 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168284 [NH31]</td><td>United States Marine Corps</td><td>NYG-JFK</td><td>Military + V22</td></tr>
+                <tr><td>6:44 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168284 [NH3]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+                <tr><td>6:44 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>[OSPREY]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+                <tr><td>6:44 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>[AE53F1]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Military + V22</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 13, 2026 — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>1:51 AM</td><td>Boeing 747-8R7F</td><td>LX-VCJ [CLX226]</td><td>Cargolux</td><td>ANC-JFK</td><td>B748(F)</td></tr>
+                <tr><td>7:12 AM</td><td>Airbus A330-243</td><td>EC-NBN [GLO7000]</td><td>GOL Linhas Aéreas</td><td>GIG-JFK</td><td>New Airline</td></tr>
+                <tr><td>3:57 PM</td><td>Boeing 737-7GE(BBJ)</td><td>HL8290</td><td>Hyundai</td><td>HPN-JFK</td><td>Rare + BBJ</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 12, 2026 — 10 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:48 AM</td><td>Airbus A330-343</td><td>N873CA [NCR331]</td><td>National Airlines</td><td>SJC-JFK</td><td>Rare</td></tr>
+                <tr><td>1:44 AM</td><td>Boeing 747-467F(ER)</td><td>B-LIC [CPA085]</td><td>Cathay Cargo</td><td>JFK-ANC</td><td>B744(F)</td></tr>
+                <tr><td>2:19 AM</td><td>Airbus A330-202</td><td>9H-ALC [AIZ994]</td><td>Arkia - Hi Fly Malta</td><td>JFK-TLV</td><td>—</td></tr>
+                <tr><td>8:11 AM</td><td>Boeing 747-4EVF(ER)</td><td>OO-ACF [ICL984]</td><td>Challenge Airlines</td><td>JFK-TLV</td><td>B744(F)</td></tr>
+                <tr><td>8:34 AM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [ICL981]</td><td>Challenge Airlines</td><td>TLV-JFK</td><td>B77W(F)</td></tr>
+                <tr><td>9:24 AM</td><td>Boeing 747-412(BCF)</td><td>OO-ACE [ICL986]</td><td>Challenge Airlines</td><td>JFK-TLV</td><td>B744(F)</td></tr>
+                <tr><td>9:41 AM</td><td>Airbus A330-243</td><td>N390HA [ASA829]</td><td>Hawaiian Airlines</td><td>JFK-HNL</td><td>—</td></tr>
+                <tr><td>10:22 AM</td><td>Airbus A330-343</td><td>N873CA [NCR332]</td><td>National Airlines</td><td>JFK-SJC</td><td>Rare</td></tr>
+                <tr><td>2:46 PM</td><td>Airbus A380-861</td><td>A6-EOL [UAE69R]</td><td>Emirates</td><td>DXB-JFK</td><td>A388</td></tr>
+                <tr><td>9:41 PM</td><td>Boeing 747-4EVF(ER)</td><td>4X-ICA [ICL981]</td><td>Challenge Airlines</td><td>LGG-JFK</td><td>B744(F) + Blocked</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 11, 2026 — UAE Air Force tankers — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>8:24 AM</td><td>Airbus A330-243MRTT</td><td>[SKY01]</td><td>United Arab Emirates Air Force</td><td>JFK-N/A</td><td>Rare + Military</td></tr>
+                <tr><td>8:41 AM</td><td>Airbus A330-243MRTT</td><td>1303 [SKY02]</td><td>United Arab Emirates Air Force</td><td>JFK-TER</td><td>Rare + Military</td></tr>
+                <tr><td>6:42 PM</td><td>Embraer Lineage 1000</td><td>YL-UAG [UAG101]</td><td>Union Aviation</td><td>STN-JFK</td><td>Rare + Private</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 8, 2026 — Russian state visit — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>6:27 AM</td><td>Boeing 747-4EVF(ER)</td><td>B-2422 [CSS185]</td><td>SF Airlines</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>5:11 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD838]</td><td>Russia - Special Flight Detachment</td><td>IAD-JFK</td><td>Rare + Government</td></tr>
+                <tr><td>7:42 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD838]</td><td>Russia - Special Flight Detachment</td><td>JFK-IAD</td><td>Rare + Government</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 6, 2026 — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:31 PM</td><td>Boeing 777-36N(ER)(SF)</td><td>9H-CAZ [ICL982]</td><td>Challenge Airlines</td><td>JFK-TLV</td><td>Rare + B77W(F)</td></tr>
+                <tr><td>5:20 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD838]</td><td>Russia - Special Flight Detachment</td><td>VKO-JFK</td><td>Rare + Government</td></tr>
+                <tr><td>6:37 PM</td><td>Boeing 747-467F(ER)</td><td>B-LIB [CPA3485]</td><td>Cathay Cargo</td><td>JFK-YYZ</td><td>B744(F)</td></tr>
+                <tr><td>7:17 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD838]</td><td>Russia - Special Flight Detachment</td><td>JFK-IAD</td><td>Rare + Government</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 5, 2026 — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>1:09 AM</td><td>Airbus A319-133X(ACJ)</td><td>15+01 [GAF818]</td><td>German Air Force</td><td>JFK-BER</td><td>Rare + Government</td></tr>
+                <tr><td>2:30 AM</td><td>Airbus A330-243</td><td>4X-BAK [ISR991]</td><td>Israir Airlines</td><td>TLV-JFK</td><td>Rare + New Airline</td></tr>
+                <tr><td>11:45 AM</td><td>Airbus A330-243F</td><td>D-ALMA [BCS007]</td><td>DHL</td><td>CVG-LEJ (Diverted to JFK)</td><td>Rare + Diversion</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 4, 2026 — Fleet Week &amp; Air Force Two — 20 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>7:28 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:28 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:28 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR08]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:51 AM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [CRSBO2]</td><td>United States Marine Corps</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>9:02 AM</td><td>Boeing C-32A</td><td>98-0002 [AF2]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Very Rare + Presidential</td></tr>
+                <tr><td>9:31 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>9:31 AM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [MARINE2]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Very Rare + Presidential</td></tr>
+                <tr><td>9:31 AM</td><td>Bell/Boeing MV-22B Osprey</td><td>[CRSBO4]</td><td>United States Marine Corps</td><td>JFK-JFK</td><td>Very Rare</td></tr>
+                <tr><td>9:53 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>10:32 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR08]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>10:32 AM</td><td>Sikorsky MH-60S Knighthawk</td><td>167836 [CHRGR9]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>11:08 AM</td><td>Gulfstream C-37B</td><td>166378 [VV587]</td><td>United States Navy</td><td>ADW-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>11:11 AM</td><td>Gulfstream C-37B</td><td>166376 [VM616]</td><td>United States Navy</td><td>ADW-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>12:21 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>12:24 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>[CRSBO4]</td><td>United States Marine Corps</td><td>JFK-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>12:24 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [MARINE2]</td><td>United States Marine Corps</td><td>JRB-JFK</td><td>Very Rare + Presidential</td></tr>
+                <tr><td>12:42 PM</td><td>Boeing C-32A</td><td>98-0002 [AF2]</td><td>United States Air Force</td><td>JFK-ADW</td><td>Very Rare + Presidential</td></tr>
+                <tr><td>1:44 PM</td><td>Gulfstream C-37B</td><td>166378 [VV587]</td><td>United States Navy</td><td>JFK-ADW</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>1:46 PM</td><td>Gulfstream C-37B</td><td>166376 [VM616]</td><td>United States Navy</td><td>JFK-ADW</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>2:10 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>JFK-WRI</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>2:42 PM</td><td>Boeing C-17A</td><td>07-7179 [TEDDY76]</td><td>United States Air Force</td><td>JFK-ADW</td><td>Extremely Rare + Military</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 3, 2026 — 11 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:17 AM</td><td>Airbus A319-115(ACJ)</td><td>HZ-CMJ</td><td>Alpha Star Saudi Arabia</td><td>SNN-JFK</td><td>Rare + Private</td></tr>
+                <tr><td>1:00 AM</td><td>Airbus A319-115(ACJ)</td><td>D-APGS [KAY51]</td><td>K5 Aviation</td><td>PSA-JFK</td><td>Rare + Private</td></tr>
+                <tr><td>1:59 AM</td><td>Airbus A319-115(ACJ)</td><td>HZ-CMJ</td><td>Alpha Star Saudi Arabia</td><td>JFK-LAX</td><td>Rare + Private</td></tr>
+                <tr><td>7:54 AM</td><td>Antonov AN-12BK</td><td>UR-CNT [UL5058]</td><td>Ukraine Air Alliance</td><td>MIA-JFK</td><td>Extremely Rare</td></tr>
+                <tr><td>11:35 AM</td><td>Antonov AN-12BK</td><td>UR-CNT [UL5058]</td><td>Ukraine Air Alliance</td><td>JFK-LRD</td><td>Extremely Rare</td></tr>
+                <tr><td>4:40 PM</td><td>Airbus A350-941</td><td>N513DZ [DAL958]</td><td>Delta Air Lines</td><td>LAX-JFK</td><td>Extremely Rare</td></tr>
+                <tr><td>4:40 PM</td><td>Airbus A319-115(ACJ)</td><td>D-APGS [KAY51]</td><td>K5 Aviation</td><td>JFK-EWR</td><td>Rare + Private</td></tr>
+                <tr><td>6:27 PM</td><td>Boeing C-17A</td><td>07-7179 [FAMUS99]</td><td>United States Air Force</td><td>ADW-JFK</td><td>Extremely Rare + Military</td></tr>
+                <tr><td>7:21 PM</td><td>Boeing 747-48E(BDSF)</td><td>HL7423 [AIH587]</td><td>AirZeta</td><td>ANC-JFK</td><td>B744(F)</td></tr>
+                <tr><td>7:29 PM</td><td>Airbus A319-133X(ACJ)</td><td>15+01 [GAF818]</td><td>German Air Force</td><td>MAD-JFK</td><td>Extremely Rare + Military</td></tr>
+                <tr><td>8:10 PM</td><td>Airbus A340-313</td><td>D-AIGX [DLH404]</td><td>Lufthansa</td><td>FRA-JFK</td><td>A343</td></tr>
+                <tr><td>9:46 PM</td><td>Boeing 767-323(ER)(BDSF)</td><td>N321CM [ATN3306]</td><td>Air Transport International</td><td>JFK-RFD</td><td>Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 2, 2026 — Fleet Week &amp; Russian state visit — 18 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>12:00 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD788]</td><td>Russia - Special Flight Detachment</td><td>IAD-JFK</td><td>Rare + Government</td></tr>
+                <tr><td>3:10 PM</td><td>Ilyushin IL-96-300PU</td><td>RA-96019 [RSD788]</td><td>Russia - Special Flight Detachment</td><td>IAD-JFK</td><td>Rare + Government</td></tr>
+                <tr><td>4:03 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [CRSBO2]</td><td>United States Marine Corps</td><td>ACY-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>4:06 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>4:07 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [FFAB123]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>4:07 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR08]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>4:07 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167836 [CHRGR9]</td><td>United States Navy</td><td>WRI-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>5:41 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [CRSBO2]</td><td>United States Marine Corps</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>5:41 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>5:41 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>5:41 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR16]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>5:41 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167836 [CHRGR9]</td><td>United States Navy</td><td>JFK-JRB</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:06 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:06 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167866 [CHRGR07]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:07 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR16]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>7:08 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [CRSBO2]</td><td>United States Navy</td><td>JRB-JFK</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>8:30 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>167851 [CHRGR06]</td><td>United States Navy</td><td>JFK-WRI</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>8:30 PM</td><td>Sikorsky MH-60S Knighthawk</td><td>168556 [CHRGR16]</td><td>United States Navy</td><td>JFK-WRI</td><td>Very Rare + Fleet Week</td></tr>
+                <tr><td>8:49 PM</td><td>Bell/Boeing MV-22B Osprey</td><td>168652 [CRSBO2]</td><td>United States Marine Corps</td><td>JFK-ACY</td><td>Very Rare + Fleet Week</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <details>
+            <summary>July 1, 2026 — 3 movements</summary>
+            <table>
+              <tbody>
+                <tr><th>Time</th><th>Aircraft</th><th>Reg / Callsign</th><th>Operator</th><th>Route</th><th>Notes</th></tr>
+                <tr><td>4:12 PM</td><td>Airbus A319-115(ACJ)</td><td>D-ALEX [KAY53]</td><td>K5 Aviation</td><td>GOA-JFK</td><td>Rare + Private</td></tr>
+                <tr><td>8:06 PM</td><td>Airbus A340-313</td><td>D-AIGS [DLH404]</td><td>Lufthansa</td><td>FRA-JFK</td><td>A343</td></tr>
+                <tr><td>8:38 PM</td><td>Boeing 747-45E(BDSF)</td><td>9H-AKF [SVA3043]</td><td>Saudia Cargo</td><td>LGG-JFK</td><td>Rare</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+        </article>
+      </main>
+
+      <footer>
+        © 2026 AvHouse JFK. All rights reserved. <a href="index.html">Back to Homepage</a>
+      </footer>
+    </div>
+  </body>
+</html>

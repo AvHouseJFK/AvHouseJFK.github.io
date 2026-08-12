@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Screenshot (2347).png" type="png">
+    <title>AvHouse JFK - Severe Thunderstorms Ground JFK, Aircraft Stack in Holding</title>
+    <style>
+      :root{
+        --bg:#0f172a;
+        --panel:#111827;
+        --ink:#e5e7eb;
+        --muted:#9ca3af;
+        --brand:#38bdf8;
+        --accent:#a78bfa;
+        --ok:#34d399;
+        --warn:#f59e0b;
+        --danger:#ef4444;
+        --border:rgba(255,255,255,.08);
+        --radius:16px;
+        --shadow:0 10px 28px rgba(0,0,0,.35);
+        --container:min(1100px,92vw);
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+        color:var(--ink);
+        background:radial-gradient(900px 500px at 10% -10%,#1f2a44 0%,transparent 60%),var(--bg);
+        line-height:1.6;
+        padding:28px;
+      }
+      a{color:var(--brand);text-decoration:none}
+      a:hover{text-decoration:underline}
+      .container{max-width:var(--container);margin:0 auto}
+      header{margin-bottom:20px}
+      .site-id{display:flex;align-items:center;gap:12px}
+      .badge{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--accent));color:#071123;font-weight:900;box-shadow:var(--shadow)}
+      h1{font-size:clamp(24px,4.5vw,40px);margin:12px 0;color:var(--brand)}
+      h2{font-size:clamp(20px,3.2vw,28px);margin-top:28px;margin-bottom:10px}
+      h3{font-size:18px;margin-top:18px;margin-bottom:8px;color:var(--accent)}
+      .byline{color:var(--muted);margin-bottom:14px}
+      .card{
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        padding:20px;
+        box-shadow:var(--shadow);
+        margin-bottom:20px;
+      }
+      .alert{
+        display:inline-block;
+        background:var(--danger);
+        color:#fff;
+        padding:8px 12px;
+        border-radius:12px;
+        font-weight:800;
+        margin-bottom:12px;
+      }
+      table{width:100%;border-collapse:collapse;margin-top:12px}
+      th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
+      .small{font-size:13px;color:var(--muted)}
+      img{max-width:100%;border-radius:12px;margin:14px 0;display:block}
+      blockquote{border-left:4px solid var(--accent);padding-left:14px;color:var(--muted);font-style:italic;margin:14px 0}
+      footer{margin-top:34px;color:var(--muted);font-size:14px;text-align:center}
+      .stat-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+        gap:12px;
+        margin-top:14px;
+      }
+      .stat{
+        background:rgba(255,255,255,.03);
+        border:1px solid var(--border);
+        border-radius:12px;
+        padding:14px;
+        text-align:center;
+      }
+      .stat .num{font-size:26px;font-weight:900;color:var(--brand)}
+      .stat.danger .num{color:var(--danger)}
+      .stat.warn .num{color:var(--warn)}
+      .stat .lbl{font-size:12.5px;color:var(--muted);margin-top:4px}
+      .tag{
+        display:inline-block;
+        background:rgba(56,189,248,.12);
+        color:var(--brand);
+        border:1px solid rgba(56,189,248,.35);
+        padding:4px 10px;
+        border-radius:10px;
+        font-size:12.5px;
+        font-weight:700;
+        margin:2px 6px 2px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="site-id">
+          <div class="badge">AV</div>
+          <div>
+            <div style="font-weight:900;font-size:16px">AvHouse JFK</div>
+            <div class="small">JFK Aviation and News</div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <article class="card">
+          <div class="alert">⛈️ Severe Disruptions at JFK</div>
+          <h1>Severe Thunderstorms Sweep Through JFK, Widebodies Forced Into Holding</h1>
+          <div class="byline">Published August 7, 2026</div>
+
+          <p>Severe thunderstorms swept through John F. Kennedy International Airport (JFK) on August 7, 2026, causing major disruptions to flights across the airport. During the storm, aircraft were forced into holding patterns around JFK, with widebody aircraft including Boeing 777s, Airbus A380s, and other flights circling as severe weather moved through the area.</p>
+
+          <p>At one point, JFK was experiencing <strong>severe disruptions</strong>, with hundreds of flights delayed or cancelled as thunderstorms, heavy rain, and dangerous weather impacted operations.</p>
+
+          <div>
+            <span class="tag">⛈️ Thunderstorms</span>
+            <span class="tag">🔄 Holding Patterns</span>
+            <span class="tag">✈️ Widebody Traffic</span>
+            <span class="tag">🔴 Severe</span>
+          </div>
+
+          <h2>📊 JFK Disruptions — August 7, 2026</h2>
+          <div class="stat-grid">
+            <div class="stat danger">
+              <div class="num">286</div>
+              <div class="lbl">✈️ Flights Cancelled (21%)</div>
+            </div>
+            <div class="stat warn">
+              <div class="num">465</div>
+              <div class="lbl">🕐 Flights Delayed (34%)</div>
+            </div>
+            <div class="stat">
+              <div class="num">25 min</div>
+              <div class="lbl">⏱️ Average Delay</div>
+            </div>
+            <div class="stat danger">
+              <div class="num">SEVERE</div>
+              <div class="lbl">🔴 Disruption Level</div>
+            </div>
+          </div>
+
+          <h2>Aircraft in Holding</h2>
+          <p>As the storm cell tracked through the approach corridor, JFK approach control stacked arriving traffic in holding patterns to keep aircraft clear of the worst of the weather. Widebody types were among those seen circling, alongside a mix of narrowbody flights waiting for gaps in the cell to resume approaches.</p>
+          <table>
+            <tbody>
+              <tr><th>Aircraft Type</th><th>Category</th><th>Status</th></tr>
+              <tr><td>Boeing 777</td><td>Widebody</td><td>Holding</td></tr>
+              <tr><td>Airbus A380</td><td>Widebody</td><td>Holding</td></tr>
+              <tr><td>Mixed Narrowbody</td><td>Various</td><td>Holding / Delayed</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Storm Impact Summary</h3>
+          <table>
+            <tbody>
+              <tr><th>Detail</th><th>Information</th></tr>
+              <tr><td>Airport</td><td>John F. Kennedy International (JFK)</td></tr>
+              <tr><td>Date</td><td>August 7, 2026</td></tr>
+              <tr><td>Cause</td><td>Severe thunderstorms, heavy rain</td></tr>
+              <tr><td>Flights Cancelled</td><td>286 (21%)</td></tr>
+              <tr><td>Flights Delayed</td><td>465 (34%)</td></tr>
+              <tr><td>Average Delay</td><td>25 minutes</td></tr>
+              <tr><td>Disruption Level</td><td>Severe</td></tr>
+              <tr><td>Notable Event</td><td>Multiple aircraft placed in holding patterns, including widebodies</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Operational Notes</h2>
+          <p>Thunderstorm activity over the New York area forced controllers to slow the arrival flow into JFK, pushing inbound traffic into extended holding while the worst of the cell passed. As delays built on the ground and in the air, the ripple effect pushed cancellation and delay figures well above a typical operating day, with roughly one in five flights cancelled outright and over a third of all traffic delayed.</p>
+          <p>Conditions gradually improved as the storm moved off, allowing approach and departure flows to normalize through the evening, though residual delays continued to work through the schedule.</p>
+
+          <h2>Conclusion</h2>
+          <p>August 7, 2026, marked one of JFK's most disruptive thunderstorm events of the summer, with severe weather grounding hundreds of flights and stacking widebody and narrowbody traffic alike into holding patterns around the airport. For spotters and passengers alike, it was a stark reminder of how quickly summer convective weather can reshape operations at one of the world's busiest airports.</p>
+
+          <blockquote>🔔 Subscribe for JFK planespotting, rare aircraft, aviation news, live radar, alerts, and more!</blockquote>
+        </article>
+      </main>
+
+      <footer>
+        © 2026 AvHouse JFK. All rights reserved. <a href="index.html">Back to Homepage</a>
+      </footer>
+    </div>
+  </body>
+</html>
