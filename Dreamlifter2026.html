@@ -74,6 +74,12 @@
         font-weight:500;
       }
  
+      .section-divider{
+        border:none;
+        border-top:1px solid var(--border);
+        margin:28px 0;
+      }
+ 
       .facts{
         background:#0b1220;
         border:1px solid var(--border);
@@ -96,6 +102,25 @@
       .facts td:first-child{
         color:var(--muted);
         width:40%;
+      }
+ 
+      /* ---- Quote / spotter callout block ---- */
+      .quote{
+        background:#0b1220;
+        border-left:3px solid var(--brand);
+        border-radius:8px;
+        padding:14px 18px;
+        margin:18px 0;
+        font-style:italic;
+        color:var(--ink);
+      }
+ 
+      .quote .who{
+        display:block;
+        margin-top:8px;
+        font-style:normal;
+        color:var(--muted);
+        font-size:13px;
       }
  
       /* ---- Photo blocks (drop a real image in the <img src="..."> to fill the frame) ---- */
@@ -167,16 +192,28 @@
       <p class="byline">AvNews JFK &middot; August 14, 2026</p>
 
       <div class="card">
-            <!-- ARRIVAL PHOTO -->
-      <h2>On Arrival</h2>
-      <div class="photo-slot"><img src="IMG_5603-Picsart-AiImageEnhancer.jpeg" alt="IzConMan" width="700"/></div>
-      <p class="photo-caption">Photo: <a href = "https://www.tiktok.com/@izconman">IzConMan</a></p>
 
-        <p class="lede">One of the strangest-looking airplanes in the sky made a rare overnight stop at John F. Kennedy International Airport this week, when a Boeing 747-409(LCF) Dreamlifter operated by Atlas Air on behalf of the Boeing Company touched down on the evening of August 11th and departed the following morning, August 12th.</p>
+        <p class="lede">One of the strangest-looking airplanes in the sky made a rare overnight stop at John F. Kennedy International Airport this week, when a Boeing 747-409(LCF) Dreamlifter operated by Atlas Air on behalf of the Boeing Company touched down on the evening of August 11th and departed the following morning, August 12th — a visit that sent local spotters scrambling to the fence line for a glimpse of one of the strangest airframes in commercial aviation.</p>
 
-        <p>Registered N780BA and flying under the callsign GTI4231, the oversized-cargo freighter arrived at JFK at <strong>1:14 PM EDT on August 11th</strong>, landing on Runway 31L on a routing from TAR (Tarbes–Lourdes–Pyrénées, France). The aircraft spent roughly eighteen hours on the ground before departing at <strong>7:20 AM EDT on August 12th</strong>, also off Runway 31L, bound for CHS — Charleston, South Carolina, home to Boeing's 787 Dreamliner final assembly line. That routing lines up with the Dreamlifter's usual job: ferrying outsized fuselage and wing sections between Boeing's global supplier network and its U.S. assembly plants in Charleston and Everett, Washington.</p>
+        <hr class="section-divider" />
 
+        <!-- ARRIVAL SECTION -->
+        <h2>Arrival — August 11</h2>
+        <div class="photo-slot"><img src="IMG_5603-Picsart-AiImageEnhancer.jpeg" alt="Dreamlifter N780BA on approach to JFK" width="700"/></div>
+        <p class="photo-caption">Photo: <a href="https://www.tiktok.com/@izconman">IzConMan</a></p>
 
+        <p>Registered N780BA and flying under the callsign GTI4231, the oversized-cargo freighter arrived at JFK at <strong>1:14 PM EDT on August 11th</strong>, landing on Runway 31L on a routing from TAR (Tarbes–Lourdes–Pyrénées, France). Air traffic in the area briefly paused to take notice as the aircraft's bulbous, oversized fuselage came into view on final — a silhouette unmistakable even from miles away, and one rarely seen on the East Coast, let alone at JFK.</p>
+
+        <p>The Dreamlifter's arrival had been anticipated by the local spotting community for hours beforehand, with flight-tracking chatter picking up its unusual routing well before touchdown. Within minutes of landing, photos and video of the aircraft taxiing to its parking position were already circulating on social media.</p>
+
+        <hr class="section-divider" />
+
+        <!-- ON THE GROUND SECTION -->
+        <h2>On the Ground</h2>
+
+        <p>The aircraft spent roughly eighteen hours parked at JFK before its departure the next morning — an unusually long ground stop for an aircraft that typically turns around quickly between its supplier and assembly-plant stops. That window gave spotters and photographers a rare opportunity to study the airframe up close, from its dramatically enlarged upper fuselage to the distinctive swing-tail mechanism used to load oversized cargo.</p>
+
+        <p>Only four Dreamlifters exist worldwide, all converted from retired 747-400 passenger airframes and all operated on Boeing's behalf by Atlas Air. Unlike the standard 747-400, the Dreamlifter's fuselage cross-section was expanded to nearly three times its original volume, giving it the cargo capacity to carry entire 787 fuselage sections and wing assemblies in a single load — at the cost of a shape that looks almost nothing like the aircraft it was built from.</p>
 
         <div class="facts">
           <table>
@@ -184,17 +221,34 @@
             <tr><td>Registration</td><td>N780BA</td></tr>
             <tr><td>Operator</td><td>Atlas Air, for the Boeing Company</td></tr>
             <tr><td>Callsign</td><td>GTI4231</td></tr>
-            <tr><td>Fleet size</td><td>Only 4 in existence worldwide</td></tr>
+            <tr><td>Rarity</td><td>Extremely Rare</td></tr>
             <tr><td>Arrival</td><td>Aug 11, 1:14 PM EDT &middot; TAR → JFK &middot; Runway 31L</td></tr>
             <tr><td>Departure</td><td>Aug 12, 7:20 AM EDT &middot; JFK → CHS &middot; Runway 31L</td></tr>
           </table>
         </div>
 
-        <p>The Dreamlifter's bulbous, "Frankenstein 747" profile — created by dramatically enlarging the fuselage cross-section of a standard 747-400 airframe — makes it instantly recognizable to spotters, and sightings well outside its typical Everett–Wichita–Charleston–overseas supplier corridor tend to draw a crowd.</p>
-        <!-- DEPARTURE PHOTO -->
-      <h2>Departing for Charleston — August 12</h2>
-    <div class="photo-slot"><img src="IMG_5606 (1).jpeg" alt="IzConMan" width="700"/></div>
-      <p class="photo-caption">Photo: <a href = "https://www.tiktok.com/@liaviation7">liaviation7</a></p>
+        <p>That routing — arriving from Tarbes, France and departing for Charleston, South Carolina — lines up with the Dreamlifter's usual job: ferrying outsized fuselage and wing sections between Boeing's global supplier network and its U.S. assembly plants in Charleston and Everett, Washington. Why the aircraft routed through JFK rather than a more typical stop remains unconfirmed, but the detour was enough to turn an otherwise routine cargo run into one of the most talked-about movements of the week.</p>
+
+        <hr class="section-divider" />
+
+        <!-- DEPARTURE SECTION -->
+        <h2>Departing for Charleston — August 12</h2>
+        <div class="photo-slot"><img src="IMG_5606 (1).jpeg" alt="Dreamlifter N780BA departing JFK" width="700"/></div>
+        <p class="photo-caption">Photo: <a href="https://www.tiktok.com/@liaviation7">liaviation7</a></p>
+
+        <p>The Dreamlifter lifted off from Runway 31L at <strong>7:20 AM EDT on August 12th</strong>, bound for Charleston (CHS), home to Boeing's 787 Dreamliner final assembly line. Early risers among the local spotting community were rewarded with a second look at the aircraft, this time climbing out over Jamaica Bay before turning south — closing out a stop that, for JFK regulars, felt more like a scheduled airshow appearance than an ordinary freight run.</p>
+
+        <hr class="section-divider" />
+
+        <!-- SPOTTER REACTION SECTION -->
+        <h2>Attention From Spotters</h2>
+
+        <p>Movements like this one are exactly what draws JFK's aviation photography community to the fence lines at odd hours. With only four Dreamlifters flying worldwide, and JFK far outside their normal rotation, both the arrival and departure drew a noticeably larger-than-usual crowd of photographers, videographers, and casual spotters hoping to catch the aircraft in person.</p>
+
+        <p>Photos and clips from the visit spread quickly across the local aviation accounts that cover JFK traffic day to day, with the Dreamlifter's distinctive shape making it an easy standout even for casual followers scrolling past. The bulbous, "Frankenstein 747" profile — created by dramatically enlarging the fuselage cross-section of a standard 747-400 airframe — makes it instantly recognizable, and sightings well outside its typical Everett–Wichita–Charleston–overseas supplier corridor tend to draw a crowd wherever it turns up.</p>
+
+        <p>For JFK's spotting community, the Dreamlifter's brief stopover was a reminder of why the airport's ramp is worth watching closely: even a routine cargo rotation can turn into one of the rarest sightings of the year.</p>
+
       </div>
       
       <footer>
